@@ -110,7 +110,7 @@ export const ContactForm: React.FC = () => {
       {/* Name & Email Row */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div>
-          <label htmlFor="name" className="block text-xs sm:text-sm font-mono uppercase text-foreground-muted mb-2 font-medium">
+          <label htmlFor="name" className="block text-xs sm:text-sm font-mono uppercase text-slate-700 dark:text-foreground-muted mb-2 font-semibold">
             Your Name <span className="text-accent-sky">*</span>
           </label>
           <input
@@ -120,12 +120,12 @@ export const ContactForm: React.FC = () => {
             value={formData.name}
             onChange={handleChange}
             placeholder="Ada Lovelace"
-            className={`w-full rounded-xl bg-background-charcoal border px-4 py-3 text-base text-foreground placeholder:text-foreground-subtle focus:outline-none transition-all duration-200 ${
-              errors.name ? 'border-rose-500/70 focus:border-rose-500' : 'border-border focus:border-accent-blue focus:ring-1 focus:ring-accent-blue/30'
+            className={`w-full rounded-2xl bg-slate-50 dark:bg-background-charcoal border px-4 py-3.5 text-base text-slate-900 dark:text-foreground placeholder:text-slate-400 dark:placeholder:text-foreground-subtle focus:outline-none transition-all duration-200 ${
+              errors.name ? 'border-rose-500/70 focus:border-rose-500' : 'border-slate-200 dark:border-border focus:border-accent-blue focus:ring-1 focus:ring-accent-blue/30 focus:bg-white dark:focus:bg-background-charcoal'
             }`}
           />
           {errors.name && (
-            <p className="mt-2 text-xs text-rose-400 flex items-center gap-1.5 font-mono">
+            <p className="mt-2 text-xs text-rose-500 flex items-center gap-1.5 font-mono">
               <AlertCircle className="w-3.5 h-3.5" />
               {errors.name}
             </p>
@@ -133,7 +133,7 @@ export const ContactForm: React.FC = () => {
         </div>
 
         <div>
-          <label htmlFor="email" className="block text-xs sm:text-sm font-mono uppercase text-foreground-muted mb-2 font-medium">
+          <label htmlFor="email" className="block text-xs sm:text-sm font-mono uppercase text-slate-700 dark:text-foreground-muted mb-2 font-semibold">
             Work Email <span className="text-accent-sky">*</span>
           </label>
           <input
@@ -143,12 +143,12 @@ export const ContactForm: React.FC = () => {
             value={formData.email}
             onChange={handleChange}
             placeholder="ada@company.com"
-            className={`w-full rounded-xl bg-background-charcoal border px-4 py-3 text-base text-foreground placeholder:text-foreground-subtle focus:outline-none transition-all duration-200 ${
-              errors.email ? 'border-rose-500/70 focus:border-rose-500' : 'border-border focus:border-accent-blue focus:ring-1 focus:ring-accent-blue/30'
+            className={`w-full rounded-2xl bg-slate-50 dark:bg-background-charcoal border px-4 py-3.5 text-base text-slate-900 dark:text-foreground placeholder:text-slate-400 dark:placeholder:text-foreground-subtle focus:outline-none transition-all duration-200 ${
+              errors.email ? 'border-rose-500/70 focus:border-rose-500' : 'border-slate-200 dark:border-border focus:border-accent-blue focus:ring-1 focus:ring-accent-blue/30 focus:bg-white dark:focus:bg-background-charcoal'
             }`}
           />
           {errors.email && (
-            <p className="mt-2 text-xs text-rose-400 flex items-center gap-1.5 font-mono">
+            <p className="mt-2 text-xs text-rose-500 flex items-center gap-1.5 font-mono">
               <AlertCircle className="w-3.5 h-3.5" />
               {errors.email}
             </p>
@@ -159,8 +159,8 @@ export const ContactForm: React.FC = () => {
       {/* Company & Project Type Row */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div>
-          <label htmlFor="company" className="block text-xs sm:text-sm font-mono uppercase text-foreground-muted mb-2 font-medium">
-            Company / Organization <span className="text-foreground-subtle text-xs font-normal">(Optional)</span>
+          <label htmlFor="company" className="block text-xs sm:text-sm font-mono uppercase text-slate-700 dark:text-foreground-muted mb-2 font-semibold">
+            Company / Organization <span className="text-slate-400 dark:text-foreground-subtle text-xs font-normal">(Optional)</span>
           </label>
           <input
             id="company"
@@ -169,12 +169,12 @@ export const ContactForm: React.FC = () => {
             value={formData.company}
             onChange={handleChange}
             placeholder="Acme Systems"
-            className="w-full rounded-xl bg-background-charcoal border border-border px-4 py-3 text-base text-foreground placeholder:text-foreground-subtle focus:outline-none focus:border-accent-blue focus:ring-1 focus:ring-accent-blue/30 transition-all duration-200"
+            className="w-full rounded-2xl bg-slate-50 dark:bg-background-charcoal border border-slate-200 dark:border-border px-4 py-3.5 text-base text-slate-900 dark:text-foreground placeholder:text-slate-400 dark:placeholder:text-foreground-subtle focus:outline-none focus:border-accent-blue focus:ring-1 focus:ring-accent-blue/30 focus:bg-white dark:focus:bg-background-charcoal transition-all duration-200"
           />
         </div>
 
         <div>
-          <label htmlFor="projectType" className="block text-xs sm:text-sm font-mono uppercase text-foreground-muted mb-2 font-medium">
+          <label htmlFor="projectType" className="block text-xs sm:text-sm font-mono uppercase text-slate-700 dark:text-foreground-muted mb-2 font-semibold">
             Project Type <span className="text-accent-sky">*</span>
           </label>
           <select
@@ -182,10 +182,10 @@ export const ContactForm: React.FC = () => {
             name="projectType"
             value={formData.projectType}
             onChange={handleChange}
-            className="w-full rounded-xl bg-background-charcoal border border-border px-4 py-3 text-base text-foreground focus:outline-none focus:border-accent-blue focus:ring-1 focus:ring-accent-blue/30 transition-all duration-200 cursor-pointer"
+            className="w-full rounded-2xl bg-slate-50 dark:bg-background-charcoal border border-slate-200 dark:border-border px-4 py-3.5 text-base text-slate-900 dark:text-foreground focus:outline-none focus:border-accent-blue focus:ring-1 focus:ring-accent-blue/30 transition-all duration-200 cursor-pointer"
           >
             {PROJECT_TYPES.map((type) => (
-              <option key={type} value={type} className="bg-background-card text-foreground">
+              <option key={type} value={type} className="bg-white dark:bg-background-card text-slate-900 dark:text-foreground">
                 {type}
               </option>
             ))}
@@ -195,7 +195,7 @@ export const ContactForm: React.FC = () => {
 
       {/* Project Description */}
       <div>
-        <label htmlFor="description" className="block text-xs sm:text-sm font-mono uppercase text-foreground-muted mb-2 font-medium">
+        <label htmlFor="description" className="block text-xs sm:text-sm font-mono uppercase text-slate-700 dark:text-foreground-muted mb-2 font-semibold">
           Project Description <span className="text-accent-sky">*</span>
         </label>
         <textarea
@@ -205,12 +205,12 @@ export const ContactForm: React.FC = () => {
           value={formData.description}
           onChange={handleChange}
           placeholder="Briefly describe the product requirements, existing challenges, or what problem you need to solve..."
-          className={`w-full rounded-xl bg-background-charcoal border px-4 py-3 text-base text-foreground placeholder:text-foreground-subtle focus:outline-none transition-all duration-200 resize-y ${
-            errors.description ? 'border-rose-500/70 focus:border-rose-500' : 'border-border focus:border-accent-blue focus:ring-1 focus:ring-accent-blue/30'
+          className={`w-full rounded-2xl bg-slate-50 dark:bg-background-charcoal border px-4 py-3.5 text-base text-slate-900 dark:text-foreground placeholder:text-slate-400 dark:placeholder:text-foreground-subtle focus:outline-none transition-all duration-200 resize-y ${
+            errors.description ? 'border-rose-500/70 focus:border-rose-500' : 'border-slate-200 dark:border-border focus:border-accent-blue focus:ring-1 focus:ring-accent-blue/30 focus:bg-white dark:focus:bg-background-charcoal'
           }`}
         />
         {errors.description && (
-          <p className="mt-2 text-xs text-rose-400 flex items-center gap-1.5 font-mono">
+          <p className="mt-2 text-xs text-rose-500 flex items-center gap-1.5 font-mono">
             <AlertCircle className="w-3.5 h-3.5" />
             {errors.description}
           </p>
@@ -222,16 +222,16 @@ export const ContactForm: React.FC = () => {
         <motion.div 
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          className="p-5 rounded-2xl bg-accent-blue/10 border border-accent-blue/40 text-xs sm:text-sm text-foreground space-y-2 font-mono"
+          className="p-5 rounded-2xl bg-accent-blue/10 border border-accent-blue/40 text-xs sm:text-sm text-slate-900 dark:text-foreground space-y-2 font-mono"
         >
           <div className="flex items-center gap-2 text-accent-sky font-semibold">
             <CheckCircle className="w-4 h-4" />
             <span>Ready for Direct Transmission</span>
           </div>
-          <p className="text-foreground-muted leading-relaxed">
-            Your inquiry has been verified. Your default mail client was triggered to send this directly to <span className="text-foreground font-semibold">{COMPANY_EMAIL}</span>.
+          <p className="text-slate-600 dark:text-foreground-muted leading-relaxed">
+            Your inquiry has been verified. Your default mail client was triggered to send this directly to <span className="text-slate-900 dark:text-foreground font-semibold">{COMPANY_EMAIL}</span>.
           </p>
-          <p className="text-foreground-subtle">
+          <p className="text-slate-500 dark:text-foreground-subtle">
             If your email application did not launch automatically, you can email us directly at <a href={`mailto:${COMPANY_EMAIL}`} className="text-accent-sky underline">{COMPANY_EMAIL}</a> with your project requirements.
           </p>
         </motion.div>
@@ -250,7 +250,7 @@ export const ContactForm: React.FC = () => {
           {isSubmitting ? 'Validating...' : 'Send Project Inquiry'}
         </Button>
 
-        <span className="text-xs sm:text-sm font-mono text-foreground-subtle text-center sm:text-right">
+        <span className="text-xs sm:text-sm font-mono text-slate-500 dark:text-foreground-subtle text-center sm:text-right">
           Direct email route: {COMPANY_EMAIL}
         </span>
       </div>

@@ -62,6 +62,7 @@ export const FEATURED_PROJECT = {
   id: 'ikgptu-alumni-portal',
   title: 'IKGPTU — Alumni ERP Portal',
   client: 'I.K. Gujral Punjab Technical University (IKGPTU)',
+  liveUrl: 'https://alumni.ptu.ac.in/',
   category: 'Enterprise / Education Technology',
   description: 'An alumni-focused ERP portal developed to support alumni engagement and digital institutional workflows.',
   highlightMetric: {

@@ -24,7 +24,7 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
       transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
     >
       <motion.h2 
-        className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white font-display leading-[1.1] mb-5"
+        className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 dark:text-white font-display leading-[1.1] mb-5"
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -35,7 +35,7 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
 
       {description && (
         <motion.p 
-          className="text-lg sm:text-xl lg:text-2xl text-foreground-muted leading-relaxed font-normal"
+          className="text-lg sm:text-xl lg:text-2xl text-slate-600 dark:text-foreground-muted leading-relaxed font-normal"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

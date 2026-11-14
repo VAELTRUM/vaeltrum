@@ -6,10 +6,10 @@ import { WHY_PRINCIPLES } from '../../data/content';
 import { ShieldCheck, Compass, Code, RefreshCw } from 'lucide-react';
 
 const principleIcons = [
-  <Compass className="w-5 h-5 text-amber-300" />,
-  <Code className="w-5 h-5 text-purple-300" />,
-  <RefreshCw className="w-5 h-5 text-cyan-300" />,
-  <ShieldCheck className="w-5 h-5 text-emerald-300" />
+  <Compass className="w-5 h-5 text-amber-500 dark:text-amber-300" />,
+  <Code className="w-5 h-5 text-purple-600 dark:text-purple-300" />,
+  <RefreshCw className="w-5 h-5 text-cyan-600 dark:text-cyan-300" />,
+  <ShieldCheck className="w-5 h-5 text-emerald-600 dark:text-emerald-300" />
 ];
 
 const principleBorders = [
@@ -21,7 +21,7 @@ const principleBorders = [
 
 export const WhyVaeltrum: React.FC = () => {
   return (
-    <section className="relative py-28 sm:py-36 border-t border-white/10 bg-[#0A091A] overflow-hidden w-full">
+    <section className="relative py-28 sm:py-36 border-t border-slate-200/80 dark:border-white/10 bg-white dark:bg-[#0A091A] overflow-hidden w-full transition-colors duration-300">
       <Container>
         <div className="mb-16">
           <SectionHeading
@@ -34,7 +34,7 @@ export const WhyVaeltrum: React.FC = () => {
           {WHY_PRINCIPLES.map((principle, index) => (
             <motion.div
               key={principle.number}
-              className={`p-8 sm:p-9 rounded-3xl bg-[#131132]/90 border border-white/15 transition-all duration-300 flex flex-col justify-between shadow-xl backdrop-blur-xl w-full ${principleBorders[index % principleBorders.length]}`}
+              className={`p-8 sm:p-9 rounded-3xl bg-white dark:bg-[#131132]/90 border border-slate-200/80 dark:border-white/15 transition-all duration-300 flex flex-col justify-between shadow-sm dark:shadow-xl backdrop-blur-xl w-full ${principleBorders[index % principleBorders.length]}`}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
@@ -43,24 +43,24 @@ export const WhyVaeltrum: React.FC = () => {
             >
               <div>
                 <div className="flex items-center justify-between mb-7">
-                  <div className="w-11 h-11 rounded-2xl bg-white/[0.08] border border-white/15 flex items-center justify-center">
+                  <div className="w-11 h-11 rounded-2xl bg-slate-100 dark:bg-white/[0.08] border border-slate-200 dark:border-white/15 flex items-center justify-center">
                     {principleIcons[index]}
                   </div>
-                  <span className="font-mono text-sm font-semibold text-white/50 px-3 py-1 rounded-full bg-white/[0.05]">
+                  <span className="font-mono text-sm font-semibold text-slate-500 dark:text-white/50 px-3 py-1 rounded-full bg-slate-100 dark:bg-white/[0.05]">
                     0{index + 1}
                   </span>
                 </div>
 
-                <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white font-display mb-3.5 leading-snug">
+                <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-white font-display mb-3.5 leading-snug">
                   {principle.title}
                 </h3>
 
-                <p className="text-sm sm:text-base text-foreground-muted leading-relaxed font-normal">
+                <p className="text-sm sm:text-base text-slate-600 dark:text-foreground-muted leading-relaxed font-normal">
                   {principle.description}
                 </p>
               </div>
 
-              <div className="pt-6 mt-8 border-t border-white/10 flex items-center justify-between text-xs font-mono text-white/50 font-medium">
+              <div className="pt-6 mt-8 border-t border-slate-200 dark:border-white/10 flex items-center justify-between text-xs font-mono text-slate-400 dark:text-white/50 font-medium">
                 <span>STANDARD</span>
                 <span className="text-accent-sky font-semibold">NON-NEGOTIABLE</span>
               </div>

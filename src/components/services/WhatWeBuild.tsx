@@ -16,27 +16,27 @@ import {
 const cardStyleVariants = [
   {
     iconBg: 'bg-gradient-to-tr from-[#FF7A59] to-[#FA709A]',
-    glow: 'rgba(255, 122, 89, 0.2)',
+    glow: 'rgba(255, 122, 89, 0.15)',
   },
   {
     iconBg: 'bg-gradient-to-tr from-[#8B5CF6] to-[#6366F1]',
-    glow: 'rgba(139, 92, 246, 0.25)',
+    glow: 'rgba(139, 92, 246, 0.18)',
   },
   {
     iconBg: 'bg-gradient-to-tr from-[#06B6D4] to-[#3B82F6]',
-    glow: 'rgba(6, 182, 212, 0.25)',
+    glow: 'rgba(6, 182, 212, 0.18)',
   },
   {
     iconBg: 'bg-gradient-to-tr from-[#3B82F6] to-[#6366F1]',
-    glow: 'rgba(59, 130, 246, 0.2)',
+    glow: 'rgba(59, 130, 246, 0.15)',
   },
   {
     iconBg: 'bg-gradient-to-tr from-[#F43F5E] to-[#FB7185]',
-    glow: 'rgba(244, 63, 94, 0.2)',
+    glow: 'rgba(244, 63, 94, 0.15)',
   },
   {
     iconBg: 'bg-gradient-to-tr from-[#10B981] to-[#06B6D4]',
-    glow: 'rgba(16, 185, 129, 0.2)',
+    glow: 'rgba(16, 185, 129, 0.15)',
   },
 ];
 
@@ -72,7 +72,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="group relative p-8 sm:p-10 rounded-3xl bg-[#12112C]/85 border border-white/10 transition-all duration-300 flex flex-col justify-between overflow-hidden shadow-[0_12px_40px_rgba(7,5,22,0.6)] backdrop-blur-xl hover:border-white/25 w-full"
+      className="group relative p-8 sm:p-10 rounded-3xl bg-white dark:bg-[#12112C]/85 border border-slate-200/90 dark:border-white/10 transition-all duration-300 flex flex-col justify-between overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.04)] dark:shadow-[0_12px_40px_rgba(7,5,22,0.6)] backdrop-blur-xl hover:border-slate-300 dark:hover:border-white/25 w-full"
       initial={{ opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
@@ -91,7 +91,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
 
       {/* Top ambient color accent line */}
       <div 
-        className={`absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-white/40 to-transparent transition-opacity duration-300 ${
+        className={`absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-slate-300 dark:via-white/40 to-transparent transition-opacity duration-300 ${
           isHovered ? 'opacity-100' : 'opacity-0'
         }`} 
       />
@@ -103,29 +103,29 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
             {iconMap[service.id]}
           </div>
 
-          <span className="text-sm font-mono tracking-widest text-white/50 font-semibold">
+          <span className="text-sm font-mono tracking-widest text-slate-400 dark:text-white/50 font-semibold">
             {service.number}
           </span>
         </div>
 
         {/* Title */}
-        <h3 className="text-2xl sm:text-[1.75rem] font-bold tracking-tight text-white font-display mb-4 group-hover:text-white transition-colors leading-[1.2]">
+        <h3 className="text-2xl sm:text-[1.75rem] font-bold tracking-tight text-slate-900 dark:text-white font-display mb-4 transition-colors leading-[1.2]">
           {service.title}
         </h3>
 
         {/* Description */}
-        <p className="text-base sm:text-[1.1rem] text-foreground-muted leading-relaxed mb-8 font-normal">
+        <p className="text-base sm:text-[1.1rem] text-slate-600 dark:text-foreground-muted leading-relaxed mb-8 font-normal">
           {service.description}
         </p>
       </div>
 
       {/* Technical Focus Items & Arrow */}
       <div className="relative z-10">
-        <div className="pt-6 border-t border-white/10 flex flex-wrap gap-2.5">
+        <div className="pt-6 border-t border-slate-200/80 dark:border-white/10 flex flex-wrap gap-2.5">
           {service.focus.map((tag) => (
             <span
               key={tag}
-              className="text-xs sm:text-sm font-mono px-3.5 py-1.5 rounded-xl bg-white/[0.05] text-white/90 border border-white/10 transition-colors group-hover:border-white/20"
+              className="text-xs sm:text-sm font-mono px-3.5 py-1.5 rounded-xl bg-slate-100 dark:bg-white/[0.05] text-slate-700 dark:text-white/90 border border-slate-200 dark:border-white/10 transition-colors group-hover:border-slate-300 dark:group-hover:border-white/20"
             >
               {tag}
             </span>
@@ -133,7 +133,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
         </div>
 
         {/* Directional arrow cue */}
-        <div className="mt-7 flex items-center justify-between text-xs sm:text-sm text-foreground-subtle font-mono group-hover:text-white transition-colors">
+        <div className="mt-7 flex items-center justify-between text-xs sm:text-sm text-slate-500 dark:text-foreground-subtle font-mono group-hover:text-accent-sky transition-colors">
           <span className="tracking-wider">ENGINEERED ARCHITECTURE</span>
           <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 text-accent-sky" />
         </div>
@@ -144,10 +144,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
 
 export const WhatWeBuild: React.FC = () => {
   return (
-    <section id="services" className="relative py-28 sm:py-36 border-t border-white/10 overflow-hidden w-full">
+    <section id="services" className="relative py-28 sm:py-36 border-t border-slate-200/80 dark:border-white/10 overflow-hidden w-full bg-white dark:bg-[#0B0A1E] transition-colors duration-300">
       {/* Background ambient light */}
       <div 
-        className="absolute top-1/2 left-0 w-[550px] h-[550px] bg-[#8B5CF6]/10 rounded-full blur-[140px] pointer-events-none -z-10" 
+        className="absolute top-1/2 left-0 w-[550px] h-[550px] bg-[#8B5CF6]/5 dark:bg-[#8B5CF6]/10 rounded-full blur-[140px] pointer-events-none -z-10" 
         aria-hidden="true" 
       />
 

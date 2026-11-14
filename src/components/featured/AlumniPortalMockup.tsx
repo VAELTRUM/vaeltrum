@@ -10,6 +10,7 @@ import {
   Building2, 
   ShieldCheck, 
   Filter,
+  ExternalLink
 } from 'lucide-react';
 
 export const AlumniPortalMockup: React.FC = () => {
@@ -24,14 +25,20 @@ export const AlumniPortalMockup: React.FC = () => {
           <div className="w-3 h-3 rounded-full bg-rose-500/80" />
           <div className="w-3 h-3 rounded-full bg-amber-500/80" />
           <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
-          <span className="ml-2 text-xs font-mono text-foreground-muted hidden sm:inline">
-            portal.ikgptu.ac.in/alumni-erp
-          </span>
+          <a
+            href="https://alumni.ptu.ac.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-2 text-xs font-mono text-foreground-muted hover:text-white transition-colors hidden sm:flex items-center gap-1.5 group cursor-pointer"
+          >
+            <span>alumni.ptu.ac.in</span>
+            <ExternalLink className="w-3 h-3 text-accent-sky group-hover:translate-x-0.5 transition-transform" />
+          </a>
         </div>
 
         <div className="flex items-center gap-2 text-xs font-mono text-foreground-subtle">
           <ShieldCheck className="w-4 h-4 text-accent-sky" />
-          <span className="hidden sm:inline">INSTITUTIONAL ERP GATEWAY</span>
+          <span className="hidden sm:inline">LIVE INSTITUTIONAL ERP</span>
         </div>
       </div>
 
@@ -42,15 +49,23 @@ export const AlumniPortalMockup: React.FC = () => {
         <div className="w-full lg:w-60 bg-[#101116] border-b lg:border-b-0 lg:border-r border-border/70 p-5 flex flex-col justify-between">
           <div className="space-y-5">
             {/* University Branding Unit */}
-            <div className="flex items-center gap-3 pb-4 border-b border-border/60">
-              <div className="w-9 h-9 rounded-xl bg-accent-blue/15 border border-accent-blue/30 flex items-center justify-center text-accent-sky">
+            <a 
+              href="https://alumni.ptu.ac.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 pb-4 border-b border-border/60 group cursor-pointer"
+            >
+              <div className="w-9 h-9 rounded-xl bg-accent-blue/15 border border-accent-blue/30 flex items-center justify-center text-accent-sky group-hover:scale-105 transition-transform">
                 <GraduationCap className="w-5 h-5" />
               </div>
               <div>
-                <div className="text-sm font-semibold text-foreground tracking-tight">IKGPTU Alumni</div>
-                <div className="text-[11px] font-mono text-foreground-muted">ERP Network v2.4</div>
+                <div className="text-sm font-semibold text-foreground tracking-tight group-hover:text-accent-sky transition-colors flex items-center gap-1">
+                  <span>PTU Alumni</span>
+                  <ExternalLink className="w-3 h-3 opacity-60" />
+                </div>
+                <div className="text-[11px] font-mono text-foreground-muted">IKGPTU ERP Portal</div>
               </div>
-            </div>
+            </a>
 
             {/* Navigation Tabs with Active Indicator */}
             <div className="space-y-1.5">
@@ -85,7 +100,7 @@ export const AlumniPortalMockup: React.FC = () => {
                 AP
               </div>
               <div className="overflow-hidden">
-                <div className="text-xs font-medium text-foreground truncate">Alumni Portal User</div>
+                <div className="text-xs font-medium text-foreground truncate">PTU Alumni User</div>
                 <div className="text-[11px] text-foreground-subtle truncate">Verified Graduate</div>
               </div>
             </div>
@@ -112,10 +127,15 @@ export const AlumniPortalMockup: React.FC = () => {
                 <Filter className="w-3.5 h-3.5 text-accent-sky" />
                 All Batches
               </span>
-              <span className="px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/25 text-xs font-mono text-emerald-400 flex items-center gap-2">
+              <a
+                href="https://alumni.ptu.ac.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/25 text-xs font-mono text-emerald-400 flex items-center gap-2 hover:bg-emerald-500/20 transition-colors"
+              >
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                Portal Online
-              </span>
+                <span>Portal Live ↗</span>
+              </a>
             </div>
           </div>
 
@@ -141,13 +161,18 @@ export const AlumniPortalMockup: React.FC = () => {
                         5,000+
                       </div>
                       <div className="text-xs sm:text-sm text-foreground-muted mt-1.5">
-                        Trusted alumni &amp; institutional records onboarded on the IKGPTU platform.
+                        Trusted alumni &amp; institutional records onboarded on the PTU system.
                       </div>
                     </div>
-                    <div className="flex items-center gap-2 self-start sm:self-auto px-3.5 py-2.5 rounded-xl bg-background-charcoal border border-border/80 text-xs font-mono text-foreground-muted shadow-sm">
+                    <a
+                      href="https://alumni.ptu.ac.in/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 self-start sm:self-auto px-3.5 py-2.5 rounded-xl bg-background-charcoal border border-border/80 text-xs font-mono text-accent-sky hover:border-accent-sky/50 transition-colors shadow-sm"
+                    >
                       <Award className="w-4 h-4 text-accent-sky" />
-                      <span>Verified Academic Institution</span>
-                    </div>
+                      <span>alumni.ptu.ac.in ↗</span>
+                    </a>
                   </div>
 
                   {/* Split grid: Recent Records & University Bulletin */}
@@ -258,7 +283,10 @@ export const AlumniPortalMockup: React.FC = () => {
 
           {/* Authentic Interface Representation Note */}
           <div className="pt-4 border-t border-border/50 flex items-center justify-between text-[11px] font-mono text-foreground-subtle">
-            <span>INTERFACE REPRESENTATION // IKGPTU ALUMNI ERP</span>
+            <a href="https://alumni.ptu.ac.in/" target="_blank" rel="noopener noreferrer" className="hover:text-accent-sky transition-colors flex items-center gap-1">
+              <span>ALUMNI.PTU.AC.IN</span>
+              <ExternalLink className="w-3 h-3" />
+            </a>
             <span className="text-accent-sky/90">AUTHENTICATED ERP ARCHITECTURE</span>
           </div>
 

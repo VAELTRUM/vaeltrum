@@ -6,20 +6,20 @@ import { PROCESS_STAGES } from '../../data/content';
 import { Check } from 'lucide-react';
 
 const stageGlows = [
-  { border: 'border-[#FF7A59]/40', text: 'text-amber-300', bg: 'from-[#FF7A59] to-[#FA709A]', glow: 'shadow-glow-coral' },
-  { border: 'border-[#8B5CF6]/40', text: 'text-purple-300', bg: 'from-[#8B5CF6] to-[#6366F1]', glow: 'shadow-glow-purple' },
-  { border: 'border-[#06B6D4]/40', text: 'text-cyan-300', bg: 'from-[#06B6D4] to-[#3B82F6]', glow: 'shadow-glow-cyan' },
-  { border: 'border-[#10B981]/40', text: 'text-emerald-300', bg: 'from-[#10B981] to-[#06B6D4]', glow: 'shadow-[0_0_30px_rgba(16,185,129,0.3)]' },
+  { border: 'border-[#FF7A59]/40', text: 'text-amber-600 dark:text-amber-300', bg: 'from-[#FF7A59] to-[#FA709A]', glow: 'shadow-glow-coral' },
+  { border: 'border-[#8B5CF6]/40', text: 'text-purple-600 dark:text-purple-300', bg: 'from-[#8B5CF6] to-[#6366F1]', glow: 'shadow-glow-purple' },
+  { border: 'border-[#06B6D4]/40', text: 'text-cyan-600 dark:text-cyan-300', bg: 'from-[#06B6D4] to-[#3B82F6]', glow: 'shadow-glow-cyan' },
+  { border: 'border-[#10B981]/40', text: 'text-emerald-600 dark:text-emerald-300', bg: 'from-[#10B981] to-[#06B6D4]', glow: 'shadow-[0_0_30px_rgba(16,185,129,0.3)]' },
 ];
 
 export const OurApproach: React.FC = () => {
   const [activeStep, setActiveStep] = useState<number>(0);
 
   return (
-    <section id="approach" className="relative py-28 sm:py-36 border-t border-white/10 bg-[#0A091A] overflow-hidden w-full">
+    <section id="approach" className="relative py-28 sm:py-36 border-t border-slate-200/80 dark:border-white/10 bg-white dark:bg-[#0A091A] overflow-hidden w-full transition-colors duration-300">
       {/* Background ambient lighting */}
       <div 
-        className="absolute top-1/2 right-0 w-[550px] h-[550px] bg-[#6366F1]/10 rounded-full blur-[140px] pointer-events-none -z-10" 
+        className="absolute top-1/2 right-0 w-[550px] h-[550px] bg-[#6366F1]/5 dark:bg-[#6366F1]/10 rounded-full blur-[140px] pointer-events-none -z-10" 
         aria-hidden="true" 
       />
 
@@ -47,8 +47,8 @@ export const OurApproach: React.FC = () => {
                   onClick={() => setActiveStep(index)}
                   className={`p-8 rounded-3xl border transition-all duration-300 cursor-pointer flex flex-col justify-between min-h-[410px] backdrop-blur-xl ${
                     isActive
-                      ? `bg-[#191642] ${style.border} ${style.glow} scale-[1.02]`
-                      : 'bg-[#12102E]/80 border-white/10 hover:border-white/25 hover:bg-[#151336]'
+                      ? `bg-slate-50 dark:bg-[#191642] ${style.border} ${style.glow} scale-[1.02]`
+                      : 'bg-white dark:bg-[#12102E]/80 border-slate-200/80 dark:border-white/10 hover:border-slate-300 dark:hover:border-white/25 hover:bg-slate-50/50 dark:hover:bg-[#151336] shadow-sm dark:shadow-xl'
                   }`}
                   initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -62,7 +62,7 @@ export const OurApproach: React.FC = () => {
                       <div className={`w-12 h-12 rounded-2xl flex items-center justify-center font-mono text-base font-bold transition-all duration-300 ${
                         isActive 
                           ? `bg-gradient-to-tr ${style.bg} text-white shadow-lg` 
-                          : 'bg-white/10 text-white/80 border border-white/15'
+                          : 'bg-slate-100 dark:bg-white/10 text-slate-700 dark:text-white/80 border border-slate-200 dark:border-white/15'
                       }`}>
                         {stage.step}
                       </div>
@@ -72,29 +72,29 @@ export const OurApproach: React.FC = () => {
                     </div>
 
                     {/* Stage Title */}
-                    <h3 className="text-2xl font-bold tracking-tight text-white font-display mb-2.5">
+                    <h3 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white font-display mb-2.5">
                       {stage.title}
                     </h3>
 
                     {/* Tagline */}
-                    <div className={`text-xs sm:text-sm font-mono mb-4 font-medium ${style.text}`}>
+                    <div className={`text-xs sm:text-sm font-mono mb-4 font-semibold ${style.text}`}>
                       {stage.tagline}
                     </div>
 
                     {/* Description */}
-                    <p className="text-sm sm:text-base text-foreground-muted leading-relaxed mb-6 font-normal">
+                    <p className="text-sm sm:text-base text-slate-600 dark:text-foreground-muted leading-relaxed mb-6 font-normal">
                       {stage.description}
                     </p>
                   </div>
 
                   {/* Key Deliverables */}
-                  <div className="pt-5 border-t border-white/10">
-                    <span className="text-xs font-mono text-white/50 uppercase tracking-wider block mb-2.5 font-medium">
+                  <div className="pt-5 border-t border-slate-200 dark:border-white/10">
+                    <span className="text-xs font-mono text-slate-400 dark:text-white/50 uppercase tracking-wider block mb-2.5 font-medium">
                       Key Deliverables
                     </span>
                     <ul className="space-y-2">
                       {stage.deliverables.map((item, dIdx) => (
-                        <li key={dIdx} className="flex items-center gap-2 text-xs sm:text-sm text-white/80">
+                        <li key={dIdx} className="flex items-center gap-2 text-xs sm:text-sm text-slate-700 dark:text-white/80">
                           <Check className="w-3.5 h-3.5 text-accent-sky shrink-0" />
                           <span className="truncate">{item}</span>
                         </li>
@@ -114,7 +114,7 @@ export const OurApproach: React.FC = () => {
             return (
               <motion.div
                 key={stage.step}
-                className="relative p-7 sm:p-9 rounded-3xl bg-[#131132] border border-white/15 backdrop-blur-xl shadow-lg w-full"
+                className="relative p-7 sm:p-9 rounded-3xl bg-white dark:bg-[#131132] border border-slate-200 dark:border-white/15 backdrop-blur-xl shadow-lg w-full"
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
@@ -122,26 +122,26 @@ export const OurApproach: React.FC = () => {
                 whileHover={{ x: 4 }}
               >
                 {/* Timeline marker */}
-                <div className={`absolute -left-[33px] top-7 w-4 h-4 rounded-full bg-gradient-to-tr ${style.bg} ring-4 ring-[#0A091A]`} />
+                <div className={`absolute -left-[33px] top-7 w-4 h-4 rounded-full bg-gradient-to-tr ${style.bg} ring-4 ring-white dark:ring-[#0A091A]`} />
 
                 <div className="flex items-center justify-between mb-2.5">
                   <span className={`text-xs font-mono font-semibold ${style.text}`}>STAGE {stage.step}</span>
-                  <span className="text-xs font-mono text-white/50">{stage.tagline}</span>
+                  <span className="text-xs font-mono text-slate-400 dark:text-white/50">{stage.tagline}</span>
                 </div>
 
-                <h3 className="text-2xl font-bold text-white font-display mb-2">
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white font-display mb-2">
                   {stage.title}
                 </h3>
 
-                <p className="text-base text-foreground-muted leading-relaxed mb-5">
+                <p className="text-base text-slate-600 dark:text-foreground-muted leading-relaxed mb-5">
                   {stage.description}
                 </p>
 
-                <div className="pt-4 border-t border-white/10">
-                  <div className="text-xs font-mono text-white/50 uppercase mb-2.5 font-medium">Outputs</div>
+                <div className="pt-4 border-t border-slate-200 dark:border-white/10">
+                  <div className="text-xs font-mono text-slate-400 dark:text-white/50 uppercase mb-2.5 font-medium">Outputs</div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {stage.deliverables.map((item, dIdx) => (
-                      <div key={dIdx} className="text-xs sm:text-sm text-white/80 flex items-center gap-2">
+                      <div key={dIdx} className="text-xs sm:text-sm text-slate-700 dark:text-white/80 flex items-center gap-2">
                         <span className="w-1.5 h-1.5 rounded-full bg-accent-sky" />
                         <span>{item}</span>
                       </div>
