@@ -12,23 +12,23 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="border-t border-white/10 bg-[#070614] py-20 sm:py-24 relative overflow-hidden">
+    <footer className="border-t border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-[#070614] py-20 sm:py-24 relative overflow-hidden transition-colors duration-300">
       {/* Subtle bottom ambient glow */}
       <div 
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-gradient-to-t from-[#8B5CF6]/10 to-transparent blur-[120px] pointer-events-none -z-10" 
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-gradient-to-t from-violet-500/10 dark:from-[#8B5CF6]/10 to-transparent blur-[120px] pointer-events-none -z-10" 
         aria-hidden="true" 
       />
 
       <Container>
-        <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-12 pb-16 border-b border-white/10">
+        <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-12 pb-16 border-b border-slate-200 dark:border-white/10">
           
           {/* Brand & Tagline */}
           <div className="max-w-md">
             <VaeltrumLogo size="md" />
-            <p className="mt-5 text-base sm:text-lg text-foreground-muted leading-relaxed font-normal">
+            <p className="mt-5 text-base sm:text-lg text-slate-600 dark:text-foreground-muted leading-relaxed font-normal">
               {COMPANY_TAGLINE}
             </p>
-            <p className="mt-3 text-xs sm:text-sm text-foreground-subtle leading-relaxed">
+            <p className="mt-3 text-xs sm:text-sm text-slate-500 dark:text-foreground-subtle leading-relaxed">
               Independent software engineering company focused on SaaS products, enterprise platforms, and custom digital solutions.
             </p>
           </div>
@@ -36,7 +36,7 @@ export const Footer: React.FC = () => {
           {/* Navigation Links */}
           <div className="flex flex-col sm:flex-row gap-12 sm:gap-20">
             <div>
-              <span className="text-xs font-mono tracking-widest uppercase text-white/50 block mb-5 font-semibold">
+              <span className="text-xs font-mono tracking-widest uppercase text-slate-400 dark:text-white/50 block mb-5 font-semibold">
                 Navigation
               </span>
               <ul className="space-y-3">
@@ -44,7 +44,7 @@ export const Footer: React.FC = () => {
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="text-sm text-foreground-muted hover:text-white transition-colors cursor-pointer"
+                      className="text-sm text-slate-600 dark:text-foreground-muted hover:text-slate-900 dark:hover:text-white transition-colors cursor-pointer"
                     >
                       {link.label}
                     </a>
@@ -54,19 +54,19 @@ export const Footer: React.FC = () => {
             </div>
 
             <div>
-              <span className="text-xs font-mono tracking-widest uppercase text-white/50 block mb-5 font-semibold">
+              <span className="text-xs font-mono tracking-widest uppercase text-slate-400 dark:text-white/50 block mb-5 font-semibold">
                 Inquiries
               </span>
               <ul className="space-y-3">
                 <li>
                   <a
                     href={`mailto:${COMPANY_EMAIL}`}
-                    className="text-sm text-foreground-muted hover:text-accent-sky transition-colors font-mono"
+                    className="text-sm text-slate-600 dark:text-foreground-muted hover:text-accent-blue dark:hover:text-accent-sky transition-colors font-mono"
                   >
                     {COMPANY_EMAIL}
                   </a>
                 </li>
-                <li className="text-sm text-foreground-subtle">
+                <li className="text-sm text-slate-500 dark:text-foreground-subtle">
                   Custom Engineering &amp; SaaS
                 </li>
               </ul>
@@ -76,7 +76,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Bar: Dynamic Copyright & Back-to-Top */}
-        <div className="pt-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm font-mono text-white/50">
+        <div className="pt-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm font-mono text-slate-500 dark:text-white/50">
           <div>
             &copy; {currentYear} VAELTRUM. All rights reserved.
           </div>
@@ -85,11 +85,11 @@ export const Footer: React.FC = () => {
             <span>Built with intention.</span>
             <button
               onClick={scrollToTop}
-              className="flex items-center gap-2 text-foreground-muted hover:text-white transition-colors group cursor-pointer"
+              className="flex items-center gap-2 text-slate-600 dark:text-foreground-muted hover:text-slate-900 dark:hover:text-white transition-colors group cursor-pointer"
               aria-label="Back to top of page"
             >
               <span>Back to top</span>
-              <ArrowUp className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 text-accent-sky" />
+              <ArrowUp className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 text-accent-blue dark:text-accent-sky" />
             </button>
           </div>
         </div>

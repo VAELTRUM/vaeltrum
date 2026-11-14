@@ -45,7 +45,7 @@ export const Navbar: React.FC = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-background-charcoal/85 backdrop-blur-md border-b border-border/80 shadow-[0_8px_30px_rgba(0,0,0,0.15)] py-4'
+          ? 'bg-white/85 dark:bg-background-charcoal/85 backdrop-blur-md border-b border-slate-200/80 dark:border-border/80 shadow-[0_8px_30px_rgba(0,0,0,0.06)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.15)] py-4'
           : 'bg-transparent border-b border-transparent py-6 sm:py-7'
       }`}
     >
@@ -54,7 +54,7 @@ export const Navbar: React.FC = () => {
         <VaeltrumLogo size="md" />
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-1.5 lg:gap-2.5 px-3.5 py-1.5 rounded-full border border-border/50 bg-background-card/60 backdrop-blur-md shadow-sm">
+        <nav className="hidden md:flex items-center gap-1.5 lg:gap-2.5 px-3.5 py-1.5 rounded-full border border-slate-200/80 dark:border-border/50 bg-white/80 dark:bg-background-card/60 backdrop-blur-md shadow-sm">
           {NAV_LINKS.map((link) => {
             const isActive = activeSection === link.href.replace('#', '');
             return (
@@ -67,8 +67,8 @@ export const Navbar: React.FC = () => {
                 }}
                 className={`relative px-4 py-1.5 text-[13px] font-medium tracking-wide transition-all duration-200 rounded-full cursor-pointer ${
                   isActive
-                    ? 'text-foreground font-semibold bg-foreground/10'
-                    : 'text-foreground-muted hover:text-foreground hover:bg-foreground/[0.04]'
+                    ? 'text-slate-900 dark:text-foreground font-semibold bg-slate-100 dark:bg-foreground/10'
+                    : 'text-slate-600 dark:text-foreground-muted hover:text-slate-900 dark:hover:text-foreground hover:bg-slate-100/60 dark:hover:bg-foreground/[0.04]'
                 }`}
               >
                 {link.label}
@@ -108,7 +108,7 @@ export const Navbar: React.FC = () => {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2.5 rounded-xl text-foreground-muted hover:text-foreground hover:bg-foreground/[0.05] focus:outline-none transition-colors border border-border/80 bg-background-card"
+            className="p-2.5 rounded-xl text-slate-700 dark:text-foreground-muted hover:text-slate-900 dark:hover:text-foreground hover:bg-slate-100 dark:hover:bg-foreground/[0.05] focus:outline-none transition-colors border border-slate-200 dark:border-border/80 bg-white dark:bg-background-card"
             aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -123,7 +123,7 @@ export const Navbar: React.FC = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-b border-border bg-background-charcoal/95 backdrop-blur-xl px-6 py-6 transition-all duration-300"
+            className="md:hidden border-b border-slate-200 dark:border-border bg-white/95 dark:bg-background-charcoal/95 backdrop-blur-xl px-6 py-6 transition-all duration-300"
           >
             <div className="flex flex-col gap-2">
               {NAV_LINKS.map((link) => (
