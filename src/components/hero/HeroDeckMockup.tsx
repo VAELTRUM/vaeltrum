@@ -1,12 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { 
-  Terminal, 
   Layers, 
   Cpu, 
-  Code2, 
   Activity, 
-  ShieldCheck, 
   Sparkles,
   Zap
 } from 'lucide-react';
@@ -17,7 +14,7 @@ export const HeroDeckMockup: React.FC = () => {
       
       {/* Background radial radiant atmospheric aura */}
       <div 
-        className="absolute -top-10 -right-10 w-[420px] h-[420px] rounded-full bg-gradient-to-tr from-[#FF7A59]/25 via-[#A855F7]/30 to-[#38BDF8]/25 blur-[100px] pointer-events-none -z-10" 
+        className="absolute -top-10 -right-10 w-[420px] h-[420px] rounded-full bg-gradient-to-tr from-[#FF7A59]/20 via-[#A855F7]/25 to-[#38BDF8]/20 dark:from-[#FF7A59]/25 dark:via-[#A855F7]/30 dark:to-[#38BDF8]/25 blur-[100px] pointer-events-none -z-10" 
         aria-hidden="true" 
       />
 
@@ -40,7 +37,7 @@ export const HeroDeckMockup: React.FC = () => {
 
       {/* 1. Main Background Dashboard Card (Angled in 3D Perspective) */}
       <motion.div
-        className="absolute top-4 right-2 sm:right-6 w-[340px] sm:w-[420px] rounded-2xl bg-[#110F2B]/90 border border-white/15 p-5 shadow-[0_25px_60px_rgba(7,5,22,0.8)] backdrop-blur-xl z-10"
+        className="absolute top-4 right-2 sm:right-6 w-[340px] sm:w-[420px] rounded-2xl bg-white/95 dark:bg-[#110F2B]/90 border border-slate-200/90 dark:border-white/15 p-5 shadow-[0_20px_50px_rgba(0,0,0,0.08)] dark:shadow-[0_25px_60px_rgba(7,5,22,0.8)] backdrop-blur-xl z-10 transition-colors duration-300"
         style={{
           transform: 'rotateX(10deg) rotateY(-18deg) rotateZ(4deg)',
           transformStyle: 'preserve-3d',
@@ -52,30 +49,42 @@ export const HeroDeckMockup: React.FC = () => {
         transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
       >
         {/* Browser / Editor Top Bar */}
-        <div className="flex items-center justify-between pb-3.5 border-b border-white/10 mb-4">
+        <div className="flex items-center justify-between pb-3.5 border-b border-slate-200/80 dark:border-white/10 mb-4">
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
             <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
-            <span className="ml-2 text-[10px] font-mono text-white/50">vaeltrum.engine.ts</span>
+            <span className="ml-2 text-[10px] font-mono text-slate-500 dark:text-white/50">vaeltrum.engine.ts</span>
           </div>
-          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 font-semibold">
             PROD READY
           </span>
         </div>
 
         {/* Code Snippet / Architecture Mock */}
-        <div className="space-y-2 font-mono text-[11px] text-white/70">
-          <div className="text-purple-400">export const <span className="text-sky-300">ArchitectureEngine</span> = &#123;</div>
-          <div className="pl-4 text-emerald-300">platform: <span className="text-amber-200">"SaaS &amp; Enterprise"</span>,</div>
-          <div className="pl-4 text-emerald-300">cluster: <span className="text-sky-300">"High Availability"</span>,</div>
-          <div className="pl-4 text-emerald-300">scalability: <span className="text-indigo-300">true</span>,</div>
-          <div className="text-purple-400">&#125;;</div>
+        <div className="space-y-2 font-mono text-[11px] text-slate-700 dark:text-white/70">
+          <div>
+            <span className="text-indigo-600 dark:text-purple-400 font-semibold">export const </span>
+            <span className="text-sky-600 dark:text-sky-300 font-semibold">ArchitectureEngine</span> = &#123;
+          </div>
+          <div className="pl-4">
+            <span className="text-emerald-700 dark:text-emerald-300">platform: </span>
+            <span className="text-amber-700 dark:text-amber-200">"SaaS &amp; Enterprise"</span>,
+          </div>
+          <div className="pl-4">
+            <span className="text-emerald-700 dark:text-emerald-300">cluster: </span>
+            <span className="text-sky-600 dark:text-sky-300">"High Availability"</span>,
+          </div>
+          <div className="pl-4">
+            <span className="text-emerald-700 dark:text-emerald-300">scalability: </span>
+            <span className="text-indigo-600 dark:text-indigo-300 font-semibold">true</span>,
+          </div>
+          <div>&#125;;</div>
         </div>
 
         {/* Mini telemetry meter */}
-        <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-white/50">
-          <span className="flex items-center gap-1.5 text-emerald-400">
+        <div className="mt-4 pt-3 border-t border-slate-200/80 dark:border-white/10 flex items-center justify-between text-[10px] font-mono text-slate-500 dark:text-white/50">
+          <span className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 font-medium">
             <Activity className="w-3 h-3" /> 0.12ms API latency
           </span>
           <span>Docker • Kubernetes</span>
@@ -98,19 +107,19 @@ export const HeroDeckMockup: React.FC = () => {
           <Layers className="w-5 h-5" />
         </div>
 
-        <div className="text-xs font-mono uppercase tracking-wider text-purple-200 mb-1">
+        <div className="text-xs font-mono uppercase tracking-wider text-purple-200 mb-1 font-semibold">
           01 / PRODUCT DESIGN
         </div>
         <div className="text-lg font-bold text-white tracking-tight leading-snug mb-2 font-display">
           SaaS Product Systems
         </div>
-        <p className="text-xs text-white/80 leading-relaxed">
+        <p className="text-xs text-white/80 leading-relaxed font-normal">
           From micro-interactions to complex data models.
         </p>
 
         <div className="mt-4 pt-3 border-t border-white/20 flex items-center justify-between text-[10px] font-mono text-white/90">
           <span>React • Next.js</span>
-          <span className="bg-white/20 px-2 py-0.5 rounded-full">v4.0</span>
+          <span className="bg-white/20 px-2 py-0.5 rounded-full font-semibold">v4.0</span>
         </div>
       </motion.div>
 
@@ -130,29 +139,29 @@ export const HeroDeckMockup: React.FC = () => {
           <Cpu className="w-5 h-5" />
         </div>
 
-        <div className="text-xs font-mono uppercase tracking-wider text-cyan-100 mb-1">
+        <div className="text-xs font-mono uppercase tracking-wider text-cyan-100 mb-1 font-semibold">
           02 / ENTERPRISE PLATFORMS
         </div>
         <div className="text-lg font-bold text-white tracking-tight leading-snug mb-2 font-display">
           Backend &amp; API Scale
         </div>
-        <p className="text-xs text-white/80 leading-relaxed">
+        <p className="text-xs text-white/80 leading-relaxed font-normal">
           High-concurrency databases, Redis &amp; PostgreSQL.
         </p>
 
         <div className="mt-4 pt-3 border-t border-white/20 flex items-center justify-between text-[10px] font-mono text-white/90">
           <span>5,000+ Users</span>
-          <span className="bg-white/20 px-2 py-0.5 rounded-full">Active</span>
+          <span className="bg-white/20 px-2 py-0.5 rounded-full font-semibold">Active</span>
         </div>
       </motion.div>
 
       {/* 4. Small Floating Glass Notification Badge */}
       <motion.div
-        className="absolute top-2 right-12 px-3.5 py-2 rounded-xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-glass text-xs font-mono text-white flex items-center gap-2 z-30"
+        className="absolute top-2 right-12 px-3.5 py-2 rounded-xl bg-white/90 dark:bg-white/10 backdrop-blur-xl border border-slate-200 dark:border-white/20 shadow-md dark:shadow-glass text-xs font-mono text-slate-800 dark:text-white flex items-center gap-2 z-30 font-medium"
         animate={{ y: [-4, 6, -4] }}
         transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
       >
-        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
         <span>Vaeltrum Engine Active</span>
       </motion.div>
 

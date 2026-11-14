@@ -96,7 +96,7 @@ export const Navbar: React.FC = () => {
 
         {/* Mobile Controls */}
         <div className="flex md:hidden items-center gap-2">
-          <ThemeToggle />
+          <ThemeToggle variant="icon" />
           <Button
             href="#contact"
             variant="secondary"
@@ -126,6 +126,10 @@ export const Navbar: React.FC = () => {
             className="md:hidden border-b border-slate-200 dark:border-border bg-white/95 dark:bg-background-charcoal/95 backdrop-blur-xl px-6 py-6 transition-all duration-300"
           >
             <div className="flex flex-col gap-2">
+              <div className="pb-3 border-b border-slate-200/80 dark:border-border/60 flex items-center justify-between">
+                <span className="text-xs font-mono text-slate-500 dark:text-foreground-muted uppercase tracking-wider">Appearance</span>
+                <ThemeToggle variant="segmented" />
+              </div>
               {NAV_LINKS.map((link) => (
                 <a
                   key={link.label}
@@ -134,10 +138,10 @@ export const Navbar: React.FC = () => {
                     e.preventDefault();
                     handleNavClick(link.href);
                   }}
-                  className="px-4 py-3.5 text-base font-medium text-foreground hover:bg-foreground/[0.05] rounded-xl transition-colors flex items-center justify-between"
+                  className="px-4 py-3.5 text-base font-medium text-slate-900 dark:text-foreground hover:bg-slate-100/80 dark:hover:bg-foreground/[0.05] rounded-xl transition-colors flex items-center justify-between"
                 >
                   <span>{link.label}</span>
-                  <span className="text-foreground-muted text-sm">→</span>
+                  <span className="text-slate-400 dark:text-foreground-muted text-sm">→</span>
                 </a>
               ))}
               <div className="pt-5 mt-2 border-t border-border/60 flex items-center justify-between gap-3">

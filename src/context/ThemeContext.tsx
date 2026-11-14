@@ -18,30 +18,37 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       if (savedTheme === 'light' || savedTheme === 'dark') {
         return savedTheme;
       }
-      // Check system preference
-      if (window.matchMedia('(prefers-color-scheme: light)').matches) {
-        return 'light';
-      }
     }
-    // Default brand theme is dark
-    return 'dark';
+    // Default to 'light' since white theme was explicitly requested
+    return 'light';
   });
 
   useEffect(() => {
     const root = document.documentElement;
+    const body = document.body;
     if (theme === 'dark') {
       root.classList.add('dark');
       root.classList.remove('light');
+      root.setAttribute('data-theme', 'dark');
+      if (body) {
+        body.classList.add('dark');
+        body.classList.remove('light');
+      }
     } else {
       root.classList.remove('dark');
       root.classList.add('light');
+      root.setAttribute('data-theme', 'light');
+      if (body) {
+        body.classList.remove('dark');
+        body.classList.add('light');
+      }
     }
     localStorage.setItem('vaeltrum_theme', theme);
 
     // Update meta theme-color
     const metaThemeColor = document.querySelector('meta[name="theme-color"]');
     if (metaThemeColor) {
-      metaThemeColor.setAttribute('content', theme === 'dark' ? '#090A0C' : '#F8F9FA');
+      metaThemeColor.setAttribute('content', theme === 'dark' ? '#090A0C' : '#FFFFFF');
     }
   }, [theme]);
 
