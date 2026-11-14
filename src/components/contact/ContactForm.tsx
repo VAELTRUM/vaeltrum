@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { ContactFormData, ProjectType } from '../../types';
 import { Button } from '../ui/Button';
 import { COMPANY_EMAIL } from '../../data/content';
-import { Send, Mail, AlertCircle, CheckCircle, Info } from 'lucide-react';
+import { Send, AlertCircle, CheckCircle } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const PROJECT_TYPES: ProjectType[] = [
   'SaaS Product',
@@ -74,9 +75,6 @@ export const ContactForm: React.FC = () => {
 
     setIsSubmitting(true);
 
-    // Because Vaeltrum does not fabricate delivery states or pretend a backend API exists
-    // when none is connected, we immediately construct a pre-filled mailto dispatch
-    // while giving the user full visibility and direct transmission.
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmissionStatus('direct-mailto-ready');
@@ -94,7 +92,7 @@ export const ContactForm: React.FC = () => {
       );
 
       window.location.href = `mailto:${COMPANY_EMAIL}?subject=${subject}&body=${body}`;
-    }, 600);
+    }, 500);
   };
 
   const handleChange = (
@@ -108,11 +106,11 @@ export const ContactForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+    <form onSubmit={handleSubmit} className="space-y-6" noValidate>
       {/* Name & Email Row */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div>
-          <label htmlFor="name" className="block text-xs font-mono uppercase text-foreground-muted mb-2">
+          <label htmlFor="name" className="block text-xs sm:text-sm font-mono uppercase text-foreground-muted mb-2 font-medium">
             Your Name <span className="text-accent-sky">*</span>
           </label>
           <input
@@ -122,20 +120,20 @@ export const ContactForm: React.FC = () => {
             value={formData.name}
             onChange={handleChange}
             placeholder="Ada Lovelace"
-            className={`w-full rounded-lg bg-background-charcoal border px-3.5 py-2.5 text-sm text-foreground placeholder:text-foreground-subtle focus:outline-none transition-colors ${
-              errors.name ? 'border-rose-500/70 focus:border-rose-500' : 'border-border focus:border-accent-blue/80'
+            className={`w-full rounded-xl bg-background-charcoal border px-4 py-3 text-base text-foreground placeholder:text-foreground-subtle focus:outline-none transition-all duration-200 ${
+              errors.name ? 'border-rose-500/70 focus:border-rose-500' : 'border-border focus:border-accent-blue focus:ring-1 focus:ring-accent-blue/30'
             }`}
           />
           {errors.name && (
-            <p className="mt-1.5 text-xs text-rose-400 flex items-center gap-1 font-mono">
-              <AlertCircle className="w-3 h-3" />
+            <p className="mt-2 text-xs text-rose-400 flex items-center gap-1.5 font-mono">
+              <AlertCircle className="w-3.5 h-3.5" />
               {errors.name}
             </p>
           )}
         </div>
 
         <div>
-          <label htmlFor="email" className="block text-xs font-mono uppercase text-foreground-muted mb-2">
+          <label htmlFor="email" className="block text-xs sm:text-sm font-mono uppercase text-foreground-muted mb-2 font-medium">
             Work Email <span className="text-accent-sky">*</span>
           </label>
           <input
@@ -145,13 +143,13 @@ export const ContactForm: React.FC = () => {
             value={formData.email}
             onChange={handleChange}
             placeholder="ada@company.com"
-            className={`w-full rounded-lg bg-background-charcoal border px-3.5 py-2.5 text-sm text-foreground placeholder:text-foreground-subtle focus:outline-none transition-colors ${
-              errors.email ? 'border-rose-500/70 focus:border-rose-500' : 'border-border focus:border-accent-blue/80'
+            className={`w-full rounded-xl bg-background-charcoal border px-4 py-3 text-base text-foreground placeholder:text-foreground-subtle focus:outline-none transition-all duration-200 ${
+              errors.email ? 'border-rose-500/70 focus:border-rose-500' : 'border-border focus:border-accent-blue focus:ring-1 focus:ring-accent-blue/30'
             }`}
           />
           {errors.email && (
-            <p className="mt-1.5 text-xs text-rose-400 flex items-center gap-1 font-mono">
-              <AlertCircle className="w-3 h-3" />
+            <p className="mt-2 text-xs text-rose-400 flex items-center gap-1.5 font-mono">
+              <AlertCircle className="w-3.5 h-3.5" />
               {errors.email}
             </p>
           )}
@@ -159,10 +157,10 @@ export const ContactForm: React.FC = () => {
       </div>
 
       {/* Company & Project Type Row */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div>
-          <label htmlFor="company" className="block text-xs font-mono uppercase text-foreground-muted mb-2">
-            Company / Organization <span className="text-foreground-subtle text-[10px]">(Optional)</span>
+          <label htmlFor="company" className="block text-xs sm:text-sm font-mono uppercase text-foreground-muted mb-2 font-medium">
+            Company / Organization <span className="text-foreground-subtle text-xs font-normal">(Optional)</span>
           </label>
           <input
             id="company"
@@ -171,12 +169,12 @@ export const ContactForm: React.FC = () => {
             value={formData.company}
             onChange={handleChange}
             placeholder="Acme Systems"
-            className="w-full rounded-lg bg-background-charcoal border border-border px-3.5 py-2.5 text-sm text-foreground placeholder:text-foreground-subtle focus:outline-none focus:border-accent-blue/80 transition-colors"
+            className="w-full rounded-xl bg-background-charcoal border border-border px-4 py-3 text-base text-foreground placeholder:text-foreground-subtle focus:outline-none focus:border-accent-blue focus:ring-1 focus:ring-accent-blue/30 transition-all duration-200"
           />
         </div>
 
         <div>
-          <label htmlFor="projectType" className="block text-xs font-mono uppercase text-foreground-muted mb-2">
+          <label htmlFor="projectType" className="block text-xs sm:text-sm font-mono uppercase text-foreground-muted mb-2 font-medium">
             Project Type <span className="text-accent-sky">*</span>
           </label>
           <select
@@ -184,7 +182,7 @@ export const ContactForm: React.FC = () => {
             name="projectType"
             value={formData.projectType}
             onChange={handleChange}
-            className="w-full rounded-lg bg-background-charcoal border border-border px-3.5 py-2.5 text-sm text-foreground focus:outline-none focus:border-accent-blue/80 transition-colors"
+            className="w-full rounded-xl bg-background-charcoal border border-border px-4 py-3 text-base text-foreground focus:outline-none focus:border-accent-blue focus:ring-1 focus:ring-accent-blue/30 transition-all duration-200 cursor-pointer"
           >
             {PROJECT_TYPES.map((type) => (
               <option key={type} value={type} className="bg-background-card text-foreground">
@@ -197,23 +195,23 @@ export const ContactForm: React.FC = () => {
 
       {/* Project Description */}
       <div>
-        <label htmlFor="description" className="block text-xs font-mono uppercase text-foreground-muted mb-2">
+        <label htmlFor="description" className="block text-xs sm:text-sm font-mono uppercase text-foreground-muted mb-2 font-medium">
           Project Description <span className="text-accent-sky">*</span>
         </label>
         <textarea
           id="description"
           name="description"
-          rows={4}
+          rows={5}
           value={formData.description}
           onChange={handleChange}
           placeholder="Briefly describe the product requirements, existing challenges, or what problem you need to solve..."
-          className={`w-full rounded-lg bg-background-charcoal border px-3.5 py-2.5 text-sm text-foreground placeholder:text-foreground-subtle focus:outline-none transition-colors resize-y ${
-            errors.description ? 'border-rose-500/70 focus:border-rose-500' : 'border-border focus:border-accent-blue/80'
+          className={`w-full rounded-xl bg-background-charcoal border px-4 py-3 text-base text-foreground placeholder:text-foreground-subtle focus:outline-none transition-all duration-200 resize-y ${
+            errors.description ? 'border-rose-500/70 focus:border-rose-500' : 'border-border focus:border-accent-blue focus:ring-1 focus:ring-accent-blue/30'
           }`}
         />
         {errors.description && (
-          <p className="mt-1.5 text-xs text-rose-400 flex items-center gap-1 font-mono">
-            <AlertCircle className="w-3 h-3" />
+          <p className="mt-2 text-xs text-rose-400 flex items-center gap-1.5 font-mono">
+            <AlertCircle className="w-3.5 h-3.5" />
             {errors.description}
           </p>
         )}
@@ -221,34 +219,38 @@ export const ContactForm: React.FC = () => {
 
       {/* Transparent Authenticity Feedback State */}
       {submissionStatus === 'direct-mailto-ready' && (
-        <div className="p-4 rounded-xl bg-accent-blue/10 border border-accent-blue/30 text-xs text-foreground space-y-2 font-mono">
+        <motion.div 
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="p-5 rounded-2xl bg-accent-blue/10 border border-accent-blue/40 text-xs sm:text-sm text-foreground space-y-2 font-mono"
+        >
           <div className="flex items-center gap-2 text-accent-sky font-semibold">
             <CheckCircle className="w-4 h-4" />
-            <span>Ready for Direct Dispatch</span>
+            <span>Ready for Direct Transmission</span>
           </div>
           <p className="text-foreground-muted leading-relaxed">
-            Your inquiry parameters have been validated. Your default email client was opened to transmit this directly to <span className="text-foreground font-medium">{COMPANY_EMAIL}</span>.
+            Your inquiry has been verified. Your default mail client was triggered to send this directly to <span className="text-foreground font-semibold">{COMPANY_EMAIL}</span>.
           </p>
           <p className="text-foreground-subtle">
-            If your email application did not launch automatically, you can email us directly at <a href={`mailto:${COMPANY_EMAIL}`} className="text-accent-sky underline">{COMPANY_EMAIL}</a> with your project details.
+            If your email application did not launch automatically, you can email us directly at <a href={`mailto:${COMPANY_EMAIL}`} className="text-accent-sky underline">{COMPANY_EMAIL}</a> with your project requirements.
           </p>
-        </div>
+        </motion.div>
       )}
 
       {/* Submit Button */}
-      <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+      <div className="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-5">
         <Button
           type="submit"
           variant="primary"
-          size="md"
+          size="lg"
           disabled={isSubmitting}
           icon={<Send className="w-4 h-4" />}
-          className="justify-center sm:w-auto"
+          className="justify-center sm:w-auto text-base px-8 py-3.5"
         >
           {isSubmitting ? 'Validating...' : 'Send Project Inquiry'}
         </Button>
 
-        <span className="text-xs font-mono text-foreground-subtle text-center sm:text-right">
+        <span className="text-xs sm:text-sm font-mono text-foreground-subtle text-center sm:text-right">
           Direct email route: {COMPANY_EMAIL}
         </span>
       </div>

@@ -12,33 +12,33 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="border-t border-border/60 bg-background-charcoal/50 py-16 sm:py-20">
+    <footer className="border-t border-border/70 bg-background-charcoal/50 py-20 sm:py-24">
       <Container>
-        <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-12 pb-14 border-b border-border/50">
+        <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-12 pb-16 border-b border-border/60">
           
           {/* Brand & Tagline */}
-          <div className="max-w-sm">
+          <div className="max-w-md">
             <VaeltrumLogo size="md" />
-            <p className="mt-4 text-sm text-foreground-muted leading-relaxed font-normal">
+            <p className="mt-5 text-base sm:text-lg text-foreground-muted leading-relaxed font-normal">
               {COMPANY_TAGLINE}
             </p>
-            <p className="mt-2 text-xs text-foreground-subtle leading-relaxed">
+            <p className="mt-3 text-xs sm:text-sm text-foreground-subtle leading-relaxed">
               Independent software engineering company focused on SaaS products, enterprise platforms, and custom digital solutions.
             </p>
           </div>
 
           {/* Navigation Links */}
-          <div className="flex flex-col sm:flex-row gap-10 sm:gap-16">
+          <div className="flex flex-col sm:flex-row gap-12 sm:gap-20">
             <div>
-              <span className="text-[11px] font-mono tracking-widest uppercase text-foreground-subtle block mb-4">
+              <span className="text-xs font-mono tracking-widest uppercase text-foreground-subtle block mb-5 font-medium">
                 Navigation
               </span>
-              <ul className="space-y-2.5">
+              <ul className="space-y-3">
                 {NAV_LINKS.map((link) => (
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="text-xs text-foreground-muted hover:text-foreground transition-colors"
+                      className="text-sm text-foreground-muted hover:text-foreground transition-colors cursor-pointer"
                     >
                       {link.label}
                     </a>
@@ -48,19 +48,19 @@ export const Footer: React.FC = () => {
             </div>
 
             <div>
-              <span className="text-[11px] font-mono tracking-widest uppercase text-foreground-subtle block mb-4">
+              <span className="text-xs font-mono tracking-widest uppercase text-foreground-subtle block mb-5 font-medium">
                 Inquiries
               </span>
-              <ul className="space-y-2.5">
+              <ul className="space-y-3">
                 <li>
                   <a
                     href={`mailto:${COMPANY_EMAIL}`}
-                    className="text-xs text-foreground-muted hover:text-accent-sky transition-colors font-mono"
+                    className="text-sm text-foreground-muted hover:text-accent-sky transition-colors font-mono"
                   >
                     {COMPANY_EMAIL}
                   </a>
                 </li>
-                <li className="text-xs text-foreground-subtle">
+                <li className="text-sm text-foreground-subtle">
                   Custom Engineering &amp; SaaS
                 </li>
               </ul>
@@ -70,7 +70,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Bar: Dynamic Copyright & Back-to-Top */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-foreground-subtle">
+        <div className="pt-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm font-mono text-foreground-subtle">
           <div>
             &copy; {currentYear} VAELTRUM. All rights reserved.
           </div>
@@ -79,11 +79,11 @@ export const Footer: React.FC = () => {
             <span>Built with intention.</span>
             <button
               onClick={scrollToTop}
-              className="flex items-center gap-1.5 text-foreground-muted hover:text-foreground transition-colors group cursor-pointer"
+              className="flex items-center gap-2 text-foreground-muted hover:text-foreground transition-colors group cursor-pointer"
               aria-label="Back to top of page"
             >
               <span>Back to top</span>
-              <ArrowUp className="w-3.5 h-3.5 transition-transform group-hover:-translate-y-0.5" />
+              <ArrowUp className="w-4 h-4 transition-transform group-hover:-translate-y-0.5" />
             </button>
           </div>
         </div>
