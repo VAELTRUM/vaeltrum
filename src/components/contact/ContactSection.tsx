@@ -2,15 +2,131 @@ import React from 'react';
 import { Container } from '../ui/Container';
 import { SectionHeading } from '../ui/SectionHeading';
 import { ContactForm } from './ContactForm';
-import { Button } from '../ui/Button';
 import { COMPANY_EMAIL } from '../../data/content';
-import { Mail, MessageSquare, ShieldCheck } from 'lucide-react';
+import { Mail, MessageSquare, ShieldCheck, Zap, Layers, Server } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export const ContactSection: React.FC = () => {
   return (
-    <section id="contact" className="relative py-28 sm:py-36 border-t border-border/40">
+    <section id="contact" className="relative py-28 sm:py-36 border-t border-white/10 bg-[#0A091C] overflow-hidden">
+      {/* Background ambient aurora glow */}
+      <div 
+        className="absolute bottom-0 right-1/4 w-[600px] h-[500px] bg-gradient-to-tr from-[#FF7A59]/15 via-[#A855F7]/20 to-[#06B6D4]/15 rounded-full blur-[140px] pointer-events-none -z-10" 
+        aria-hidden="true" 
+      />
+
       <Container>
+        {/* Engagement Models Row (Inspired by bottom cards in reference screenshot) */}
+        <div className="mb-20">
+          <SectionHeading
+            label="ENGAGEMENT SCOPE"
+            title="Ready to start?"
+            description="Whether you need early architecture validation, a rapid MVP build, or an enterprise scale platform, we engineer for longevity."
+            align="center"
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto pt-6">
+            
+            {/* Card 1: Rapid MVP / Concept (Left with offset cyan backing card) */}
+            <div className="relative group">
+              <div 
+                className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-[#06B6D4] to-[#3B82F6] opacity-60 blur-md group-hover:opacity-100 transition-opacity duration-300 -z-10" 
+                aria-hidden="true"
+              />
+              <motion.div 
+                className="relative rounded-2xl bg-[#131130] border border-white/15 p-7 flex flex-col justify-between h-full backdrop-blur-xl shadow-xl"
+                whileHover={{ y: -6 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div>
+                  <div className="w-10 h-10 rounded-xl bg-cyan-500/20 text-cyan-300 flex items-center justify-center mb-4 border border-cyan-400/30">
+                    <Zap className="w-5 h-5" />
+                  </div>
+                  <div className="text-xs font-mono text-cyan-300 uppercase tracking-wider mb-1 font-semibold">
+                    DISCIPLINE 01
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-2 font-display">
+                    Rapid MVP
+                  </h3>
+                  <p className="text-xs sm:text-sm text-foreground-muted leading-relaxed mb-6">
+                    Core problem validation, responsive frontend, clean database schema, and live deployment.
+                  </p>
+                </div>
+
+                <div className="pt-4 border-t border-white/10 text-xs font-mono text-white/80">
+                  Target: 4 - 8 Weeks
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Card 2: Full SaaS Platform (Center Featured with offset purple backing card) */}
+            <div className="relative group">
+              <div 
+                className="absolute -inset-1.5 rounded-3xl bg-gradient-to-r from-[#FF7A59] via-[#FA709A] to-[#8B5CF6] opacity-80 blur-lg group-hover:opacity-100 transition-opacity duration-300 -z-10" 
+                aria-hidden="true"
+              />
+              <motion.div 
+                className="relative rounded-2xl bg-[#17143B] border border-purple-400/40 p-7 flex flex-col justify-between h-full backdrop-blur-xl shadow-2xl"
+                whileHover={{ y: -8 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div>
+                  <div className="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-300 flex items-center justify-center mb-4 border border-purple-400/30">
+                    <Layers className="w-5 h-5" />
+                  </div>
+                  <div className="text-xs font-mono text-purple-200 uppercase tracking-wider mb-1 font-semibold">
+                    DISCIPLINE 02 • POPULAR
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-2 font-display">
+                    Full SaaS Product
+                  </h3>
+                  <p className="text-xs sm:text-sm text-foreground-muted leading-relaxed mb-6">
+                    Multi-tenant architecture, billing integration, authentication, RBAC, and automated testing pipelines.
+                  </p>
+                </div>
+
+                <div className="pt-4 border-t border-white/10 text-xs font-mono text-white/90">
+                  Target: 8 - 16 Weeks
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Card 3: Enterprise Platform (Right with offset dark blue backing card) */}
+            <div className="relative group">
+              <div 
+                className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-[#6366F1] to-[#8B5CF6] opacity-60 blur-md group-hover:opacity-100 transition-opacity duration-300 -z-10" 
+                aria-hidden="true"
+              />
+              <motion.div 
+                className="relative rounded-2xl bg-[#131130] border border-white/15 p-7 flex flex-col justify-between h-full backdrop-blur-xl shadow-xl"
+                whileHover={{ y: -6 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div>
+                  <div className="w-10 h-10 rounded-xl bg-indigo-500/20 text-indigo-300 flex items-center justify-center mb-4 border border-indigo-400/30">
+                    <Server className="w-5 h-5" />
+                  </div>
+                  <div className="text-xs font-mono text-indigo-300 uppercase tracking-wider mb-1 font-semibold">
+                    DISCIPLINE 03
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-2 font-display">
+                    Enterprise Platform
+                  </h3>
+                  <p className="text-xs sm:text-sm text-foreground-muted leading-relaxed mb-6">
+                    Complex workflow automation, institutional ERP portals, high concurrency, and data migration.
+                  </p>
+                </div>
+
+                <div className="pt-4 border-t border-white/10 text-xs font-mono text-white/80">
+                  Target: Custom Scope
+                </div>
+              </motion.div>
+            </div>
+
+          </div>
+        </div>
+
+        {/* Main Contact Form & Channels Split */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
           {/* Left Column: Direct Call-To-Action Narrative (5 cols) */}
@@ -26,19 +142,19 @@ export const ContactSection: React.FC = () => {
               {/* Direct Communication Channels */}
               <div className="space-y-5 mb-10">
                 <motion.div 
-                  className="p-5 rounded-2xl bg-background-card border border-border/80 flex items-start gap-4 shadow-sm"
+                  className="p-5 rounded-2xl bg-[#141235]/90 border border-white/15 flex items-start gap-4 shadow-sm backdrop-blur-xl"
                   whileHover={{ x: 4, transition: { duration: 0.2 } }}
                 >
-                  <div className="p-3 rounded-xl bg-background-charcoal border border-border text-accent-sky">
+                  <div className="p-3 rounded-xl bg-white/[0.08] border border-white/15 text-accent-sky">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="text-xs font-mono text-foreground-subtle uppercase tracking-wider mb-1 font-medium">
+                    <div className="text-xs font-mono text-white/50 uppercase tracking-wider mb-1 font-medium">
                       Direct Inquiries
                     </div>
                     <a 
                       href={`mailto:${COMPANY_EMAIL}`}
-                      className="text-base font-semibold text-foreground hover:text-accent-sky transition-colors font-mono"
+                      className="text-base font-semibold text-white hover:text-accent-sky transition-colors font-mono"
                     >
                       {COMPANY_EMAIL}
                     </a>
@@ -46,14 +162,14 @@ export const ContactSection: React.FC = () => {
                 </motion.div>
 
                 <motion.div 
-                  className="p-5 rounded-2xl bg-background-card border border-border/80 flex items-start gap-4 shadow-sm"
+                  className="p-5 rounded-2xl bg-[#141235]/90 border border-white/15 flex items-start gap-4 shadow-sm backdrop-blur-xl"
                   whileHover={{ x: 4, transition: { duration: 0.2 } }}
                 >
-                  <div className="p-3 rounded-xl bg-background-charcoal border border-border text-accent-sky">
+                  <div className="p-3 rounded-xl bg-white/[0.08] border border-white/15 text-accent-sky">
                     <MessageSquare className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="text-xs font-mono text-foreground-subtle uppercase tracking-wider mb-1 font-medium">
+                    <div className="text-xs font-mono text-white/50 uppercase tracking-wider mb-1 font-medium">
                       Consultation
                     </div>
                     <p className="text-sm text-foreground-muted leading-relaxed">
@@ -63,22 +179,20 @@ export const ContactSection: React.FC = () => {
                 </motion.div>
               </div>
 
-              {/* Quick Action Buttons */}
+              {/* Quick Action Button */}
               <div className="flex flex-wrap items-center gap-4">
-                <Button
+                <a
                   href={`mailto:${COMPANY_EMAIL}?subject=${encodeURIComponent('[Project Inquiry] Discussion Request')}`}
-                  variant="secondary"
-                  size="lg"
-                  icon={<Mail className="w-4 h-4" />}
-                  className="text-base px-7 py-3.5"
+                  className="inline-flex items-center justify-center font-medium text-base px-7 py-3.5 rounded-2xl bg-white/[0.06] hover:bg-white/[0.12] text-white border border-white/15 backdrop-blur-xl transition-all duration-200 gap-2.5 shadow-sm"
                 >
-                  Email Us Directly
-                </Button>
+                  <Mail className="w-4 h-4 text-accent-sky" />
+                  <span>Email Us Directly</span>
+                </a>
               </div>
             </div>
 
             {/* Authenticity Guarantee Note */}
-            <div className="mt-12 pt-7 border-t border-border/50 flex items-center gap-3 text-xs sm:text-sm font-mono text-foreground-subtle">
+            <div className="mt-12 pt-7 border-t border-white/10 flex items-center gap-3 text-xs sm:text-sm font-mono text-white/60">
               <ShieldCheck className="w-5 h-5 text-accent-sky shrink-0" />
               <span>Direct correspondence. No marketing automation loops.</span>
             </div>
@@ -86,17 +200,17 @@ export const ContactSection: React.FC = () => {
 
           {/* Right Column: Functional Contact Form (7 cols) */}
           <div className="lg:col-span-7">
-            <div className="p-7 sm:p-12 rounded-3xl bg-background-card border border-border/90 shadow-[0_16px_50px_rgba(0,0,0,0.4)]">
-              <div className="flex items-center justify-between pb-7 border-b border-border/70 mb-8">
+            <div className="p-7 sm:p-12 rounded-3xl bg-[#141235]/95 border border-white/15 shadow-[0_20px_60px_rgba(7,5,22,0.8)] backdrop-blur-2xl">
+              <div className="flex items-center justify-between pb-7 border-b border-white/10 mb-8">
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-medium text-foreground font-display">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white font-display">
                     Project Inquiry
                   </h3>
                   <p className="text-sm text-foreground-muted mt-1">
                     Share your requirements to explore architecture and delivery options.
                   </p>
                 </div>
-                <span className="text-xs font-mono text-accent-sky bg-accent-blue/10 px-3 py-1.5 rounded-lg border border-accent-blue/25 font-medium">
+                <span className="text-xs font-mono text-accent-sky bg-accent-sky/10 px-3 py-1.5 rounded-full border border-accent-sky/30 font-semibold">
                   CONFIDENTIAL
                 </span>
               </div>

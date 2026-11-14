@@ -16,7 +16,7 @@ export const AlumniPortalMockup: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'dashboard' | 'directory' | 'announcements'>('dashboard');
 
   return (
-    <div className="w-full rounded-2xl bg-[#0C0D11] border border-border/90 shadow-[0_24px_70px_rgba(0,0,0,0.65)] overflow-hidden text-left font-sans transition-all duration-300">
+    <div className="w-full rounded-2xl bg-[#0C0D11] border border-border shadow-[0_20px_50px_rgba(0,0,0,0.18)] dark:shadow-[0_24px_70px_rgba(0,0,0,0.65)] overflow-hidden text-left font-sans transition-all duration-300">
       
       {/* OS / Browser Chrome Header */}
       <div className="px-5 py-3.5 bg-[#13151A] border-b border-border/70 flex items-center justify-between">

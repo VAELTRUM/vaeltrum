@@ -44,29 +44,29 @@ export const VaeltrumLogo: React.FC<VaeltrumLogoProps> = ({
             width="34"
             height="34"
             rx="8"
-            className="stroke-border/60 group-hover:stroke-border transition-colors duration-300"
+            className="stroke-border/70 group-hover:stroke-border transition-colors duration-300"
             strokeWidth="1"
           />
 
           {/* Left engineered wing of the 'V' */}
           <path
             d="M8 10L18 28L15 28L6 10H8Z"
-            fill="#F7F7F5"
-            className="transition-colors duration-300"
+            fill="currentColor"
+            className="text-foreground transition-colors duration-300"
           />
 
           {/* Right engineered wing */}
           <path
             d="M28 10L18 28L21 28L30 10H28Z"
-            fill="#C5C8D1"
-            className="transition-colors duration-300"
+            fill="currentColor"
+            className="text-foreground-muted transition-colors duration-300"
           />
 
           {/* Central geometric convergence point / core node */}
           <path
             d="M18 13L22 20H14L18 13Z"
-            fill="#3B82F6"
-            className="opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+            fill="var(--accent-blue)"
+            className="opacity-95 group-hover:opacity-100 transition-opacity duration-300"
           />
 
           {/* Horizontal stabilizer beam */}
@@ -75,10 +75,10 @@ export const VaeltrumLogo: React.FC<VaeltrumLogoProps> = ({
             y1="16"
             x2="25"
             y2="16"
-            stroke="#60A5FA"
+            stroke="var(--accent-sky)"
             strokeWidth="1.2"
             strokeLinecap="round"
-            className="opacity-60 group-hover:opacity-100 transition-opacity duration-300"
+            className="opacity-70 group-hover:opacity-100 transition-opacity duration-300"
           />
         </svg>
       </div>
@@ -89,7 +89,7 @@ export const VaeltrumLogo: React.FC<VaeltrumLogoProps> = ({
           <span className={`font-semibold font-display text-foreground leading-none ${textSizes[size]}`}>
             VAELTRUM
           </span>
-          <span className="text-[9px] font-mono tracking-widest text-foreground-muted/70 uppercase mt-1">
+          <span className="text-[9px] font-mono tracking-widest text-foreground-muted uppercase mt-1">
             Engineering
           </span>
         </div>

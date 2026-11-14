@@ -2,11 +2,17 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Container } from '../ui/Container';
 import { SectionHeading } from '../ui/SectionHeading';
-import { ShieldCheck, Code } from 'lucide-react';
+import { ShieldCheck, Code, Sparkles, Layers } from 'lucide-react';
 
 export const AboutSection: React.FC = () => {
   return (
-    <section id="about" className="relative py-28 sm:py-36 border-t border-border/40 bg-background-charcoal/20 overflow-hidden">
+    <section id="about" className="relative py-28 sm:py-36 border-t border-white/10 bg-[#0B0A1E] overflow-hidden">
+      {/* Background ambient lighting */}
+      <div 
+        className="absolute top-1/3 -right-20 w-[550px] h-[550px] bg-gradient-to-tr from-[#FF7A59]/15 via-[#8B5CF6]/20 to-transparent rounded-full blur-[140px] pointer-events-none -z-10" 
+        aria-hidden="true" 
+      />
+
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
@@ -19,7 +25,7 @@ export const AboutSection: React.FC = () => {
             />
 
             <div className="space-y-7 text-lg sm:text-xl md:text-2xl text-foreground-muted leading-relaxed font-normal">
-              <p className="text-foreground/95 font-medium">
+              <p className="text-white font-medium">
                 Vaeltrum is built around a simple belief: useful technology begins with a well-understood problem.
               </p>
               <p>
@@ -31,13 +37,15 @@ export const AboutSection: React.FC = () => {
             </div>
 
             {/* Core Values / Engineering Tenets with Hover Motion */}
-            <div className="mt-12 pt-8 border-t border-border/60 grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div className="mt-12 pt-8 border-t border-white/10 grid grid-cols-1 sm:grid-cols-2 gap-5">
               <motion.div 
-                className="p-5 rounded-xl bg-background-card/70 border border-border/60 hover:border-accent-blue/40 transition-colors shadow-sm"
+                className="p-6 rounded-2xl bg-[#141235]/90 border border-white/15 hover:border-purple-400/50 transition-colors shadow-lg backdrop-blur-xl"
                 whileHover={{ y: -4, transition: { duration: 0.2 } }}
               >
-                <div className="flex items-center gap-2.5 text-foreground text-base font-semibold mb-1.5 font-display">
-                  <Code className="w-5 h-5 text-accent-sky" />
+                <div className="flex items-center gap-2.5 text-white text-base font-bold mb-2 font-display">
+                  <div className="w-8 h-8 rounded-lg bg-purple-500/20 text-purple-300 flex items-center justify-center">
+                    <Code className="w-4 h-4" />
+                  </div>
                   <span>Production Craft</span>
                 </div>
                 <p className="text-xs sm:text-sm text-foreground-muted leading-relaxed">
@@ -46,11 +54,13 @@ export const AboutSection: React.FC = () => {
               </motion.div>
 
               <motion.div 
-                className="p-5 rounded-xl bg-background-card/70 border border-border/60 hover:border-accent-blue/40 transition-colors shadow-sm"
+                className="p-6 rounded-2xl bg-[#141235]/90 border border-white/15 hover:border-cyan-400/50 transition-colors shadow-lg backdrop-blur-xl"
                 whileHover={{ y: -4, transition: { duration: 0.2 } }}
               >
-                <div className="flex items-center gap-2.5 text-foreground text-base font-semibold mb-1.5 font-display">
-                  <ShieldCheck className="w-5 h-5 text-accent-sky" />
+                <div className="flex items-center gap-2.5 text-white text-base font-bold mb-2 font-display">
+                  <div className="w-8 h-8 rounded-lg bg-cyan-500/20 text-cyan-300 flex items-center justify-center">
+                    <ShieldCheck className="w-4 h-4" />
+                  </div>
                   <span>Honest Engineering</span>
                 </div>
                 <p className="text-xs sm:text-sm text-foreground-muted leading-relaxed">
@@ -68,19 +78,21 @@ export const AboutSection: React.FC = () => {
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="relative p-8 sm:p-10 rounded-3xl bg-background-card border border-border/90 shadow-[0_16px_50px_rgba(0,0,0,0.45)] overflow-hidden">
-              
-              {/* Background blueprint grid */}
-              <div className="absolute inset-0 bg-grid-subtle opacity-45 pointer-events-none" />
+            {/* Offset glowing background card */}
+            <div 
+              className="absolute -inset-2 rounded-3xl bg-gradient-to-r from-[#A855F7]/30 via-[#38BDF8]/30 to-[#FF7A59]/30 blur-xl opacity-60 -z-10"
+              aria-hidden="true" 
+            />
 
+            <div className="relative p-8 sm:p-10 rounded-3xl bg-[#131132]/95 border border-white/20 shadow-2xl overflow-hidden backdrop-blur-2xl">
               <div className="relative z-10 space-y-6">
                 
                 {/* Visual Architectural Hierarchy Card */}
-                <div className="p-5 rounded-2xl bg-background-charcoal border border-border/70 shadow-sm">
-                  <div className="text-xs font-mono text-accent-sky uppercase tracking-wider mb-2 font-medium">
+                <div className="p-5 rounded-2xl bg-gradient-to-br from-[#1C1844] to-[#151336] border border-white/15 shadow-inner">
+                  <div className="text-xs font-mono text-cyan-300 uppercase tracking-wider mb-2 font-semibold">
                     System Paradigm
                   </div>
-                  <div className="text-base font-semibold text-foreground mb-1 font-display">
+                  <div className="text-lg font-bold text-white mb-1 font-display">
                     Problem-Centric Architecture
                   </div>
                   <div className="text-xs sm:text-sm text-foreground-muted">
@@ -89,43 +101,43 @@ export const AboutSection: React.FC = () => {
                 </div>
 
                 {/* Isometric Layer Representation with interactive hover */}
-                <div className="space-y-2.5 font-mono text-xs sm:text-sm">
+                <div className="space-y-3 font-mono text-xs sm:text-sm">
                   <motion.div 
-                    className="p-4 rounded-xl bg-[#141720] border border-accent-blue/40 flex items-center justify-between text-foreground shadow-sm"
+                    className="p-4 rounded-2xl bg-gradient-to-r from-purple-500/15 to-indigo-500/10 border border-purple-400/30 flex items-center justify-between text-white shadow-sm"
                     whileHover={{ x: 6, transition: { duration: 0.2 } }}
                   >
-                    <span className="flex items-center gap-2.5">
-                      <span className="w-2.5 h-2.5 rounded-full bg-accent-sky" />
+                    <span className="flex items-center gap-2.5 font-medium">
+                      <span className="w-2.5 h-2.5 rounded-full bg-purple-400 animate-pulse" />
                       Product &amp; Domain Model
                     </span>
-                    <span className="text-xs text-foreground-subtle font-medium">LAYER 03</span>
+                    <span className="text-xs text-purple-300 font-semibold">LAYER 03</span>
                   </motion.div>
 
                   <motion.div 
-                    className="p-4 rounded-xl bg-[#111319] border border-border/70 flex items-center justify-between text-foreground-muted"
+                    className="p-4 rounded-2xl bg-gradient-to-r from-cyan-500/15 to-blue-500/10 border border-cyan-400/30 flex items-center justify-between text-white shadow-sm"
                     whileHover={{ x: 6, transition: { duration: 0.2 } }}
                   >
-                    <span className="flex items-center gap-2.5">
-                      <span className="w-2.5 h-2.5 rounded-full bg-border-focus" />
+                    <span className="flex items-center gap-2.5 font-medium">
+                      <span className="w-2.5 h-2.5 rounded-full bg-cyan-400" />
                       Core API &amp; Business Logic
                     </span>
-                    <span className="text-xs text-foreground-subtle font-medium">LAYER 02</span>
+                    <span className="text-xs text-cyan-300 font-semibold">LAYER 02</span>
                   </motion.div>
 
                   <motion.div 
-                    className="p-4 rounded-xl bg-[#0E1015] border border-border/50 flex items-center justify-between text-foreground-subtle"
+                    className="p-4 rounded-2xl bg-gradient-to-r from-emerald-500/15 to-teal-500/10 border border-emerald-400/30 flex items-center justify-between text-white shadow-sm"
                     whileHover={{ x: 6, transition: { duration: 0.2 } }}
                   >
-                    <span className="flex items-center gap-2.5">
-                      <span className="w-2.5 h-2.5 rounded-full bg-border" />
+                    <span className="flex items-center gap-2.5 font-medium">
+                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
                       Data Schema &amp; Infrastructure
                     </span>
-                    <span className="text-xs text-foreground-subtle font-medium">LAYER 01</span>
+                    <span className="text-xs text-emerald-300 font-semibold">LAYER 01</span>
                   </motion.div>
                 </div>
 
                 {/* Visual Telemetry */}
-                <div className="pt-5 border-t border-border/50 flex items-center justify-between text-xs font-mono text-foreground-subtle font-medium">
+                <div className="pt-5 border-t border-white/10 flex items-center justify-between text-xs font-mono text-white/50 font-medium">
                   <span>VAELTRUM // SPECIFICATION</span>
                   <span className="text-emerald-400">STABLE SPEC</span>
                 </div>

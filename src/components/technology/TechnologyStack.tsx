@@ -1,13 +1,25 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Container } from '../ui/Container';
 import { SectionHeading } from '../ui/SectionHeading';
 import { TECH_CATEGORIES } from '../../data/content';
-import { Terminal } from 'lucide-react';
+import { Terminal, Cpu, Database, Globe } from 'lucide-react';
+
+const categoryGradients = [
+  'from-[#38BDF8] to-[#818CF8]',
+  'from-[#A855F7] to-[#EC4899]',
+  'from-[#FF7A59] to-[#F59E0B]'
+];
 
 export const TechnologyStack: React.FC = () => {
   return (
-    <section className="relative py-28 sm:py-36 border-t border-border/40 bg-background-charcoal/30">
+    <section className="relative py-28 sm:py-36 border-t border-white/10 bg-[#0B0920] overflow-hidden">
+      {/* Subtle ambient lighting */}
+      <div 
+        className="absolute bottom-10 left-1/3 w-[500px] h-[500px] bg-[#A855F7]/10 rounded-full blur-[140px] pointer-events-none -z-10" 
+        aria-hidden="true" 
+      />
+
       <Container>
         <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-6">
           <SectionHeading
@@ -17,8 +29,8 @@ export const TechnologyStack: React.FC = () => {
             className="mb-0"
           />
 
-          <div className="flex items-center gap-2.5 text-xs font-mono text-foreground-subtle self-end pb-3">
-            <Terminal className="w-4 h-4 text-accent-sky" />
+          <div className="flex items-center gap-2.5 text-xs font-mono text-accent-sky self-end pb-3">
+            <Terminal className="w-4 h-4" />
             <span>DEPENDABLE OPEN STACK</span>
           </div>
         </div>
@@ -28,7 +40,7 @@ export const TechnologyStack: React.FC = () => {
           {TECH_CATEGORIES.map((cat, idx) => (
             <motion.div
               key={cat.category}
-              className="p-8 sm:p-9 rounded-2xl bg-background-card border border-border/80 flex flex-col justify-between shadow-sm hover:shadow-[0_12px_36px_rgba(0,0,0,0.35)] transition-all duration-300 hover:border-border-focus"
+              className="p-8 sm:p-9 rounded-3xl bg-[#131132]/90 border border-white/15 flex flex-col justify-between shadow-xl backdrop-blur-xl hover:border-white/25 transition-all duration-300"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
@@ -36,11 +48,11 @@ export const TechnologyStack: React.FC = () => {
               whileHover={{ y: -6, transition: { duration: 0.25 } }}
             >
               <div>
-                <div className="flex items-center justify-between pb-5 border-b border-border/60 mb-7">
-                  <h3 className="text-sm sm:text-base font-mono uppercase tracking-widest text-accent-sky font-semibold">
+                <div className="flex items-center justify-between pb-5 border-b border-white/10 mb-7">
+                  <h3 className={`text-base font-mono uppercase tracking-widest bg-gradient-to-r ${categoryGradients[idx]} bg-clip-text text-transparent font-bold`}>
                     {cat.category}
                   </h3>
-                  <span className="text-xs sm:text-sm font-mono text-foreground-subtle font-medium">
+                  <span className="text-xs sm:text-sm font-mono text-white/50 font-semibold px-2.5 py-1 rounded-full bg-white/[0.06]">
                     0{idx + 1}
                   </span>
                 </div>
@@ -49,14 +61,14 @@ export const TechnologyStack: React.FC = () => {
                   {cat.technologies.map((tech) => (
                     <motion.div 
                       key={tech.name} 
-                      className="p-4 rounded-xl bg-background-charcoal/70 border border-border/50 hover:border-accent-blue/40 transition-colors group cursor-default"
+                      className="p-4 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-accent-sky/50 hover:bg-white/[0.07] transition-all group cursor-default shadow-sm"
                       whileHover={{ x: 4, transition: { duration: 0.15 } }}
                     >
                       <div className="flex items-center justify-between mb-1.5">
-                        <span className="text-base font-semibold font-mono text-foreground group-hover:text-accent-sky transition-colors">
+                        <span className="text-base font-semibold font-mono text-white group-hover:text-accent-sky transition-colors">
                           {tech.name}
                         </span>
-                        <span className="w-2 h-2 rounded-full bg-border group-hover:bg-accent-blue transition-colors" />
+                        <span className="w-2 h-2 rounded-full bg-accent-sky group-hover:animate-ping transition-colors" />
                       </div>
                       <p className="text-xs sm:text-sm text-foreground-muted leading-relaxed font-normal">
                         {tech.description}
@@ -66,9 +78,9 @@ export const TechnologyStack: React.FC = () => {
                 </div>
               </div>
 
-              <div className="pt-6 mt-8 border-t border-border/50 text-xs font-mono text-foreground-subtle flex items-center justify-between font-medium">
+              <div className="pt-6 mt-8 border-t border-white/10 text-xs font-mono text-white/50 flex items-center justify-between font-medium">
                 <span>STABILITY VERIFIED</span>
-                <span className="text-accent-sky/80">PRODUCTION READY</span>
+                <span className="text-accent-sky font-semibold">PRODUCTION READY</span>
               </div>
             </motion.div>
           ))}

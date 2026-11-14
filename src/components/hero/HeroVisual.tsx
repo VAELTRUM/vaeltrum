@@ -1,19 +1,51 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
+import { useTheme } from '../../context/ThemeContext';
 
 export const HeroVisual: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isSupported, setIsSupported] = useState(true);
+  const { theme } = useTheme();
+
+  // Refs to update Three.js scene dynamically without re-initializing renderer
+  const materialsRef = useRef<{
+    coreWire?: THREE.MeshBasicMaterial;
+    coreInner?: THREE.MeshStandardMaterial;
+    centerMesh?: THREE.MeshStandardMaterial;
+    gridHelper?: THREE.GridHelper;
+    ring1?: THREE.MeshBasicMaterial;
+    ring2?: THREE.MeshBasicMaterial;
+  }>({});
+
+  useEffect(() => {
+    const isDark = theme === 'dark';
+    const m = materialsRef.current;
+    if (m.coreWire) {
+      m.coreWire.color.setHex(isDark ? 0x3b82f6 : 0x2563eb);
+      m.coreWire.opacity = isDark ? 0.35 : 0.45;
+    }
+    if (m.coreInner) {
+      m.coreInner.color.setHex(isDark ? 0x111318 : 0xebedf0);
+      m.coreInner.opacity = isDark ? 0.7 : 0.85;
+    }
+    if (m.centerMesh) {
+      m.centerMesh.color.setHex(isDark ? 0x60a5fa : 0x1d4ed8);
+    }
+    if (m.ring1) {
+      m.ring1.color.setHex(isDark ? 0x85868c : 0x64748b);
+    }
+    if (m.ring2) {
+      m.ring2.color.setHex(isDark ? 0x3b82f6 : 0x2563eb);
+    }
+  }, [theme]);
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
-    // Check prefers-reduced-motion
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     const reduceMotion = mediaQuery.matches;
 
-    // Scene setup
     let renderer: THREE.WebGLRenderer;
     try {
       renderer = new THREE.WebGLRenderer({
@@ -40,6 +72,8 @@ export const HeroVisual: React.FC = () => {
     renderer.setClearColor(0x000000, 0);
     container.appendChild(renderer.domElement);
 
+    const isDark = theme === 'dark';
+
     // Group for all rotating elements
     const rootGroup = new THREE.Group();
     scene.add(rootGroup);
@@ -47,10 +81,10 @@ export const HeroVisual: React.FC = () => {
     // 1. Central Architectural Monolith / Geometric Crystal Structure
     const geomCore = new THREE.IcosahedronGeometry(2.1, 0);
     const matCoreWire = new THREE.MeshBasicMaterial({
-      color: 0x3b82f6,
+      color: isDark ? 0x3b82f6 : 0x2563eb,
       wireframe: true,
       transparent: true,
-      opacity: 0.35,
+      opacity: isDark ? 0.35 : 0.45,
     });
     const coreWire = new THREE.Mesh(geomCore, matCoreWire);
     rootGroup.add(coreWire);
@@ -58,11 +92,11 @@ export const HeroVisual: React.FC = () => {
     // Inner translucent facets with subtle metallic reflections
     const geomInner = new THREE.IcosahedronGeometry(2.05, 0);
     const matInner = new THREE.MeshStandardMaterial({
-      color: 0x111318,
+      color: isDark ? 0x111318 : 0xebedf0,
       metalness: 0.85,
       roughness: 0.25,
       transparent: true,
-      opacity: 0.7,
+      opacity: isDark ? 0.7 : 0.85,
       flatShading: true,
     });
     const coreMesh = new THREE.Mesh(geomInner, matInner);
@@ -71,8 +105,8 @@ export const HeroVisual: React.FC = () => {
     // Inner floating core node
     const geomCenter = new THREE.OctahedronGeometry(0.9, 0);
     const matCenter = new THREE.MeshStandardMaterial({
-      color: 0x60a5fa,
-      emissive: 0x1d4ed8,
+      color: isDark ? 0x60a5fa : 0x1d4ed8,
+      emissive: isDark ? 0x1d4ed8 : 0x2563eb,
       emissiveIntensity: 0.4,
       metalness: 0.9,
       roughness: 0.1,
@@ -81,7 +115,7 @@ export const HeroVisual: React.FC = () => {
     const centerMesh = new THREE.Mesh(geomCenter, matCenter);
     rootGroup.add(centerMesh);
 
-    // 2. Precision orbital rings (like orbital system architecture)
+    // 2. Precision orbital rings
     const ringGroup = new THREE.Group();
     rootGroup.add(ringGroup);
 
@@ -92,17 +126,26 @@ export const HeroVisual: React.FC = () => {
         transparent: true,
         opacity,
       });
-      return new THREE.Mesh(ringGeom, ringMat);
+      return { mesh: new THREE.Mesh(ringGeom, ringMat), mat: ringMat };
     };
 
-    const ring1 = createTechRing(3.2, 0.012, 0x85868c, 0.45);
-    ring1.rotation.x = Math.PI / 3;
-    ringGroup.add(ring1);
+    const ring1Obj = createTechRing(3.2, 0.012, isDark ? 0x85868c : 0x64748b, 0.45);
+    ring1Obj.mesh.rotation.x = Math.PI / 3;
+    ringGroup.add(ring1Obj.mesh);
 
-    const ring2 = createTechRing(3.6, 0.008, 0x3b82f6, 0.4);
-    ring2.rotation.y = Math.PI / 4;
-    ring2.rotation.x = -Math.PI / 6;
-    ringGroup.add(ring2);
+    const ring2Obj = createTechRing(3.6, 0.008, isDark ? 0x3b82f6 : 0x2563eb, 0.4);
+    ring2Obj.mesh.rotation.y = Math.PI / 4;
+    ring2Obj.mesh.rotation.x = -Math.PI / 6;
+    ringGroup.add(ring2Obj.mesh);
+
+    // Store refs for theme switching
+    materialsRef.current = {
+      coreWire: matCoreWire,
+      coreInner: matInner,
+      centerMesh: matCenter,
+      ring1: ring1Obj.mat,
+      ring2: ring2Obj.mat,
+    };
 
     // 3. Coordinate node points
     const pointsCount = 48;
@@ -120,7 +163,7 @@ export const HeroVisual: React.FC = () => {
     const pointsGeom = new THREE.BufferGeometry();
     pointsGeom.setAttribute('position', new THREE.BufferAttribute(positions, 3));
     const pointsMat = new THREE.PointsMaterial({
-      color: 0xc5c8d1,
+      color: 0x94a3b8,
       size: 0.045,
       transparent: true,
       opacity: 0.6,
@@ -129,13 +172,13 @@ export const HeroVisual: React.FC = () => {
     rootGroup.add(pointsMesh);
 
     // Subtle background tech grid lines
-    const gridHelper = new THREE.GridHelper(14, 28, 0x27292e, 0x14161a);
+    const gridHelper = new THREE.GridHelper(14, 28, 0x94a3b8, 0xcbd5e1);
     gridHelper.position.y = -3.2;
     gridHelper.rotation.x = 0.2;
     scene.add(gridHelper);
 
-    // 4. Lighting - sophisticated, directional, restrained
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+    // 4. Lighting
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
     scene.add(ambientLight);
 
     const keyLight = new THREE.DirectionalLight(0x60a5fa, 2.2);
@@ -146,7 +189,7 @@ export const HeroVisual: React.FC = () => {
     rimLight.position.set(-5, -4, -3);
     scene.add(rimLight);
 
-    // Interactive mouse tracking with damping
+    // Interactive mouse tracking
     let mouseX = 0;
     let mouseY = 0;
     let targetX = 0;
@@ -162,7 +205,6 @@ export const HeroVisual: React.FC = () => {
 
     window.addEventListener('mousemove', handleMouseMove);
 
-    // Resize handler
     const handleResize = () => {
       if (!container) return;
       const width = container.clientWidth;
@@ -174,7 +216,6 @@ export const HeroVisual: React.FC = () => {
 
     window.addEventListener('resize', handleResize);
 
-    // Animation Loop
     let animationFrameId: number;
     let clock = new THREE.Clock();
 
@@ -184,15 +225,13 @@ export const HeroVisual: React.FC = () => {
       const delta = clock.getDelta();
 
       if (!reduceMotion) {
-        // Continuous subtle rotation
         rootGroup.rotation.y += delta * 0.12;
         rootGroup.rotation.x += delta * 0.05;
 
-        ring1.rotation.z += delta * 0.08;
-        ring2.rotation.z -= delta * 0.06;
+        ring1Obj.mesh.rotation.z += delta * 0.08;
+        ring2Obj.mesh.rotation.z -= delta * 0.06;
         centerMesh.rotation.y -= delta * 0.2;
 
-        // Smooth mouse following
         mouseX += (targetX - mouseX) * 0.05;
         mouseY += (targetY - mouseY) * 0.05;
 
@@ -250,7 +289,7 @@ export const HeroVisual: React.FC = () => {
       />
 
       {/* Architectural telemetry overlay badge */}
-      <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 z-20 pointer-events-none hidden sm:flex items-center gap-2.5 px-3 py-1.5 rounded border border-border/80 bg-background-charcoal/80 backdrop-blur-md text-[10px] font-mono text-foreground-muted">
+      <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 z-20 pointer-events-none hidden sm:flex items-center gap-2.5 px-3.5 py-1.5 rounded-lg border border-border/80 bg-background-charcoal/80 backdrop-blur-md text-[11px] font-mono text-foreground-muted shadow-sm">
         <span className="w-1.5 h-1.5 rounded-full bg-accent-blue animate-pulse" />
         <span>SYS.RENDER // GEOMETRIC CORE</span>
       </div>

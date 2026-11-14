@@ -27,6 +27,23 @@
     <meta property="twitter:description" content="Independent software engineering company building SaaS products, enterprise platforms, and custom digital solutions." />
     <meta property="twitter:image" content="/og-image.svg" />
 
+    <!-- Prevent Theme FOUC -->
+    <script>
+      (function() {
+        try {
+          var saved = localStorage.getItem('vaeltrum_theme');
+          var isDark = saved ? saved === 'dark' : !window.matchMedia('(prefers-color-scheme: light)').matches;
+          if (isDark) {
+            document.documentElement.classList.add('dark');
+            document.documentElement.classList.remove('light');
+          } else {
+            document.documentElement.classList.remove('dark');
+            document.documentElement.classList.add('light');
+          }
+        } catch(e) {}
+      })();
+    </script>
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

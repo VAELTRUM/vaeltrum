@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { VaeltrumLogo } from '../ui/VaeltrumLogo';
 import { Button } from '../ui/Button';
+import { ThemeToggle } from '../ui/ThemeToggle';
 import { NAV_LINKS } from '../../data/content';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -15,7 +16,6 @@ export const Navbar: React.FC = () => {
       const scrollPos = window.scrollY;
       setIsScrolled(scrollPos > 24);
 
-      // Track active section for indicator
       const sections = ['hero', 'services', 'work', 'approach', 'about', 'contact'];
       for (const section of sections) {
         const el = document.getElementById(section);
@@ -45,7 +45,7 @@ export const Navbar: React.FC = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-background-charcoal/85 backdrop-blur-md border-b border-border/80 shadow-[0_8px_30px_rgb(0,0,0,0.35)] py-4'
+          ? 'bg-background-charcoal/85 backdrop-blur-md border-b border-border/80 shadow-[0_8px_30px_rgba(0,0,0,0.15)] py-4'
           : 'bg-transparent border-b border-transparent py-6 sm:py-7'
       }`}
     >
@@ -54,7 +54,7 @@ export const Navbar: React.FC = () => {
         <VaeltrumLogo size="md" />
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-1.5 lg:gap-2.5 px-3.5 py-1.5 rounded-full border border-border/50 bg-background-card/50 backdrop-blur-md shadow-sm">
+        <nav className="hidden md:flex items-center gap-1.5 lg:gap-2.5 px-3.5 py-1.5 rounded-full border border-border/50 bg-background-card/60 backdrop-blur-md shadow-sm">
           {NAV_LINKS.map((link) => {
             const isActive = activeSection === link.href.replace('#', '');
             return (
@@ -67,8 +67,8 @@ export const Navbar: React.FC = () => {
                 }}
                 className={`relative px-4 py-1.5 text-[13px] font-medium tracking-wide transition-all duration-200 rounded-full cursor-pointer ${
                   isActive
-                    ? 'text-foreground font-semibold bg-white/[0.08]'
-                    : 'text-foreground-muted hover:text-foreground hover:bg-white/[0.04]'
+                    ? 'text-foreground font-semibold bg-foreground/10'
+                    : 'text-foreground-muted hover:text-foreground hover:bg-foreground/[0.04]'
                 }`}
               >
                 {link.label}
@@ -80,8 +80,9 @@ export const Navbar: React.FC = () => {
           })}
         </nav>
 
-        {/* Desktop CTA Button */}
+        {/* Desktop Right Controls: Theme Toggle + CTA Button */}
         <div className="hidden md:flex items-center gap-3">
+          <ThemeToggle />
           <Button
             href="#contact"
             variant="primary"
@@ -93,8 +94,9 @@ export const Navbar: React.FC = () => {
           </Button>
         </div>
 
-        {/* Mobile Hamburger Button */}
+        {/* Mobile Controls */}
         <div className="flex md:hidden items-center gap-2">
+          <ThemeToggle />
           <Button
             href="#contact"
             variant="secondary"
@@ -106,7 +108,7 @@ export const Navbar: React.FC = () => {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2.5 rounded-lg text-foreground-muted hover:text-foreground hover:bg-white/[0.05] focus:outline-none transition-colors border border-border"
+            className="p-2.5 rounded-xl text-foreground-muted hover:text-foreground hover:bg-foreground/[0.05] focus:outline-none transition-colors border border-border/80 bg-background-card"
             aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -132,18 +134,18 @@ export const Navbar: React.FC = () => {
                     e.preventDefault();
                     handleNavClick(link.href);
                   }}
-                  className="px-4 py-3.5 text-base font-medium text-foreground hover:bg-white/[0.05] rounded-xl transition-colors flex items-center justify-between"
+                  className="px-4 py-3.5 text-base font-medium text-foreground hover:bg-foreground/[0.05] rounded-xl transition-colors flex items-center justify-between"
                 >
                   <span>{link.label}</span>
                   <span className="text-foreground-muted text-sm">→</span>
                 </a>
               ))}
-              <div className="pt-5 mt-2 border-t border-border/60">
+              <div className="pt-5 mt-2 border-t border-border/60 flex items-center justify-between gap-3">
                 <Button
                   href="#contact"
                   variant="primary"
                   size="lg"
-                  className="w-full justify-center text-base py-3.5"
+                  className="flex-1 justify-center text-base py-3.5"
                   icon={<ArrowUpRight className="w-4 h-4" />}
                   onClick={() => setMobileMenuOpen(false)}
                 >
