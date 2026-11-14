@@ -13,13 +13,13 @@ export const Container: React.FC<ContainerProps> = ({
 }) => {
   const maxSizes = {
     narrow: 'max-w-4xl',
-    default: 'max-w-7xl',
-    wide: 'max-w-[1400px]',
+    default: 'max-w-[1560px]',
+    wide: 'max-w-[1720px]',
     full: 'max-w-full',
   };
 
   return (
-    <div className={`mx-auto w-full px-6 sm:px-8 lg:px-12 ${maxSizes[size]} ${className}`}>
+    <div className={`mx-auto w-full px-6 sm:px-10 lg:px-16 xl:px-24 ${maxSizes[size]} ${className}`}>
       {children}
     </div>
   );

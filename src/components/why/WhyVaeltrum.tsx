@@ -21,19 +21,20 @@ const principleBorders = [
 
 export const WhyVaeltrum: React.FC = () => {
   return (
-    <section className="relative py-28 sm:py-36 border-t border-white/10 bg-[#0A091A] overflow-hidden">
+    <section className="relative py-28 sm:py-36 border-t border-white/10 bg-[#0A091A] overflow-hidden w-full">
       <Container>
-        <SectionHeading
-          label="ENGINEERING CULTURE"
-          title="Small details. Serious engineering."
-          description="How we approach our work defines the longevity and dependability of the software we ship."
-        />
+        <div className="mb-16">
+          <SectionHeading
+            title="Small details. Serious engineering."
+            description="How we approach our work defines the longevity and dependability of the software we ship."
+          />
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
           {WHY_PRINCIPLES.map((principle, index) => (
             <motion.div
               key={principle.number}
-              className={`p-8 rounded-3xl bg-[#131132]/90 border border-white/15 transition-all duration-300 flex flex-col justify-between shadow-xl backdrop-blur-xl ${principleBorders[index % principleBorders.length]}`}
+              className={`p-8 sm:p-9 rounded-3xl bg-[#131132]/90 border border-white/15 transition-all duration-300 flex flex-col justify-between shadow-xl backdrop-blur-xl w-full ${principleBorders[index % principleBorders.length]}`}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
@@ -42,10 +43,10 @@ export const WhyVaeltrum: React.FC = () => {
             >
               <div>
                 <div className="flex items-center justify-between mb-7">
-                  <div className="w-10 h-10 rounded-xl bg-white/[0.08] border border-white/15 flex items-center justify-center">
+                  <div className="w-11 h-11 rounded-2xl bg-white/[0.08] border border-white/15 flex items-center justify-center">
                     {principleIcons[index]}
                   </div>
-                  <span className="font-mono text-xs font-semibold text-white/50 px-2.5 py-1 rounded-full bg-white/[0.05]">
+                  <span className="font-mono text-sm font-semibold text-white/50 px-3 py-1 rounded-full bg-white/[0.05]">
                     0{index + 1}
                   </span>
                 </div>
@@ -54,7 +55,7 @@ export const WhyVaeltrum: React.FC = () => {
                   {principle.title}
                 </h3>
 
-                <p className="text-sm sm:text-[0.95rem] text-foreground-muted leading-relaxed font-normal">
+                <p className="text-sm sm:text-base text-foreground-muted leading-relaxed font-normal">
                   {principle.description}
                 </p>
               </div>

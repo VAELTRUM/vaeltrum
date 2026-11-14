@@ -4,64 +4,55 @@ import { Container } from '../ui/Container';
 import { SectionHeading } from '../ui/SectionHeading';
 import { FEATURED_PROJECT } from '../../data/content';
 import { AlumniPortalMockup } from './AlumniPortalMockup';
-import { ArrowUpRight, CheckCircle2, Shield, Sparkles } from 'lucide-react';
+import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
 
 export const FeaturedProject: React.FC = () => {
   return (
-    <section id="work" className="relative py-28 sm:py-36 border-t border-white/10 bg-[#0A091B] overflow-hidden">
+    <section id="work" className="relative py-28 sm:py-36 border-t border-white/10 bg-[#0A091B] overflow-hidden w-full">
       {/* Background ambient glowing mesh */}
       <div 
-        className="absolute top-1/4 -left-32 w-[600px] h-[600px] bg-gradient-to-tr from-[#38BDF8]/15 via-[#818CF8]/15 to-transparent rounded-full blur-[140px] pointer-events-none -z-10" 
+        className="absolute top-1/4 -left-32 w-[650px] h-[650px] bg-gradient-to-tr from-[#38BDF8]/15 via-[#818CF8]/15 to-transparent rounded-full blur-[140px] pointer-events-none -z-10" 
         aria-hidden="true" 
       />
 
       <Container>
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-6">
+        <div className="mb-16">
           <SectionHeading
-            label="FEATURED CASE STUDY"
             title="Real systems. Real users."
             description="Our work focuses on building robust digital platforms designed for operational longevity and demanding institutional workflows."
             className="mb-0"
           />
-
-          <div className="flex items-center gap-2.5 text-xs font-mono text-accent-sky self-end pb-3">
-            <Shield className="w-4 h-4" />
-            <span>VERIFIED INSTITUTIONAL ENGAGEMENT</span>
-          </div>
         </div>
 
         {/* Featured Case Study Hero Container with Layered Offset Glow */}
-        <div className="relative">
+        <div className="relative w-full">
           
-          {/* Offset Colored Backing Card (Signature DesignCode Layered Shadow Card) */}
+          {/* Offset Colored Backing Card */}
           <div 
             className="absolute -inset-2 sm:-inset-3 rounded-[32px] bg-gradient-to-r from-[#FF7A59]/40 via-[#A855F7]/40 to-[#06B6D4]/40 blur-xl opacity-70 pointer-events-none -z-10"
             aria-hidden="true"
           />
 
           <motion.div 
-            className="relative rounded-[28px] bg-[#12102E]/90 border border-white/15 p-7 sm:p-11 lg:p-14 overflow-hidden shadow-2xl backdrop-blur-2xl"
+            className="relative rounded-[28px] bg-[#12102E]/90 border border-white/15 p-7 sm:p-12 lg:p-16 overflow-hidden shadow-2xl backdrop-blur-2xl w-full"
             initial={{ opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center w-full">
               
               {/* Left Column: Contextual Project Narrative (5 cols) */}
               <div className="lg:col-span-5 flex flex-col justify-between">
                 <div>
-                  {/* Category & Institution Metadata */}
-                  <div className="flex flex-wrap items-center gap-2 mb-5">
-                    <span className="text-xs font-mono px-3.5 py-1.5 rounded-full bg-gradient-to-r from-[#FF7A59]/20 to-[#FA709A]/20 border border-[#FF7A59]/40 text-amber-300 font-semibold flex items-center gap-1.5">
-                      <Sparkles className="w-3.5 h-3.5" />
-                      {FEATURED_PROJECT.category}
-                    </span>
+                  {/* Category */}
+                  <div className="text-xs font-mono uppercase tracking-widest text-amber-300 font-semibold mb-3">
+                    {FEATURED_PROJECT.category}
                   </div>
 
                   {/* Project Title */}
-                  <h3 className="text-3xl sm:text-4xl lg:text-[2.65rem] font-bold tracking-tight text-white font-display mb-3 leading-[1.15]">
+                  <h3 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold tracking-tight text-white font-display mb-3 leading-[1.12]">
                     {FEATURED_PROJECT.title}
                   </h3>
 

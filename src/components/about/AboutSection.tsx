@@ -2,11 +2,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Container } from '../ui/Container';
 import { SectionHeading } from '../ui/SectionHeading';
-import { ShieldCheck, Code, Sparkles, Layers } from 'lucide-react';
+import { ShieldCheck, Code } from 'lucide-react';
 
 export const AboutSection: React.FC = () => {
   return (
-    <section id="about" className="relative py-28 sm:py-36 border-t border-white/10 bg-[#0B0A1E] overflow-hidden">
+    <section id="about" className="relative py-28 sm:py-36 border-t border-white/10 bg-[#0B0A1E] overflow-hidden w-full">
       {/* Background ambient lighting */}
       <div 
         className="absolute top-1/3 -right-20 w-[550px] h-[550px] bg-gradient-to-tr from-[#FF7A59]/15 via-[#8B5CF6]/20 to-transparent rounded-full blur-[140px] pointer-events-none -z-10" 
@@ -14,12 +14,11 @@ export const AboutSection: React.FC = () => {
       />
 
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center w-full">
           
           {/* Left Column: Authentic Brand Narrative (7 cols) */}
           <div className="lg:col-span-7">
             <SectionHeading
-              label="ABOUT VAELTRUM"
               title="An engineering mindset, shaped around products."
               className="mb-8"
             />
@@ -37,33 +36,33 @@ export const AboutSection: React.FC = () => {
             </div>
 
             {/* Core Values / Engineering Tenets with Hover Motion */}
-            <div className="mt-12 pt-8 border-t border-white/10 grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div className="mt-12 pt-8 border-t border-white/10 grid grid-cols-1 sm:grid-cols-2 gap-6">
               <motion.div 
-                className="p-6 rounded-2xl bg-[#141235]/90 border border-white/15 hover:border-purple-400/50 transition-colors shadow-lg backdrop-blur-xl"
+                className="p-6 rounded-3xl bg-[#141235]/90 border border-white/15 hover:border-purple-400/50 transition-colors shadow-lg backdrop-blur-xl"
                 whileHover={{ y: -4, transition: { duration: 0.2 } }}
               >
-                <div className="flex items-center gap-2.5 text-white text-base font-bold mb-2 font-display">
-                  <div className="w-8 h-8 rounded-lg bg-purple-500/20 text-purple-300 flex items-center justify-center">
-                    <Code className="w-4 h-4" />
+                <div className="flex items-center gap-2.5 text-white text-lg font-bold mb-2 font-display">
+                  <div className="w-9 h-9 rounded-xl bg-purple-500/20 text-purple-300 flex items-center justify-center">
+                    <Code className="w-5 h-5" />
                   </div>
                   <span>Production Craft</span>
                 </div>
-                <p className="text-xs sm:text-sm text-foreground-muted leading-relaxed">
+                <p className="text-sm text-foreground-muted leading-relaxed">
                   Clean modular codebases designed for readability, test coverage, and continuous deployment.
                 </p>
               </motion.div>
 
               <motion.div 
-                className="p-6 rounded-2xl bg-[#141235]/90 border border-white/15 hover:border-cyan-400/50 transition-colors shadow-lg backdrop-blur-xl"
+                className="p-6 rounded-3xl bg-[#141235]/90 border border-white/15 hover:border-cyan-400/50 transition-colors shadow-lg backdrop-blur-xl"
                 whileHover={{ y: -4, transition: { duration: 0.2 } }}
               >
-                <div className="flex items-center gap-2.5 text-white text-base font-bold mb-2 font-display">
-                  <div className="w-8 h-8 rounded-lg bg-cyan-500/20 text-cyan-300 flex items-center justify-center">
-                    <ShieldCheck className="w-4 h-4" />
+                <div className="flex items-center gap-2.5 text-white text-lg font-bold mb-2 font-display">
+                  <div className="w-9 h-9 rounded-xl bg-cyan-500/20 text-cyan-300 flex items-center justify-center">
+                    <ShieldCheck className="w-5 h-5" />
                   </div>
                   <span>Honest Engineering</span>
                 </div>
-                <p className="text-xs sm:text-sm text-foreground-muted leading-relaxed">
+                <p className="text-sm text-foreground-muted leading-relaxed">
                   Transparent architecture choices with clear trade-offs, realistic constraints, and dependable execution.
                 </p>
               </motion.div>
@@ -72,7 +71,7 @@ export const AboutSection: React.FC = () => {
 
           {/* Right Column: Abstract Architectural Visual Composition (5 cols) */}
           <motion.div 
-            className="lg:col-span-5 relative"
+            className="lg:col-span-5 relative w-full"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: '-60px' }}
@@ -84,18 +83,18 @@ export const AboutSection: React.FC = () => {
               aria-hidden="true" 
             />
 
-            <div className="relative p-8 sm:p-10 rounded-3xl bg-[#131132]/95 border border-white/20 shadow-2xl overflow-hidden backdrop-blur-2xl">
+            <div className="relative p-8 sm:p-12 rounded-3xl bg-[#131132]/95 border border-white/20 shadow-2xl overflow-hidden backdrop-blur-2xl w-full">
               <div className="relative z-10 space-y-6">
                 
                 {/* Visual Architectural Hierarchy Card */}
-                <div className="p-5 rounded-2xl bg-gradient-to-br from-[#1C1844] to-[#151336] border border-white/15 shadow-inner">
+                <div className="p-6 rounded-2xl bg-gradient-to-br from-[#1C1844] to-[#151336] border border-white/15 shadow-inner">
                   <div className="text-xs font-mono text-cyan-300 uppercase tracking-wider mb-2 font-semibold">
                     System Paradigm
                   </div>
-                  <div className="text-lg font-bold text-white mb-1 font-display">
+                  <div className="text-xl font-bold text-white mb-1 font-display">
                     Problem-Centric Architecture
                   </div>
-                  <div className="text-xs sm:text-sm text-foreground-muted">
+                  <div className="text-sm text-foreground-muted">
                     Engineered from root requirements upward to runtime execution.
                   </div>
                 </div>

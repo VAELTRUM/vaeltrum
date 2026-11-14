@@ -1,29 +1,28 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Button } from '../ui/Button';
 import { HeroDeckMockup } from './HeroDeckMockup';
-import { ArrowDown, ArrowUpRight, ChevronRight, Sparkles, Terminal } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, ChevronRight, Terminal } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   return (
     <section 
       id="hero" 
-      className="relative min-h-[96vh] lg:min-h-screen flex items-center pt-32 pb-20 sm:pb-28 overflow-hidden"
+      className="relative min-h-screen flex items-center pt-28 pb-20 sm:pb-28 overflow-hidden w-full"
     >
       {/* 1. Atmospheric Horizon Nebula Glow (Signature DesignCode Sunrise Glow) */}
       <div 
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[1100px] h-[550px] bg-gradient-to-b from-[#FF7A59]/20 via-[#A855F7]/25 to-transparent rounded-full blur-[140px] pointer-events-none -z-10" 
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[600px] bg-gradient-to-b from-[#FF7A59]/20 via-[#A855F7]/25 to-transparent rounded-full blur-[140px] pointer-events-none -z-10" 
         aria-hidden="true"
       />
 
       {/* Secondary cyan ambient fill */}
       <div 
-        className="absolute top-1/3 -right-24 w-[500px] h-[500px] bg-[#06B6D4]/15 rounded-full blur-[130px] pointer-events-none -z-10" 
+        className="absolute top-1/3 -right-24 w-[550px] h-[550px] bg-[#06B6D4]/15 rounded-full blur-[140px] pointer-events-none -z-10" 
         aria-hidden="true" 
       />
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <div className="max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-24 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
           
           {/* Left Column: Editorial Typography & CTAs (7 cols) */}
           <motion.div 
@@ -32,21 +31,8 @@ export const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
           >
-            {/* Floating Glassmorphic Pill */}
-            <motion.div 
-              className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/15 bg-white/[0.06] backdrop-blur-xl w-fit mb-6 sm:mb-8 shadow-glass"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              <span className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-[#FF7A59] to-[#FA709A] animate-pulse" />
-              <span className="text-xs font-mono tracking-[0.24em] uppercase text-white/90 font-medium">
-                INDEPENDENT SOFTWARE ENGINEERING COMPANY
-              </span>
-            </motion.div>
-
             {/* Main Editorial Heading with Radiant Gradient Text */}
-            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[4.75rem] xl:text-[5.4rem] font-bold tracking-tight text-white font-display leading-[1.05] mb-6 sm:mb-8">
+            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[5rem] xl:text-[5.6rem] font-bold tracking-tight text-white font-display leading-[1.04] mb-6 sm:mb-8">
               Building software <br className="hidden sm:inline" />
               that moves ideas <br className="hidden sm:inline" />
               into <span className="gradient-text-hero">
@@ -59,7 +45,7 @@ export const Hero: React.FC = () => {
               className="text-lg sm:text-xl md:text-2xl text-foreground-muted font-normal max-w-2xl leading-relaxed mb-10 sm:mb-12"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.25 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
             >
               From SaaS products to enterprise platforms, we design and engineer digital solutions built around real business needs.
             </motion.p>
@@ -69,11 +55,11 @@ export const Hero: React.FC = () => {
               className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-5"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.35 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
             >
               <a
                 href="#work"
-                className="inline-flex items-center justify-center font-semibold text-base px-8 py-4 rounded-2xl bg-gradient-to-r from-[#FF7A59] via-[#FA709A] to-[#8B5CF6] text-white shadow-glow-coral hover:opacity-95 active:scale-[0.98] transition-all duration-200 gap-2.5 group cursor-pointer"
+                className="inline-flex items-center justify-center font-semibold text-base sm:text-lg px-8 py-4 rounded-2xl bg-gradient-to-r from-[#FF7A59] via-[#FA709A] to-[#8B5CF6] text-white shadow-glow-coral hover:opacity-95 active:scale-[0.98] transition-all duration-200 gap-2.5 group cursor-pointer"
               >
                 <span>Explore Our Work</span>
                 <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -81,19 +67,19 @@ export const Hero: React.FC = () => {
 
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center font-medium text-base px-7 py-4 rounded-2xl bg-white/[0.06] hover:bg-white/[0.1] text-white border border-white/15 backdrop-blur-xl hover:border-white/30 active:scale-[0.98] transition-all duration-200 gap-2.5 group cursor-pointer shadow-sm"
+                className="inline-flex items-center justify-center font-medium text-base sm:text-lg px-7 py-4 rounded-2xl bg-white/[0.06] hover:bg-white/[0.1] text-white border border-white/15 backdrop-blur-xl hover:border-white/30 active:scale-[0.98] transition-all duration-200 gap-2.5 group cursor-pointer shadow-sm"
               >
                 <span>Start a Conversation</span>
                 <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
             </motion.div>
 
-            {/* Subtle engineering telemetry footnote */}
+            {/* Engineering telemetry footnote */}
             <motion.div 
               className="mt-12 sm:mt-16 pt-8 border-t border-white/10 flex flex-wrap items-center gap-6 text-xs sm:text-sm text-foreground-muted font-mono"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.5 }}
+              transition={{ duration: 0.7, delay: 0.4 }}
             >
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-emerald-400" />

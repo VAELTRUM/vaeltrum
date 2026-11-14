@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { Container } from '../ui/Container';
 import { SectionHeading } from '../ui/SectionHeading';
 import { TECH_CATEGORIES } from '../../data/content';
-import { Terminal, Cpu, Database, Globe } from 'lucide-react';
 
 const categoryGradients = [
   'from-[#38BDF8] to-[#818CF8]',
@@ -13,34 +12,28 @@ const categoryGradients = [
 
 export const TechnologyStack: React.FC = () => {
   return (
-    <section className="relative py-28 sm:py-36 border-t border-white/10 bg-[#0B0920] overflow-hidden">
+    <section className="relative py-28 sm:py-36 border-t border-white/10 bg-[#0B0920] overflow-hidden w-full">
       {/* Subtle ambient lighting */}
       <div 
-        className="absolute bottom-10 left-1/3 w-[500px] h-[500px] bg-[#A855F7]/10 rounded-full blur-[140px] pointer-events-none -z-10" 
+        className="absolute bottom-10 left-1/3 w-[550px] h-[550px] bg-[#A855F7]/10 rounded-full blur-[140px] pointer-events-none -z-10" 
         aria-hidden="true" 
       />
 
       <Container>
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-6">
+        <div className="mb-16">
           <SectionHeading
-            label="TOOLING & INFRASTRUCTURE"
             title="The right tools for the right problem."
             description="We select battle-tested, maintainable technologies based on project scale, data model requirements, and team constraints."
             className="mb-0"
           />
-
-          <div className="flex items-center gap-2.5 text-xs font-mono text-accent-sky self-end pb-3">
-            <Terminal className="w-4 h-4" />
-            <span>DEPENDABLE OPEN STACK</span>
-          </div>
         </div>
 
         {/* Categories Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 w-full">
           {TECH_CATEGORIES.map((cat, idx) => (
             <motion.div
               key={cat.category}
-              className="p-8 sm:p-9 rounded-3xl bg-[#131132]/90 border border-white/15 flex flex-col justify-between shadow-xl backdrop-blur-xl hover:border-white/25 transition-all duration-300"
+              className="p-8 sm:p-10 rounded-3xl bg-[#131132]/90 border border-white/15 flex flex-col justify-between shadow-xl backdrop-blur-xl hover:border-white/25 transition-all duration-300 w-full"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
@@ -49,10 +42,10 @@ export const TechnologyStack: React.FC = () => {
             >
               <div>
                 <div className="flex items-center justify-between pb-5 border-b border-white/10 mb-7">
-                  <h3 className={`text-base font-mono uppercase tracking-widest bg-gradient-to-r ${categoryGradients[idx]} bg-clip-text text-transparent font-bold`}>
+                  <h3 className={`text-lg font-mono uppercase tracking-widest bg-gradient-to-r ${categoryGradients[idx]} bg-clip-text text-transparent font-bold`}>
                     {cat.category}
                   </h3>
-                  <span className="text-xs sm:text-sm font-mono text-white/50 font-semibold px-2.5 py-1 rounded-full bg-white/[0.06]">
+                  <span className="text-sm font-mono text-white/50 font-semibold px-2.5 py-1 rounded-full bg-white/[0.06]">
                     0{idx + 1}
                   </span>
                 </div>

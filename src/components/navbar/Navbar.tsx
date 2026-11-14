@@ -49,7 +49,7 @@ export const Navbar: React.FC = () => {
           : 'bg-transparent border-b border-transparent py-6 sm:py-7'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between">
+      <div className="max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-24 flex items-center justify-between">
         {/* Logo */}
         <VaeltrumLogo size="md" />
 

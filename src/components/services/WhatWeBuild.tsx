@@ -11,51 +11,30 @@ import {
   Globe, 
   Database, 
   Compass,
-  Code,
-  Sparkles,
-  Zap
 } from 'lucide-react';
 
 const cardStyleVariants = [
   {
-    theme: 'glass',
-    badge: '01 / SAAS ARCHITECTURE',
-    badgeColor: 'text-amber-300',
     iconBg: 'bg-gradient-to-tr from-[#FF7A59] to-[#FA709A]',
     glow: 'rgba(255, 122, 89, 0.2)',
   },
   {
-    theme: 'purple',
-    badge: '02 / CUSTOM ENGINEERING',
-    badgeColor: 'text-purple-200',
     iconBg: 'bg-gradient-to-tr from-[#8B5CF6] to-[#6366F1]',
     glow: 'rgba(139, 92, 246, 0.25)',
   },
   {
-    theme: 'cyan',
-    badge: '03 / INSTITUTIONAL ERP',
-    badgeColor: 'text-cyan-200',
     iconBg: 'bg-gradient-to-tr from-[#06B6D4] to-[#3B82F6]',
     glow: 'rgba(6, 182, 212, 0.25)',
   },
   {
-    theme: 'blue',
-    badge: '04 / WEB APPLICATIONS',
-    badgeColor: 'text-sky-200',
     iconBg: 'bg-gradient-to-tr from-[#3B82F6] to-[#6366F1]',
     glow: 'rgba(59, 130, 246, 0.2)',
   },
   {
-    theme: 'coral',
-    badge: '05 / BACKEND & APIS',
-    badgeColor: 'text-rose-200',
     iconBg: 'bg-gradient-to-tr from-[#F43F5E] to-[#FB7185]',
     glow: 'rgba(244, 63, 94, 0.2)',
   },
   {
-    theme: 'emerald',
-    badge: '06 / PRODUCT DESIGN',
-    badgeColor: 'text-emerald-200',
     iconBg: 'bg-gradient-to-tr from-[#10B981] to-[#06B6D4]',
     glow: 'rgba(16, 185, 129, 0.2)',
   },
@@ -93,7 +72,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="group relative p-8 sm:p-9 rounded-3xl bg-[#12112C]/80 border border-white/10 transition-all duration-300 flex flex-col justify-between overflow-hidden shadow-[0_12px_40px_rgba(7,5,22,0.6)] backdrop-blur-xl hover:border-white/25"
+      className="group relative p-8 sm:p-10 rounded-3xl bg-[#12112C]/85 border border-white/10 transition-all duration-300 flex flex-col justify-between overflow-hidden shadow-[0_12px_40px_rgba(7,5,22,0.6)] backdrop-blur-xl hover:border-white/25 w-full"
       initial={{ opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
@@ -105,7 +84,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
         className="pointer-events-none absolute -inset-px rounded-3xl transition-opacity duration-300"
         style={{
           opacity: isHovered ? 1 : 0,
-          background: `radial-gradient(400px circle at ${mousePosition.x}px ${mousePosition.y}px, ${style.glow}, transparent 75%)`,
+          background: `radial-gradient(450px circle at ${mousePosition.x}px ${mousePosition.y}px, ${style.glow}, transparent 75%)`,
         }}
         aria-hidden="true"
       />
@@ -118,35 +97,35 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
       />
 
       <div className="relative z-10">
-        {/* Card Header: Floating Icon & Category Badge */}
+        {/* Card Header: Floating Icon & Clean Monospace Number */}
         <div className="flex items-center justify-between mb-8">
-          <div className={`w-12 h-12 rounded-2xl ${style.iconBg} flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110`}>
+          <div className={`w-14 h-14 rounded-2xl ${style.iconBg} flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110`}>
             {iconMap[service.id]}
           </div>
 
-          <span className={`text-xs font-mono tracking-wider uppercase font-semibold ${style.badgeColor}`}>
+          <span className="text-sm font-mono tracking-widest text-white/50 font-semibold">
             {service.number}
           </span>
         </div>
 
-        {/* Title - Scaled up for clarity and presence */}
-        <h3 className="text-2xl sm:text-[1.65rem] font-bold tracking-tight text-white font-display mb-3.5 group-hover:text-white transition-colors leading-[1.2]">
+        {/* Title */}
+        <h3 className="text-2xl sm:text-[1.75rem] font-bold tracking-tight text-white font-display mb-4 group-hover:text-white transition-colors leading-[1.2]">
           {service.title}
         </h3>
 
-        {/* Description - Scaled up for readability */}
-        <p className="text-base sm:text-[1.05rem] text-foreground-muted leading-relaxed mb-8 font-normal">
+        {/* Description */}
+        <p className="text-base sm:text-[1.1rem] text-foreground-muted leading-relaxed mb-8 font-normal">
           {service.description}
         </p>
       </div>
 
-      {/* Technical Focus Tags & Indicator */}
+      {/* Technical Focus Items & Arrow */}
       <div className="relative z-10">
         <div className="pt-6 border-t border-white/10 flex flex-wrap gap-2.5">
           {service.focus.map((tag) => (
             <span
               key={tag}
-              className="text-xs font-mono px-3 py-1.5 rounded-lg bg-white/[0.05] text-white/90 border border-white/10 transition-colors group-hover:border-white/20"
+              className="text-xs sm:text-sm font-mono px-3.5 py-1.5 rounded-xl bg-white/[0.05] text-white/90 border border-white/10 transition-colors group-hover:border-white/20"
             >
               {tag}
             </span>
@@ -154,7 +133,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
         </div>
 
         {/* Directional arrow cue */}
-        <div className="mt-6 flex items-center justify-between text-xs sm:text-sm text-foreground-subtle font-mono group-hover:text-white transition-colors">
+        <div className="mt-7 flex items-center justify-between text-xs sm:text-sm text-foreground-subtle font-mono group-hover:text-white transition-colors">
           <span className="tracking-wider">ENGINEERED ARCHITECTURE</span>
           <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 text-accent-sky" />
         </div>
@@ -165,38 +144,24 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
 
 export const WhatWeBuild: React.FC = () => {
   return (
-    <section id="services" className="relative py-28 sm:py-36 border-t border-white/10 overflow-hidden">
+    <section id="services" className="relative py-28 sm:py-36 border-t border-white/10 overflow-hidden w-full">
       {/* Background ambient light */}
       <div 
-        className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-[#8B5CF6]/10 rounded-full blur-[140px] pointer-events-none -z-10" 
+        className="absolute top-1/2 left-0 w-[550px] h-[550px] bg-[#8B5CF6]/10 rounded-full blur-[140px] pointer-events-none -z-10" 
         aria-hidden="true" 
       />
 
       <Container>
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-6">
+        <div className="mb-16">
           <SectionHeading
-            label="WHAT WE BUILD"
             title="From product vision to working software."
             description="We partner with organizations to architect, engineer, and deploy robust software systems engineered around actual operational needs."
             className="mb-0"
           />
-
-          {/* Quick Ecosystem Pills */}
-          <div className="hidden lg:flex items-center gap-3 self-end pb-3">
-            {['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Docker'].map((tech) => (
-              <span 
-                key={tech}
-                className="px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-xs font-mono text-white/80"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
         </div>
 
-        {/* 3-Column DesignCode Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+        {/* 3-Column Responsive Grid covering full container */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
           {SERVICES_DATA.map((service, index) => (
             <ServiceCard key={service.id} service={service} index={index} />
           ))}

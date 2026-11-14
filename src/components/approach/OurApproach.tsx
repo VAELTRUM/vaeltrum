@@ -16,26 +16,27 @@ export const OurApproach: React.FC = () => {
   const [activeStep, setActiveStep] = useState<number>(0);
 
   return (
-    <section id="approach" className="relative py-28 sm:py-36 border-t border-white/10 bg-[#0A091A] overflow-hidden">
+    <section id="approach" className="relative py-28 sm:py-36 border-t border-white/10 bg-[#0A091A] overflow-hidden w-full">
       {/* Background ambient lighting */}
       <div 
-        className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-[#6366F1]/10 rounded-full blur-[140px] pointer-events-none -z-10" 
+        className="absolute top-1/2 right-0 w-[550px] h-[550px] bg-[#6366F1]/10 rounded-full blur-[140px] pointer-events-none -z-10" 
         aria-hidden="true" 
       />
 
       <Container>
-        <SectionHeading
-          label="METHODOLOGY"
-          title="Built with intention. Engineered with precision."
-          description="A disciplined 4-stage engineering lifecycle designed to minimize technical risk and deliver maintainable software."
-        />
+        <div className="mb-16">
+          <SectionHeading
+            title="Built with intention. Engineered with precision."
+            description="A disciplined 4-stage engineering lifecycle designed to minimize technical risk and deliver maintainable software."
+          />
+        </div>
 
         {/* Desktop Horizontal Process Flow */}
-        <div className="hidden lg:block relative mt-20">
+        <div className="hidden lg:block relative mt-16 w-full">
           {/* Connecting gradient line */}
           <div className="absolute top-1/2 left-0 right-0 h-[2px] bg-gradient-to-r from-[#FF7A59] via-[#8B5CF6] to-[#06B6D4] -translate-y-16 z-0 opacity-40" />
 
-          <div className="grid grid-cols-4 gap-6 relative z-10">
+          <div className="grid grid-cols-4 gap-7 relative z-10 w-full">
             {PROCESS_STAGES.map((stage, index) => {
               const isActive = activeStep === index;
               const style = stageGlows[index % stageGlows.length];
@@ -44,7 +45,7 @@ export const OurApproach: React.FC = () => {
                 <motion.div
                   key={stage.step}
                   onClick={() => setActiveStep(index)}
-                  className={`p-7 rounded-3xl border transition-all duration-300 cursor-pointer flex flex-col justify-between min-h-[390px] backdrop-blur-xl ${
+                  className={`p-8 rounded-3xl border transition-all duration-300 cursor-pointer flex flex-col justify-between min-h-[410px] backdrop-blur-xl ${
                     isActive
                       ? `bg-[#191642] ${style.border} ${style.glow} scale-[1.02]`
                       : 'bg-[#12102E]/80 border-white/10 hover:border-white/25 hover:bg-[#151336]'
@@ -58,7 +59,7 @@ export const OurApproach: React.FC = () => {
                   <div>
                     {/* Step indicator node */}
                     <div className="flex items-center justify-between mb-8">
-                      <div className={`w-11 h-11 rounded-2xl flex items-center justify-center font-mono text-sm font-bold transition-all duration-300 ${
+                      <div className={`w-12 h-12 rounded-2xl flex items-center justify-center font-mono text-base font-bold transition-all duration-300 ${
                         isActive 
                           ? `bg-gradient-to-tr ${style.bg} text-white shadow-lg` 
                           : 'bg-white/10 text-white/80 border border-white/15'
@@ -81,7 +82,7 @@ export const OurApproach: React.FC = () => {
                     </div>
 
                     {/* Description */}
-                    <p className="text-sm text-foreground-muted leading-relaxed mb-6 font-normal">
+                    <p className="text-sm sm:text-base text-foreground-muted leading-relaxed mb-6 font-normal">
                       {stage.description}
                     </p>
                   </div>
@@ -93,7 +94,7 @@ export const OurApproach: React.FC = () => {
                     </span>
                     <ul className="space-y-2">
                       {stage.deliverables.map((item, dIdx) => (
-                        <li key={dIdx} className="flex items-center gap-2 text-xs text-white/80">
+                        <li key={dIdx} className="flex items-center gap-2 text-xs sm:text-sm text-white/80">
                           <Check className="w-3.5 h-3.5 text-accent-sky shrink-0" />
                           <span className="truncate">{item}</span>
                         </li>
@@ -107,13 +108,13 @@ export const OurApproach: React.FC = () => {
         </div>
 
         {/* Mobile / Tablet Vertical Timeline */}
-        <div className="lg:hidden relative pl-6 border-l-2 border-purple-500/30 space-y-8 mt-14">
+        <div className="lg:hidden relative pl-6 border-l-2 border-purple-500/30 space-y-8 mt-14 w-full">
           {PROCESS_STAGES.map((stage, index) => {
             const style = stageGlows[index % stageGlows.length];
             return (
               <motion.div
                 key={stage.step}
-                className="relative p-7 rounded-3xl bg-[#131132] border border-white/15 backdrop-blur-xl shadow-lg"
+                className="relative p-7 sm:p-9 rounded-3xl bg-[#131132] border border-white/15 backdrop-blur-xl shadow-lg w-full"
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
