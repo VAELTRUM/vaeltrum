@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { HeroDeckMockup } from './HeroDeckMockup';
-import { ArrowDown, ArrowUpRight, ChevronRight, Terminal } from 'lucide-react';
+import { HeroImageVisual } from './HeroImageVisual';
+import { ArrowDown, ArrowUpRight, ChevronRight } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   return (
@@ -76,14 +76,14 @@ export const Hero: React.FC = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Column: 3D Floating Layered App Deck (5 cols) */}
+          {/* Right Column: Engineering Team Hero Visual (5 cols) */}
           <motion.div 
             className="lg:col-span-5 relative w-full flex items-center justify-center"
             initial={{ opacity: 0, scale: 0.94 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           >
-            <HeroDeckMockup />
+            <HeroImageVisual />
           </motion.div>
 
         </div>
