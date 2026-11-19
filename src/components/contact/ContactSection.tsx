@@ -33,15 +33,17 @@ export const ContactSection: React.FC = () => {
                 aria-hidden="true"
               />
               <motion.div 
-                className="relative rounded-3xl bg-white dark:bg-[#131130] border border-slate-200/80 dark:border-white/15 p-8 flex flex-col justify-between h-full backdrop-blur-xl shadow-md dark:shadow-xl w-full"
+                className="metallic-card group relative rounded-3xl p-8 flex flex-col justify-between h-full backdrop-blur-xl overflow-hidden w-full"
                 whileHover={{ y: -6 }}
                 transition={{ duration: 0.2 }}
               >
+                <div className="metallic-shimmer" />
+                <div className="metallic-edge absolute top-0 left-0 right-0" />
                 <div>
-                  <div className="w-12 h-12 rounded-2xl bg-cyan-500/15 text-cyan-600 dark:text-cyan-300 flex items-center justify-center mb-5 border border-cyan-400/30">
+                  <div className="w-12 h-12 rounded-2xl bg-cyan-500/15 text-cyan-600 dark:text-cyan-300 flex items-center justify-center mb-5 border border-cyan-400/30 shadow-xs">
                     <Zap className="w-6 h-6" />
                   </div>
-                  <div className="text-xs font-mono text-cyan-600 dark:text-cyan-300 uppercase tracking-widest mb-1 font-semibold">
+                  <div className="metallic-badge text-[10px] uppercase mb-2 font-semibold">
                     DISCIPLINE 01
                   </div>
                   <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2.5 font-display">
@@ -52,7 +54,7 @@ export const ContactSection: React.FC = () => {
                   </p>
                 </div>
 
-                <div className="pt-5 border-t border-slate-200 dark:border-white/10 text-xs font-mono text-slate-500 dark:text-white/80">
+                <div className="pt-5 border-t border-slate-900/[0.08] dark:border-white/10 text-xs font-mono text-slate-500 dark:text-white/80">
                   Target: 4 - 8 Weeks
                 </div>
               </motion.div>
@@ -65,15 +67,17 @@ export const ContactSection: React.FC = () => {
                 aria-hidden="true"
               />
               <motion.div 
-                className="relative rounded-3xl bg-white dark:bg-[#17143B] border border-purple-200 dark:border-purple-400/40 p-8 flex flex-col justify-between h-full backdrop-blur-xl shadow-lg dark:shadow-2xl w-full"
+                className="metallic-card group relative rounded-3xl p-8 flex flex-col justify-between h-full backdrop-blur-xl overflow-hidden w-full border-purple-400/30"
                 whileHover={{ y: -8 }}
                 transition={{ duration: 0.2 }}
               >
+                <div className="metallic-shimmer" />
+                <div className="metallic-edge absolute top-0 left-0 right-0" />
                 <div>
-                  <div className="w-12 h-12 rounded-2xl bg-purple-500/15 text-purple-600 dark:text-purple-300 flex items-center justify-center mb-5 border border-purple-400/30">
+                  <div className="w-12 h-12 rounded-2xl bg-purple-500/15 text-purple-600 dark:text-purple-300 flex items-center justify-center mb-5 border border-purple-400/30 shadow-xs">
                     <Layers className="w-6 h-6" />
                   </div>
-                  <div className="text-xs font-mono text-purple-600 dark:text-purple-200 uppercase tracking-widest mb-1 font-semibold">
+                  <div className="metallic-badge text-[10px] uppercase mb-2 font-semibold text-purple-600 dark:text-purple-200">
                     DISCIPLINE 02 • CORE
                   </div>
                   <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2.5 font-display">
@@ -84,7 +88,7 @@ export const ContactSection: React.FC = () => {
                   </p>
                 </div>
 
-                <div className="pt-5 border-t border-slate-200 dark:border-white/10 text-xs font-mono text-slate-600 dark:text-white/90">
+                <div className="pt-5 border-t border-slate-900/[0.08] dark:border-white/10 text-xs font-mono text-slate-600 dark:text-white/90">
                   Target: 8 - 16 Weeks
                 </div>
               </motion.div>
@@ -97,15 +101,17 @@ export const ContactSection: React.FC = () => {
                 aria-hidden="true"
               />
               <motion.div 
-                className="relative rounded-3xl bg-white dark:bg-[#131130] border border-slate-200/80 dark:border-white/15 p-8 flex flex-col justify-between h-full backdrop-blur-xl shadow-md dark:shadow-xl w-full"
+                className="metallic-card group relative rounded-3xl p-8 flex flex-col justify-between h-full backdrop-blur-xl overflow-hidden w-full"
                 whileHover={{ y: -6 }}
                 transition={{ duration: 0.2 }}
               >
+                <div className="metallic-shimmer" />
+                <div className="metallic-edge absolute top-0 left-0 right-0" />
                 <div>
-                  <div className="w-12 h-12 rounded-2xl bg-indigo-500/15 text-indigo-600 dark:text-indigo-300 flex items-center justify-center mb-5 border border-indigo-400/30">
+                  <div className="w-12 h-12 rounded-2xl bg-indigo-500/15 text-indigo-600 dark:text-indigo-300 flex items-center justify-center mb-5 border border-indigo-400/30 shadow-xs">
                     <Server className="w-6 h-6" />
                   </div>
-                  <div className="text-xs font-mono text-indigo-600 dark:text-indigo-300 uppercase tracking-widest mb-1 font-semibold">
+                  <div className="metallic-badge text-[10px] uppercase mb-2 font-semibold">
                     DISCIPLINE 03
                   </div>
                   <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2.5 font-display">
@@ -116,8 +122,8 @@ export const ContactSection: React.FC = () => {
                   </p>
                 </div>
 
-                <div className="pt-5 border-t border-slate-200 dark:border-white/10 text-xs font-mono text-slate-500 dark:text-white/80">
-                  Target: Custom Scope
+                <div className="pt-5 border-t border-slate-900/[0.08] dark:border-white/10 text-xs font-mono text-slate-500 dark:text-white/80">
+                  Target: 12+ Weeks
                 </div>
               </motion.div>
             </div>
@@ -198,12 +204,14 @@ export const ContactSection: React.FC = () => {
 
           {/* Right Column: Functional Contact Form (7 cols) */}
           <div className="lg:col-span-7 w-full">
-            <div className="p-7 sm:p-12 lg:p-14 rounded-3xl bg-white dark:bg-[#141235]/95 border border-slate-200 dark:border-white/15 shadow-[0_15px_40px_rgba(0,0,0,0.05)] dark:shadow-[0_20px_60px_rgba(7,5,22,0.8)] backdrop-blur-2xl w-full">
-              <div className="pb-7 border-b border-slate-200 dark:border-white/10 mb-8">
+            <div className="metallic-card group relative p-7 sm:p-12 lg:p-14 rounded-3xl backdrop-blur-2xl w-full">
+              <div className="metallic-shimmer" />
+              <div className="metallic-edge absolute top-0 left-0 right-0" />
+              <div className="pb-7 border-b border-slate-900/[0.08] dark:border-white/10 mb-8">
                 <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white font-display">
                   Project Inquiry
                 </h3>
-                <p className="text-sm sm:text-base text-slate-600 dark:text-foreground-muted mt-1.5">
+                <p className="text-sm sm:text-base text-slate-600 dark:text-foreground-muted mt-1.5 font-normal">
                   Share your requirements to explore architecture and delivery options.
                 </p>
               </div>

@@ -45,10 +45,10 @@ export const OurApproach: React.FC = () => {
                 <motion.div
                   key={stage.step}
                   onClick={() => setActiveStep(index)}
-                  className={`p-8 rounded-3xl border transition-all duration-300 cursor-pointer flex flex-col justify-between min-h-[410px] backdrop-blur-xl ${
+                  className={`metallic-card group relative p-8 rounded-3xl transition-all duration-300 cursor-pointer flex flex-col justify-between min-h-[410px] backdrop-blur-xl ${
                     isActive
-                      ? `bg-slate-50 dark:bg-[#191642] ${style.border} ${style.glow} scale-[1.02]`
-                      : 'bg-white dark:bg-[#12102E]/80 border-slate-200/80 dark:border-white/10 hover:border-slate-300 dark:hover:border-white/25 hover:bg-slate-50/50 dark:hover:bg-[#151336] shadow-sm dark:shadow-xl'
+                      ? `scale-[1.02] border-slate-400 dark:border-white/40 ${style.glow}`
+                      : 'hover:border-slate-300 dark:hover:border-white/25'
                   }`}
                   initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -56,17 +56,23 @@ export const OurApproach: React.FC = () => {
                   transition={{ duration: 0.6, delay: index * 0.12, ease: [0.16, 1, 0.3, 1] }}
                   whileHover={{ y: -6, transition: { duration: 0.25 } }}
                 >
+                  {/* Metallic Shimmer Glint Sweep */}
+                  <div className="metallic-shimmer" />
+
+                  {/* Chamfered Milled Specular Top Edge */}
+                  <div className="metallic-edge absolute top-0 left-0 right-0" />
+
                   <div>
-                    {/* Step indicator node */}
+                    {/* Step indicator node with metallic chamfered ring */}
                     <div className="flex items-center justify-between mb-8">
                       <div className={`w-12 h-12 rounded-2xl flex items-center justify-center font-mono text-base font-bold transition-all duration-300 ${
                         isActive 
                           ? `bg-gradient-to-tr ${style.bg} text-white shadow-lg` 
-                          : 'bg-slate-100 dark:bg-white/10 text-slate-700 dark:text-white/80 border border-slate-200 dark:border-white/15'
+                          : 'metallic-badge w-12 h-12 rounded-2xl text-base'
                       }`}>
                         {stage.step}
                       </div>
-                      <span className={`text-xs font-mono tracking-wider uppercase font-semibold ${style.text}`}>
+                      <span className={`metallic-badge text-xs uppercase font-semibold ${style.text}`}>
                         STAGE {stage.step}
                       </span>
                     </div>
@@ -88,7 +94,7 @@ export const OurApproach: React.FC = () => {
                   </div>
 
                   {/* Key Deliverables */}
-                  <div className="pt-5 border-t border-slate-200 dark:border-white/10">
+                  <div className="pt-5 border-t border-slate-900/[0.08] dark:border-white/10">
                     <span className="text-xs font-mono text-slate-400 dark:text-white/50 uppercase tracking-wider block mb-2.5 font-medium">
                       Key Deliverables
                     </span>
@@ -114,15 +120,19 @@ export const OurApproach: React.FC = () => {
             return (
               <motion.div
                 key={stage.step}
-                className="relative p-7 sm:p-9 rounded-3xl bg-white dark:bg-[#131132] border border-slate-200 dark:border-white/15 backdrop-blur-xl shadow-lg w-full"
+                className="metallic-card group relative p-7 sm:p-9 rounded-3xl backdrop-blur-xl w-full"
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ x: 4 }}
               >
+                {/* Metallic Shimmer Glint Sweep */}
+                <div className="metallic-shimmer" />
+                <div className="metallic-edge absolute top-0 left-0 right-0" />
+
                 {/* Timeline marker */}
-                <div className={`absolute -left-[33px] top-7 w-4 h-4 rounded-full bg-gradient-to-tr ${style.bg} ring-4 ring-white dark:ring-[#0A091A]`} />
+                <div className={`absolute -left-[33px] top-7 w-4 h-4 rounded-full bg-gradient-to-tr ${style.bg} ring-4 ring-white dark:ring-[#0A091A]` } />
 
                 <div className="flex items-center justify-between mb-2.5">
                   <span className={`text-xs font-mono font-semibold ${style.text}`}>STAGE {stage.step}</span>

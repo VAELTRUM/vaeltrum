@@ -34,19 +34,25 @@ export const WhyVaeltrum: React.FC = () => {
           {WHY_PRINCIPLES.map((principle, index) => (
             <motion.div
               key={principle.number}
-              className={`p-8 sm:p-9 rounded-3xl bg-white dark:bg-[#131132]/90 border border-slate-200/80 dark:border-white/15 transition-all duration-300 flex flex-col justify-between shadow-sm dark:shadow-xl backdrop-blur-xl w-full ${principleBorders[index % principleBorders.length]}`}
+              className={`metallic-card group relative p-8 sm:p-9 rounded-3xl transition-all duration-300 flex flex-col justify-between backdrop-blur-xl w-full ${principleBorders[index % principleBorders.length]}`}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{ y: -6, transition: { duration: 0.25 } }}
             >
+              {/* Metallic Shimmer Sweep Glint */}
+              <div className="metallic-shimmer" />
+
+              {/* Milled Metallic Specular Top Edge */}
+              <div className="metallic-edge absolute top-0 left-0 right-0" />
+
               <div>
                 <div className="flex items-center justify-between mb-7">
-                  <div className="w-11 h-11 rounded-2xl bg-slate-100 dark:bg-white/[0.08] border border-slate-200 dark:border-white/15 flex items-center justify-center">
+                  <div className="w-11 h-11 rounded-2xl bg-slate-100 dark:bg-white/[0.08] border border-slate-900/[0.08] dark:border-white/15 flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform">
                     {principleIcons[index]}
                   </div>
-                  <span className="font-mono text-sm font-semibold text-slate-500 dark:text-white/50 px-3 py-1 rounded-full bg-slate-100 dark:bg-white/[0.05]">
+                  <span className="metallic-badge text-xs px-3 py-1 font-bold">
                     0{index + 1}
                   </span>
                 </div>
@@ -60,7 +66,7 @@ export const WhyVaeltrum: React.FC = () => {
                 </p>
               </div>
 
-              <div className="pt-6 mt-8 border-t border-slate-200 dark:border-white/10 flex items-center justify-between text-xs font-mono text-slate-400 dark:text-white/50 font-medium">
+              <div className="pt-6 mt-8 border-t border-slate-900/[0.08] dark:border-white/10 flex items-center justify-between text-xs font-mono text-slate-400 dark:text-white/50 font-medium">
                 <span>STANDARD</span>
                 <span className="text-accent-sky font-semibold">NON-NEGOTIABLE</span>
               </div>

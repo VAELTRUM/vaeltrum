@@ -35,19 +35,25 @@ export const FeaturedProject: React.FC = () => {
           />
 
           <motion.div 
-            className="relative rounded-[28px] bg-white dark:bg-[#12102E]/90 border border-slate-200 dark:border-white/15 p-7 sm:p-12 lg:p-16 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.06)] dark:shadow-2xl backdrop-blur-2xl w-full"
+            className="metallic-card group relative rounded-[28px] p-7 sm:p-12 lg:p-16 overflow-hidden backdrop-blur-2xl w-full"
             initial={{ opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
+            {/* Metallic Specular Shimmer Sweep */}
+            <div className="metallic-shimmer" />
+
+            {/* Milled Metallic Specular Top Edge */}
+            <div className="metallic-edge absolute top-0 left-0 right-0" />
+
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center w-full">
               
               {/* Left Column: Contextual Project Narrative (5 cols) */}
               <div className="lg:col-span-5 flex flex-col justify-between">
                 <div>
                   {/* Category */}
-                  <div className="text-xs font-mono uppercase tracking-widest text-amber-600 dark:text-amber-300 font-bold mb-3">
+                  <div className="metallic-badge text-xs font-mono uppercase tracking-widest text-amber-600 dark:text-amber-300 font-bold mb-4">
                     {FEATURED_PROJECT.category}
                   </div>
 
@@ -67,12 +73,13 @@ export const FeaturedProject: React.FC = () => {
                     {FEATURED_PROJECT.description}
                   </p>
 
-                  {/* Strictly Contextualized Project Fact: 5,000+ Trusted Users */}
+                  {/* Strictly Contextualized Project Fact: 5,000+ Trusted Users with Metallic Finish */}
                   <motion.div 
-                    className="p-6 rounded-2xl bg-slate-50 dark:bg-gradient-to-br dark:from-[#1C1844] dark:to-[#141235] border border-slate-200 dark:border-white/15 mb-8 shadow-inner"
+                    className="metallic-card relative p-6 rounded-2xl mb-8 overflow-hidden"
                     whileHover={{ scale: 1.01 }}
                     transition={{ duration: 0.2 }}
                   >
+                    <div className="metallic-edge absolute top-0 left-0 right-0" />
                     <div className="flex items-baseline gap-3.5 mb-1.5">
                       <span className="text-4xl sm:text-5xl font-extrabold font-display gradient-text-cyan tracking-tight">
                         {FEATURED_PROJECT.highlightMetric.value}
@@ -81,7 +88,7 @@ export const FeaturedProject: React.FC = () => {
                         {FEATURED_PROJECT.highlightMetric.label}
                       </span>
                     </div>
-                    <p className="text-xs sm:text-sm text-slate-600 dark:text-foreground-muted leading-relaxed">
+                    <p className="text-xs sm:text-sm text-slate-600 dark:text-foreground-muted leading-relaxed font-normal">
                       {FEATURED_PROJECT.highlightMetric.context}
                     </p>
                   </motion.div>

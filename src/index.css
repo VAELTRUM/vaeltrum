@@ -132,6 +132,138 @@
   -webkit-text-fill-color: transparent;
 }
 
+/* Metallic Finish & Chamfered Specular Classes */
+.metallic-card {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.9) 50%, rgba(255, 255, 255, 0.98) 100%);
+  border: 1px solid rgba(203, 213, 225, 0.8);
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.8) inset, 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dark .metallic-card {
+  background: linear-gradient(135deg, rgba(24, 22, 58, 0.85) 0%, rgba(15, 14, 38, 0.9) 50%, rgba(20, 18, 50, 0.9) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.18) inset, 0 20px 45px -15px rgba(0, 0, 0, 0.7);
+}
+
+.metallic-card:hover {
+  border-color: rgba(148, 163, 184, 0.6);
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.9) inset, 0 20px 40px -15px rgba(100, 116, 139, 0.15);
+}
+
+.dark .metallic-card:hover {
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.35) inset, 0 25px 50px -15px rgba(139, 92, 246, 0.2);
+}
+
+/* Metallic Specular Shimmer Sweep (Light glint traversing diagonally) */
+.metallic-shimmer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 20%,
+    rgba(255, 255, 255, 0.25) 50%,
+    rgba(255, 255, 255, 0.08) 80%,
+    transparent 100%
+  );
+  transform: translateX(-150%) skewX(-25deg);
+  pointer-events: none;
+  z-index: 15;
+}
+
+.dark .metallic-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.04) 20%,
+    rgba(255, 255, 255, 0.18) 50%,
+    rgba(255, 255, 255, 0.04) 80%,
+    transparent 100%
+  );
+}
+
+.group:hover .metallic-shimmer,
+.metallic-card:hover .metallic-shimmer {
+  animation: metallicSweep 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Metallic Pill / Chamfered Badge */
+.metallic-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(241, 245, 249, 0.9) 100%);
+  border: 1px solid rgba(203, 213, 225, 0.9);
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 1) inset, 0 1px 3px rgba(0, 0, 0, 0.04);
+  color: #334155;
+  transition: all 0.2s ease;
+}
+
+.dark .metallic-badge {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.03) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.2) inset, 0 2px 6px rgba(0, 0, 0, 0.3);
+  color: #E2E8F0;
+}
+
+.metallic-badge:hover {
+  border-color: rgba(148, 163, 184, 0.8);
+  transform: translateY(-1px);
+}
+
+.dark .metallic-badge:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Specular Chrome / Metallic Gradient Text */
+.gradient-text-metallic {
+  background: linear-gradient(135deg, #0F172A 0%, #475569 35%, #0F172A 60%, #64748B 85%, #1E293B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dark .gradient-text-metallic {
+  background: linear-gradient(135deg, #FFFFFF 0%, #E2E8F0 30%, #94A3B8 55%, #F8FAFC 80%, #CBD5E1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Milled Aluminum Edge Line */
+.metallic-edge {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(203, 213, 225, 0.6) 20%,
+    rgba(255, 255, 255, 0.95) 50%,
+    rgba(203, 213, 225, 0.6) 80%,
+    transparent 100%
+  );
+}
+
+.dark .metallic-edge {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 20%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0.08) 80%,
+    transparent 100%
+  );
+}
+
 /* Perspective Grid */
 .perspective-1000 {
   perspective: 1000px;

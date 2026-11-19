@@ -36,33 +36,37 @@ export const AboutSection: React.FC = () => {
             </div>
 
             {/* Core Values / Engineering Tenets with Hover Motion */}
-            <div className="mt-12 pt-8 border-t border-slate-200 dark:border-white/10 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="mt-12 pt-8 border-t border-slate-900/[0.08] dark:border-white/10 grid grid-cols-1 sm:grid-cols-2 gap-6">
               <motion.div 
-                className="p-6 rounded-3xl bg-white dark:bg-[#141235]/90 border border-slate-200/80 dark:border-white/15 hover:border-purple-400/50 transition-colors shadow-sm dark:shadow-lg backdrop-blur-xl"
+                className="metallic-card group relative p-6 rounded-3xl overflow-hidden"
                 whileHover={{ y: -4, transition: { duration: 0.2 } }}
               >
+                <div className="metallic-shimmer" />
+                <div className="metallic-edge absolute top-0 left-0 right-0" />
                 <div className="flex items-center gap-2.5 text-slate-900 dark:text-white text-lg font-bold mb-2 font-display">
-                  <div className="w-9 h-9 rounded-xl bg-purple-500/15 text-purple-600 dark:text-purple-300 flex items-center justify-center">
+                  <div className="w-9 h-9 rounded-xl bg-purple-500/15 text-purple-600 dark:text-purple-300 flex items-center justify-center border border-purple-500/20 shadow-xs">
                     <Code className="w-5 h-5" />
                   </div>
                   <span>Production Craft</span>
                 </div>
-                <p className="text-sm text-slate-600 dark:text-foreground-muted leading-relaxed">
+                <p className="text-sm text-slate-600 dark:text-foreground-muted leading-relaxed font-normal">
                   Clean modular codebases designed for readability, test coverage, and continuous deployment.
                 </p>
               </motion.div>
 
               <motion.div 
-                className="p-6 rounded-3xl bg-white dark:bg-[#141235]/90 border border-slate-200/80 dark:border-white/15 hover:border-cyan-400/50 transition-colors shadow-sm dark:shadow-lg backdrop-blur-xl"
+                className="metallic-card group relative p-6 rounded-3xl overflow-hidden"
                 whileHover={{ y: -4, transition: { duration: 0.2 } }}
               >
+                <div className="metallic-shimmer" />
+                <div className="metallic-edge absolute top-0 left-0 right-0" />
                 <div className="flex items-center gap-2.5 text-slate-900 dark:text-white text-lg font-bold mb-2 font-display">
-                  <div className="w-9 h-9 rounded-xl bg-cyan-500/15 text-cyan-600 dark:text-cyan-300 flex items-center justify-center">
+                  <div className="w-9 h-9 rounded-xl bg-cyan-500/15 text-cyan-600 dark:text-cyan-300 flex items-center justify-center border border-cyan-500/20 shadow-xs">
                     <ShieldCheck className="w-5 h-5" />
                   </div>
                   <span>Honest Engineering</span>
                 </div>
-                <p className="text-sm text-slate-600 dark:text-foreground-muted leading-relaxed">
+                <p className="text-sm text-slate-600 dark:text-foreground-muted leading-relaxed font-normal">
                   Transparent architecture choices with clear trade-offs, realistic constraints, and dependable execution.
                 </p>
               </motion.div>
@@ -83,7 +87,9 @@ export const AboutSection: React.FC = () => {
               aria-hidden="true" 
             />
 
-            <div className="relative p-8 sm:p-12 rounded-3xl bg-white dark:bg-[#131132]/95 border border-slate-200 dark:border-white/20 shadow-md dark:shadow-2xl overflow-hidden backdrop-blur-2xl w-full">
+            <div className="metallic-card group relative p-8 sm:p-12 rounded-3xl overflow-hidden backdrop-blur-2xl w-full">
+              <div className="metallic-shimmer" />
+              <div className="metallic-edge absolute top-0 left-0 right-0" />
               <div className="relative z-10 space-y-6">
                 
                 {/* Visual Architectural Hierarchy Card */}

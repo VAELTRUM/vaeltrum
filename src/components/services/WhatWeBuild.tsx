@@ -72,13 +72,19 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="group relative p-8 sm:p-10 rounded-3xl bg-white dark:bg-[#12112C]/85 border border-slate-200/90 dark:border-white/10 transition-all duration-300 flex flex-col justify-between overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.04)] dark:shadow-[0_12px_40px_rgba(7,5,22,0.6)] backdrop-blur-xl hover:border-slate-300 dark:hover:border-white/25 w-full"
+      className="metallic-card group relative p-8 sm:p-10 rounded-3xl transition-all duration-300 flex flex-col justify-between overflow-hidden w-full backdrop-blur-xl"
       initial={{ opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
       whileHover={{ y: -8, transition: { duration: 0.25, ease: 'easeOut' } }}
     >
+      {/* Metallic Specular Shimmer Sweep Glint */}
+      <div className="metallic-shimmer" />
+
+      {/* Milled Metallic Specular Top Edge Line */}
+      <div className="metallic-edge absolute top-0 left-0 right-0" />
+
       {/* Dynamic Cursor Spotlight Effect */}
       <div
         className="pointer-events-none absolute -inset-px rounded-3xl transition-opacity duration-300"
@@ -89,21 +95,14 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
         aria-hidden="true"
       />
 
-      {/* Top ambient color accent line */}
-      <div 
-        className={`absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-slate-300 dark:via-white/40 to-transparent transition-opacity duration-300 ${
-          isHovered ? 'opacity-100' : 'opacity-0'
-        }`} 
-      />
-
       <div className="relative z-10">
-        {/* Card Header: Floating Icon & Clean Monospace Number */}
+        {/* Card Header: Floating Icon & Clean Metallic Monospace Number Badge */}
         <div className="flex items-center justify-between mb-8">
-          <div className={`w-14 h-14 rounded-2xl ${style.iconBg} flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110`}>
+          <div className={`w-14 h-14 rounded-2xl ${style.iconBg} flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110 border border-white/25`}>
             {iconMap[service.id]}
           </div>
 
-          <span className="text-sm font-mono tracking-widest text-slate-400 dark:text-white/50 font-semibold">
+          <span className="metallic-badge text-xs px-3 py-1 font-bold">
             {service.number}
           </span>
         </div>
@@ -121,11 +120,11 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
 
       {/* Technical Focus Items & Arrow */}
       <div className="relative z-10">
-        <div className="pt-6 border-t border-slate-200/80 dark:border-white/10 flex flex-wrap gap-2.5">
+        <div className="pt-6 border-t border-slate-900/[0.08] dark:border-white/10 flex flex-wrap gap-2">
           {service.focus.map((tag) => (
             <span
               key={tag}
-              className="text-xs sm:text-sm font-mono px-3.5 py-1.5 rounded-xl bg-slate-100 dark:bg-white/[0.05] text-slate-700 dark:text-white/90 border border-slate-200 dark:border-white/10 transition-colors group-hover:border-slate-300 dark:group-hover:border-white/20"
+              className="metallic-badge text-xs px-3 py-1 text-slate-700 dark:text-slate-300"
             >
               {tag}
             </span>

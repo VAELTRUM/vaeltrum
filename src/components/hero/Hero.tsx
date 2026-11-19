@@ -67,8 +67,9 @@ export const Hero: React.FC = () => {
 
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center font-medium text-base sm:text-lg px-7 py-4 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-900 dark:bg-white/[0.06] dark:hover:bg-white/[0.1] dark:text-white border border-slate-300/80 dark:border-white/15 backdrop-blur-xl hover:border-slate-400 dark:hover:border-white/30 active:scale-[0.98] transition-all duration-200 gap-2.5 group cursor-pointer shadow-sm"
+                className="metallic-card group relative inline-flex items-center justify-center font-semibold text-base sm:text-lg px-7 py-4 rounded-2xl active:scale-[0.98] transition-all duration-200 gap-2.5 cursor-pointer shadow-sm overflow-hidden text-slate-900 dark:text-white"
               >
+                <div className="metallic-shimmer" />
                 <span>Start a Conversation</span>
                 <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
@@ -76,19 +77,21 @@ export const Hero: React.FC = () => {
 
             {/* Engineering telemetry footnote */}
             <motion.div 
-              className="mt-12 sm:mt-16 pt-8 border-t border-slate-200 dark:border-white/10 flex flex-wrap items-center gap-6 text-xs sm:text-sm text-slate-600 dark:text-foreground-muted font-mono"
+              className="mt-12 sm:mt-16 pt-8 border-t border-slate-900/[0.08] dark:border-white/10 flex flex-wrap items-center gap-4 text-xs sm:text-sm font-mono"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.7, delay: 0.4 }}
             >
-              <div className="flex items-center gap-2">
+              <div className="metallic-badge flex items-center gap-2 py-1 px-3">
                 <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                <span className="text-slate-800 dark:text-white/80 font-medium">Architecture-first engineering</span>
+                <span className="font-medium text-slate-800 dark:text-white/90">Architecture-first</span>
               </div>
-              <span className="text-slate-300 dark:text-white/20 hidden sm:inline">•</span>
-              <div className="text-slate-800 dark:text-white/80 font-medium">SaaS &amp; Enterprise Platforms</div>
-              <span className="text-slate-300 dark:text-white/20 hidden sm:inline">•</span>
-              <div className="flex items-center gap-1.5 text-accent-sky font-semibold">
+              
+              <div className="metallic-badge flex items-center gap-1.5 py-1 px-3">
+                <span className="font-medium text-slate-800 dark:text-white/90">SaaS &amp; Enterprise Platforms</span>
+              </div>
+
+              <div className="metallic-badge flex items-center gap-1.5 py-1 px-3 text-accent-sky font-semibold">
                 <Terminal className="w-3.5 h-3.5" />
                 <span>Zero Compromise</span>
               </div>
