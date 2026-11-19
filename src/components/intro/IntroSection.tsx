@@ -23,10 +23,6 @@ export const IntroSection: React.FC = () => {
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="metallic-badge mb-5 text-xs font-mono uppercase tracking-wider">
-              <span>PHILOSOPHY &amp; CRAFT</span>
-            </div>
-
             <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 dark:text-white font-display leading-[1.12]">
               Technology should <span className="gradient-text-hero">solve something</span>.
             </h2>
@@ -99,14 +95,11 @@ export const IntroSection: React.FC = () => {
                   <div className="metallic-edge absolute top-0 left-0 right-0" />
 
                   <div>
-                    {/* Top Row: Icon with metallic bevel & Monospace Tag */}
-                    <div className="flex items-center justify-between mb-4">
-                      <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${pillar.accent} border border-slate-900/[0.08] dark:border-white/15 flex items-center justify-center shadow-xs transition-transform duration-300 group-hover:scale-110`}>
+                    {/* Top Row: Icon with metallic bevel */}
+                    <div className="mb-5">
+                      <div className={`w-11 h-11 rounded-xl bg-gradient-to-br ${pillar.accent} border border-slate-900/[0.08] dark:border-white/15 flex items-center justify-center shadow-xs transition-transform duration-300 group-hover:scale-110`}>
                         {pillar.icon}
                       </div>
-                      <span className="metallic-badge text-[10px] py-0.5 px-2">
-                        {pillar.tag}
-                      </span>
                     </div>
 
                     <span className="text-lg font-bold text-slate-900 dark:text-white block mb-1.5 font-display transition-colors">

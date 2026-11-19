@@ -63,17 +63,17 @@ export const OurApproach: React.FC = () => {
                   <div className="metallic-edge absolute top-0 left-0 right-0" />
 
                   <div>
-                    {/* Step indicator node with metallic chamfered ring */}
+                    {/* Step indicator node */}
                     <div className="flex items-center justify-between mb-8">
                       <div className={`w-12 h-12 rounded-2xl flex items-center justify-center font-mono text-base font-bold transition-all duration-300 ${
                         isActive 
                           ? `bg-gradient-to-tr ${style.bg} text-white shadow-lg` 
-                          : 'metallic-badge w-12 h-12 rounded-2xl text-base'
+                          : 'bg-slate-100 dark:bg-white/[0.06] border border-slate-200 dark:border-white/10 text-slate-800 dark:text-white'
                       }`}>
                         {stage.step}
                       </div>
-                      <span className={`metallic-badge text-xs uppercase font-semibold ${style.text}`}>
-                        STAGE {stage.step}
+                      <span className="font-mono text-xs text-slate-400 dark:text-white/40 font-semibold tracking-wider">
+                        0{index + 1}
                       </span>
                     </div>
 

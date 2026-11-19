@@ -287,12 +287,6 @@ export const HeroVisual: React.FC = () => {
         className="w-full h-full cursor-grab active:cursor-grabbing relative z-10 flex items-center justify-center"
         aria-label="Interactive 3D geometric architectural model representing Vaeltrum engineering systems"
       />
-
-      {/* Architectural telemetry overlay badge */}
-      <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 z-20 pointer-events-none hidden sm:flex items-center gap-2.5 px-3.5 py-1.5 rounded-lg border border-border/80 bg-background-charcoal/80 backdrop-blur-md text-[11px] font-mono text-foreground-muted shadow-sm">
-        <span className="w-1.5 h-1.5 rounded-full bg-accent-blue animate-pulse" />
-        <span>SYS.RENDER // GEOMETRIC CORE</span>
-      </div>
     </div>
   );
 };

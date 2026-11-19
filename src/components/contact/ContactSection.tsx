@@ -43,9 +43,6 @@ export const ContactSection: React.FC = () => {
                   <div className="w-12 h-12 rounded-2xl bg-cyan-500/15 text-cyan-600 dark:text-cyan-300 flex items-center justify-center mb-5 border border-cyan-400/30 shadow-xs">
                     <Zap className="w-6 h-6" />
                   </div>
-                  <div className="metallic-badge text-[10px] uppercase mb-2 font-semibold">
-                    DISCIPLINE 01
-                  </div>
                   <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2.5 font-display">
                     Rapid MVP
                   </h3>
@@ -77,9 +74,6 @@ export const ContactSection: React.FC = () => {
                   <div className="w-12 h-12 rounded-2xl bg-purple-500/15 text-purple-600 dark:text-purple-300 flex items-center justify-center mb-5 border border-purple-400/30 shadow-xs">
                     <Layers className="w-6 h-6" />
                   </div>
-                  <div className="metallic-badge text-[10px] uppercase mb-2 font-semibold text-purple-600 dark:text-purple-200">
-                    DISCIPLINE 02 • CORE
-                  </div>
                   <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2.5 font-display">
                     Full SaaS Product
                   </h3>
@@ -110,9 +104,6 @@ export const ContactSection: React.FC = () => {
                 <div>
                   <div className="w-12 h-12 rounded-2xl bg-indigo-500/15 text-indigo-600 dark:text-indigo-300 flex items-center justify-center mb-5 border border-indigo-400/30 shadow-xs">
                     <Server className="w-6 h-6" />
-                  </div>
-                  <div className="metallic-badge text-[10px] uppercase mb-2 font-semibold">
-                    DISCIPLINE 03
                   </div>
                   <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2.5 font-display">
                     Enterprise Platform

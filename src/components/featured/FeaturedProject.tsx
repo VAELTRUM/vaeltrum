@@ -53,7 +53,7 @@ export const FeaturedProject: React.FC = () => {
               <div className="lg:col-span-5 flex flex-col justify-between">
                 <div>
                   {/* Category */}
-                  <div className="metallic-badge text-xs font-mono uppercase tracking-widest text-amber-600 dark:text-amber-300 font-bold mb-4">
+                  <div className="text-xs font-mono uppercase tracking-widest text-amber-600 dark:text-amber-300 font-bold mb-3">
                     {FEATURED_PROJECT.category}
                   </div>
 

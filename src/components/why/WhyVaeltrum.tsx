@@ -52,7 +52,7 @@ export const WhyVaeltrum: React.FC = () => {
                   <div className="w-11 h-11 rounded-2xl bg-slate-100 dark:bg-white/[0.08] border border-slate-900/[0.08] dark:border-white/15 flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform">
                     {principleIcons[index]}
                   </div>
-                  <span className="metallic-badge text-xs px-3 py-1 font-bold">
+                  <span className="font-mono text-sm font-semibold text-slate-400 dark:text-white/40">
                     0{index + 1}
                   </span>
                 </div>

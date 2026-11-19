@@ -35,7 +35,7 @@ export const HeroDeckMockup: React.FC = () => {
         aria-hidden="true" 
       />
 
-      {/* Floating decorative metallic geometric prisms */}
+      {/* Floating decorative geometric prisms */}
       <motion.div 
         className="absolute -top-4 left-6 w-8 h-8 rounded-lg bg-gradient-to-tr from-[#FF7A59] to-[#FA709A] shadow-glow-coral flex items-center justify-center text-white border border-white/30"
         animate={{ y: [-8, 8, -8], rotate: [0, 15, 0] }}
@@ -79,10 +79,10 @@ export const HeroDeckMockup: React.FC = () => {
             <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80 shadow-xs" />
             <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80 shadow-xs" />
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80 shadow-xs" />
-            <span className="ml-2 text-[10px] font-mono text-slate-500 dark:text-white/50 tracking-wide">vaeltrum.engine.ts</span>
+            <span className="ml-2 text-[11px] font-mono text-slate-500 dark:text-white/50 tracking-wide">vaeltrum.engine.ts</span>
           </div>
-          <span className="metallic-badge text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold px-2.5 py-0.5">
-            PROD READY
+          <span className="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold">
+            Production Ready
           </span>
         </div>
 
@@ -112,7 +112,7 @@ export const HeroDeckMockup: React.FC = () => {
           <span className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 font-medium">
             <Activity className="w-3 h-3" /> 0.12ms API latency
           </span>
-          <span className="metallic-badge text-[9px] px-2 py-0.5">Docker • K8s</span>
+          <span>Docker • Kubernetes</span>
         </div>
       </motion.div>
 
@@ -135,9 +135,6 @@ export const HeroDeckMockup: React.FC = () => {
           <Layers className="w-5 h-5" />
         </div>
 
-        <div className="text-xs font-mono uppercase tracking-wider text-purple-200 mb-1 font-semibold">
-          01 / PRODUCT DESIGN
-        </div>
         <div className="text-lg font-bold text-white tracking-tight leading-snug mb-2 font-display">
           SaaS Product Systems
         </div>
@@ -145,9 +142,9 @@ export const HeroDeckMockup: React.FC = () => {
           From micro-interactions to complex data models.
         </p>
 
-        <div className="mt-4 pt-3 border-t border-white/20 flex items-center justify-between text-[10px] font-mono text-white/90">
+        <div className="mt-4 pt-3 border-t border-white/20 flex items-center justify-between text-[11px] font-mono text-white/90">
           <span>React • Next.js</span>
-          <span className="bg-white/20 px-2 py-0.5 rounded-full font-semibold border border-white/30">v4.0</span>
+          <span>v4.0</span>
         </div>
       </motion.div>
 
@@ -170,9 +167,6 @@ export const HeroDeckMockup: React.FC = () => {
           <Cpu className="w-5 h-5" />
         </div>
 
-        <div className="text-xs font-mono uppercase tracking-wider text-cyan-100 mb-1 font-semibold">
-          02 / ENTERPRISE PLATFORMS
-        </div>
         <div className="text-lg font-bold text-white tracking-tight leading-snug mb-2 font-display">
           Backend &amp; API Scale
         </div>
@@ -180,20 +174,10 @@ export const HeroDeckMockup: React.FC = () => {
           High-concurrency databases, Redis &amp; PostgreSQL.
         </p>
 
-        <div className="mt-4 pt-3 border-t border-white/20 flex items-center justify-between text-[10px] font-mono text-white/90">
-          <span>5,000+ Users</span>
-          <span className="bg-white/20 px-2 py-0.5 rounded-full font-semibold border border-white/30">Active</span>
+        <div className="mt-4 pt-3 border-t border-white/20 flex items-center justify-between text-[11px] font-mono text-white/90">
+          <span>Distributed Cache</span>
+          <span className="text-emerald-300">Active</span>
         </div>
-      </motion.div>
-
-      {/* 4. Small Floating Metallic Notification Badge */}
-      <motion.div
-        className="metallic-badge absolute top-2 right-12 px-3.5 py-1.5 shadow-md text-xs font-mono flex items-center gap-2 z-30 font-medium"
-        animate={{ y: [-4, 6, -4] }}
-        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-      >
-        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-        <span>Vaeltrum Engine Active</span>
       </motion.div>
 
     </div>

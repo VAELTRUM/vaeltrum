@@ -121,16 +121,16 @@ export const AlumniPortalMockup: React.FC = () => {
               />
             </div>
 
-            <div className="flex items-center gap-2">
-              <span className="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-[#13151A] border border-slate-200 dark:border-border/80 text-xs font-mono text-slate-600 dark:text-foreground-muted flex items-center gap-1.5">
+            <div className="flex items-center gap-4">
+              <div className="text-xs font-mono text-slate-500 dark:text-foreground-muted flex items-center gap-1.5">
                 <Filter className="w-3.5 h-3.5 text-sky-600 dark:text-accent-sky" />
-                All Batches
-              </span>
+                <span>All Batches</span>
+              </div>
               <a
                 href="https://alumni.ptu.ac.in/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/25 text-xs font-mono text-emerald-600 dark:text-emerald-400 flex items-center gap-2 hover:bg-emerald-500/20 transition-colors font-medium"
+                className="text-xs font-mono text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5 hover:underline font-medium"
               >
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                 <span>Portal Live ↗</span>
@@ -180,7 +180,7 @@ export const AlumniPortalMockup: React.FC = () => {
                     <div className="p-4 rounded-xl bg-slate-50 dark:bg-[#12141A] border border-slate-200 dark:border-border/70 hover:border-slate-300 dark:hover:border-border transition-colors">
                       <div className="flex items-center justify-between mb-3">
                         <span className="text-xs font-medium text-slate-700 dark:text-foreground">Recent Verified Records</span>
-                        <span className="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">Synced</span>
+                        <span className="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-medium">Synced</span>
                       </div>
                       <div className="space-y-2">
                         <div className="p-2.5 rounded-lg bg-white dark:bg-[#171920] border border-slate-200/80 dark:border-border/50 flex items-center justify-between text-xs sm:text-sm">
@@ -237,8 +237,8 @@ export const AlumniPortalMockup: React.FC = () => {
                         <div className="text-slate-900 dark:text-foreground font-medium">{item.name}</div>
                         <div className="text-[11px] text-slate-500 dark:text-foreground-muted">{item.dept} • {item.role}</div>
                       </div>
-                      <span className="text-[11px] font-mono text-sky-700 dark:text-accent-sky px-2.5 py-1 rounded-md bg-sky-50 dark:bg-accent-blue/10 border border-sky-200 dark:border-accent-blue/25 font-semibold">
-                        Profile Active
+                      <span className="text-[11px] font-mono text-sky-700 dark:text-accent-sky font-medium">
+                        Active
                       </span>
                     </motion.div>
                   ))}

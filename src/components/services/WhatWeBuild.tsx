@@ -96,13 +96,13 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
       />
 
       <div className="relative z-10">
-        {/* Card Header: Floating Icon & Clean Metallic Monospace Number Badge */}
+        {/* Card Header: Floating Icon & Clean Monospace Number */}
         <div className="flex items-center justify-between mb-8">
           <div className={`w-14 h-14 rounded-2xl ${style.iconBg} flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110 border border-white/25`}>
             {iconMap[service.id]}
           </div>
 
-          <span className="metallic-badge text-xs px-3 py-1 font-bold">
+          <span className="text-base font-mono text-slate-400 dark:text-white/40 font-semibold">
             {service.number}
           </span>
         </div>
@@ -113,29 +113,15 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
         </h3>
 
         {/* Description */}
-        <p className="text-base sm:text-[1.1rem] text-slate-600 dark:text-foreground-muted leading-relaxed mb-8 font-normal">
+        <p className="text-base sm:text-[1.1rem] text-slate-600 dark:text-foreground-muted leading-relaxed font-normal">
           {service.description}
         </p>
       </div>
 
-      {/* Technical Focus Items & Arrow */}
-      <div className="relative z-10">
-        <div className="pt-6 border-t border-slate-900/[0.08] dark:border-white/10 flex flex-wrap gap-2">
-          {service.focus.map((tag) => (
-            <span
-              key={tag}
-              className="metallic-badge text-xs px-3 py-1 text-slate-700 dark:text-slate-300"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-
-        {/* Directional arrow cue */}
-        <div className="mt-7 flex items-center justify-between text-xs sm:text-sm text-slate-500 dark:text-foreground-subtle font-mono group-hover:text-accent-sky transition-colors">
-          <span className="tracking-wider">ENGINEERED ARCHITECTURE</span>
-          <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 text-accent-sky" />
-        </div>
+      {/* Directional arrow footer without cluttering tags */}
+      <div className="relative z-10 pt-8 mt-6 border-t border-slate-900/[0.08] dark:border-white/10 flex items-center justify-between text-xs sm:text-sm text-slate-500 dark:text-foreground-subtle font-mono group-hover:text-accent-sky transition-colors">
+        <span className="tracking-wider font-medium">ENGINEERED ARCHITECTURE</span>
+        <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 text-accent-sky" />
       </div>
     </motion.div>
   );

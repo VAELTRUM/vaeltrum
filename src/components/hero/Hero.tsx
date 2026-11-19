@@ -74,28 +74,6 @@ export const Hero: React.FC = () => {
                 <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
             </motion.div>
-
-            {/* Engineering telemetry footnote */}
-            <motion.div 
-              className="mt-12 sm:mt-16 pt-8 border-t border-slate-900/[0.08] dark:border-white/10 flex flex-wrap items-center gap-4 text-xs sm:text-sm font-mono"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.4 }}
-            >
-              <div className="metallic-badge flex items-center gap-2 py-1 px-3">
-                <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                <span className="font-medium text-slate-800 dark:text-white/90">Architecture-first</span>
-              </div>
-              
-              <div className="metallic-badge flex items-center gap-1.5 py-1 px-3">
-                <span className="font-medium text-slate-800 dark:text-white/90">SaaS &amp; Enterprise Platforms</span>
-              </div>
-
-              <div className="metallic-badge flex items-center gap-1.5 py-1 px-3 text-accent-sky font-semibold">
-                <Terminal className="w-3.5 h-3.5" />
-                <span>Zero Compromise</span>
-              </div>
-            </motion.div>
           </motion.div>
 
           {/* Right Column: 3D Floating Layered App Deck (5 cols) */}
