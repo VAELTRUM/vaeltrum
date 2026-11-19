@@ -2,7 +2,7 @@ import { CorePrinciple, ProcessStage, ServiceItem, TechStackCategory } from '../
 
 export const COMPANY_NAME = 'VAELTRUM';
 export const COMPANY_TAGLINE = 'Engineering Ideas Into Products.';
-export const COMPANY_EMAIL = 'contact@vaeltrum.com';
+export const COMPANY_EMAIL = 'hr.vaeltrum@gmail.com';
 
 export const NAV_LINKS = [
   { label: 'Home', href: '#hero' },
