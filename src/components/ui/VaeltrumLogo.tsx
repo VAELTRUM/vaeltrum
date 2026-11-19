@@ -11,86 +11,47 @@ export const VaeltrumLogo: React.FC<VaeltrumLogoProps> = ({
   size = 'md',
   showWordmark = true,
 }) => {
-  const iconSizes = {
-    sm: 'w-6 h-6',
-    md: 'w-8 h-8',
-    lg: 'w-10 h-10',
+  const symbolSizes = {
+    sm: 'w-7 h-7',
+    md: 'w-9 h-9 sm:w-10 sm:h-10',
+    lg: 'w-12 h-12 sm:w-14 sm:h-14',
   };
 
   const textSizes = {
-    sm: 'text-base tracking-[0.2em]',
-    md: 'text-lg tracking-[0.22em]',
-    lg: 'text-2xl tracking-[0.24em]',
+    sm: 'text-base tracking-[0.18em]',
+    md: 'text-lg sm:text-xl tracking-[0.2em]',
+    lg: 'text-2xl sm:text-3xl tracking-[0.22em]',
+  };
+
+  const taglineSizes = {
+    sm: 'text-[7px] tracking-[0.14em]',
+    md: 'text-[8.5px] sm:text-[9.5px] tracking-[0.16em]',
+    lg: 'text-[11px] sm:text-[12px] tracking-[0.18em]',
   };
 
   return (
     <a 
       href="#hero" 
-      className={`inline-flex items-center gap-3.5 group select-none ${className}`}
+      className={`inline-flex items-center gap-3 sm:gap-3.5 group select-none ${className}`}
       aria-label="Vaeltrum — Home"
     >
-      {/* Precision Geometric SVG Symbol */}
-      <div className={`relative ${iconSizes[size]} flex items-center justify-center`}>
-        <svg
-          viewBox="0 0 36 36"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-full transition-transform duration-500 group-hover:scale-105"
-        >
-          {/* Subtle outer bounding guide line */}
-          <rect
-            x="1"
-            y="1"
-            width="34"
-            height="34"
-            rx="8"
-            className="stroke-slate-900/[0.12] dark:stroke-white/[0.15] group-hover:stroke-slate-900/[0.25] dark:group-hover:stroke-white/30 transition-colors duration-300"
-            strokeWidth="1"
-          />
-
-          {/* Left engineered wing of the 'V' */}
-          <path
-            d="M8 10L18 28L15 28L6 10H8Z"
-            fill="currentColor"
-            className="text-slate-900 dark:text-white transition-colors duration-300"
-          />
-
-          {/* Right engineered wing */}
-          <path
-            d="M28 10L18 28L21 28L30 10H28Z"
-            fill="currentColor"
-            className="text-slate-500 dark:text-white/60 transition-colors duration-300"
-          />
-
-          {/* Central geometric convergence point / core node */}
-          <path
-            d="M18 13L22 20H14L18 13Z"
-            fill="var(--accent-blue)"
-            className="opacity-95 group-hover:opacity-100 transition-opacity duration-300"
-          />
-
-          {/* Horizontal stabilizer beam */}
-          <line
-            x1="11"
-            y1="16"
-            x2="25"
-            y2="16"
-            stroke="var(--accent-sky)"
-            strokeWidth="1.2"
-            strokeLinecap="round"
-            className="opacity-70 group-hover:opacity-100 transition-opacity duration-300"
-          />
-        </svg>
+      {/* Official Vaeltrum Arrow-Circuit Geometric Symbol */}
+      <div className={`relative ${symbolSizes[size]} shrink-0 flex items-center justify-center`}>
+        <img
+          src="/images/vaeltrum-symbol.png"
+          alt="Vaeltrum Logo"
+          className="w-full h-full object-contain filter drop-shadow-[0_2px_10px_rgba(56,189,248,0.3)] transition-transform duration-300 group-hover:scale-105"
+        />
       </div>
 
-      {/* Wordmark */}
+      {/* Official Wordmark & Tagline */}
       {showWordmark && (
-        <div className="flex flex-col">
-          <span className={`font-semibold font-display text-slate-900 dark:text-white leading-none ${textSizes[size]}`}>
+        <div className="flex flex-col justify-center">
+          <span className={`font-bold font-display text-slate-900 dark:text-white leading-none ${textSizes[size]}`}>
             VAELTRUM
           </span>
-          <span className="text-[9px] font-mono tracking-widest text-slate-500 dark:text-white/50 uppercase mt-1">
-            Engineering
+          <span className={`font-mono text-slate-500 dark:text-white/60 uppercase mt-1 font-medium ${taglineSizes[size]}`}>
+            INNOVATION | TECHNOLOGY | SOLUTIONS
           </span>
         </div>
       )}
