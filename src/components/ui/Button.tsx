@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'ghost' | 'outline';
+  variant?: 'primary' | 'secondary' | 'ghost' | 'outline' | 'gradient';
   size?: 'sm' | 'md' | 'lg';
   href?: string;
   icon?: React.ReactNode;
@@ -23,20 +23,22 @@ export const Button: React.FC<ButtonProps> = ({
     'inline-flex items-center justify-center font-medium transition-all duration-200 select-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-blue/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:opacity-50 disabled:cursor-not-allowed group';
 
   const sizeStyles = {
-    sm: 'text-xs px-3.5 py-1.5 rounded-md gap-1.5',
-    md: 'text-sm px-5 py-2.5 rounded-lg gap-2',
-    lg: 'text-base px-6 py-3.5 rounded-xl gap-2.5',
+    sm: 'text-xs px-3.5 py-1.5 rounded-full gap-1.5',
+    md: 'text-sm px-5 py-2.5 rounded-full gap-2',
+    lg: 'text-base px-6 py-3.5 rounded-2xl gap-2.5',
   };
 
   const variantStyles = {
     primary:
-      'bg-foreground text-background hover:opacity-90 active:opacity-95 font-semibold shadow-sm hover:shadow-[0_4px_16px_rgba(0,0,0,0.15)] dark:hover:shadow-[0_0_24px_rgba(247,247,245,0.18)]',
+      'bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 font-semibold shadow-sm hover:shadow-md',
+    gradient:
+      'bg-gradient-to-r from-[#FF7A59] via-[#FA709A] to-[#8B5CF6] text-white font-semibold shadow-sm hover:shadow-glow-coral hover:opacity-95 active:scale-[0.98]',
     secondary:
-      'bg-background-card hover:bg-background-cardHover text-foreground border border-border hover:border-border-focus active:bg-background-elevated shadow-sm',
+      'bg-slate-900/[0.04] dark:bg-white/[0.06] hover:bg-slate-900/[0.08] dark:hover:bg-white/[0.1] text-slate-900 dark:text-white border border-slate-900/[0.08] dark:border-white/[0.1] shadow-sm',
     ghost:
-      'text-foreground-muted hover:text-foreground hover:bg-foreground/[0.05] active:bg-foreground/[0.08]',
+      'text-slate-600 dark:text-white/70 hover:text-slate-900 dark:hover:text-white hover:bg-slate-900/[0.04] dark:hover:bg-white/[0.06]',
     outline:
-      'border border-border/80 hover:border-accent-blue/70 text-foreground bg-transparent hover:bg-accent-blue/[0.05]',
+      'border border-slate-900/[0.15] dark:border-white/[0.15] hover:border-accent-blue dark:hover:border-accent-blue text-slate-900 dark:text-white bg-transparent',
   };
 
   const combinedStyles = `${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${className}`;

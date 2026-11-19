@@ -1,7 +1,6 @@
 import React from 'react';
 import { useTheme } from '../../context/ThemeContext';
 import { Sun, Moon } from 'lucide-react';
-import { motion } from 'framer-motion';
 
 interface ThemeToggleProps {
   className?: string;
@@ -20,15 +19,15 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({
       <button
         onClick={toggleTheme}
         type="button"
-        className={`relative p-2.5 rounded-xl bg-white dark:bg-[#151438] border border-slate-200 dark:border-white/15 text-slate-700 dark:text-white/80 hover:text-slate-900 dark:hover:text-white hover:border-slate-300 dark:hover:border-white/30 focus:outline-none transition-colors cursor-pointer shadow-sm ${className}`}
+        className={`relative p-2 rounded-full bg-slate-900/[0.04] dark:bg-white/[0.06] border border-slate-900/[0.08] dark:border-white/[0.1] text-slate-700 dark:text-white/80 hover:text-slate-950 dark:hover:text-white hover:bg-slate-900/[0.08] dark:hover:bg-white/[0.1] focus:outline-none transition-colors cursor-pointer shadow-sm ${className}`}
         aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
         title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
       >
         <div className="w-4 h-4 flex items-center justify-center">
           {isDark ? (
-            <Sun className="w-4 h-4 text-amber-400" />
+            <Sun className="w-3.5 h-3.5 text-amber-400" />
           ) : (
-            <Moon className="w-4 h-4 text-slate-700" />
+            <Moon className="w-3.5 h-3.5 text-slate-700" />
           )}
         </div>
       </button>
@@ -37,7 +36,7 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({
 
   return (
     <div 
-      className={`inline-flex items-center p-1 rounded-full bg-slate-100/90 dark:bg-white/[0.08] border border-slate-200/90 dark:border-white/15 text-xs font-mono shadow-sm backdrop-blur-md ${className}`}
+      className={`inline-flex items-center p-1 rounded-full bg-slate-900/[0.04] dark:bg-white/[0.06] border border-slate-900/[0.08] dark:border-white/[0.1] text-xs font-mono shadow-sm backdrop-blur-md transition-colors ${className}`}
       role="group"
       aria-label="Theme selector"
     >
@@ -46,8 +45,8 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({
         onClick={() => setTheme('light')}
         className={`relative flex items-center gap-1.5 px-3 py-1.5 rounded-full transition-all duration-200 cursor-pointer select-none font-medium ${
           !isDark
-            ? 'bg-white text-slate-950 font-semibold shadow-[0_2px_8px_rgba(0,0,0,0.08)]'
-            : 'text-slate-500 dark:text-white/60 hover:text-slate-900 dark:hover:text-white'
+            ? 'bg-white text-slate-950 font-semibold shadow-[0_1px_3px_rgba(0,0,0,0.08)]'
+            : 'text-slate-600 dark:text-white/60 hover:text-slate-950 dark:hover:text-white'
         }`}
         aria-pressed={!isDark}
       >
@@ -60,8 +59,8 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({
         onClick={() => setTheme('dark')}
         className={`relative flex items-center gap-1.5 px-3 py-1.5 rounded-full transition-all duration-200 cursor-pointer select-none font-medium ${
           isDark
-            ? 'bg-[#1C1A48] text-white font-semibold shadow-[0_2px_8px_rgba(0,0,0,0.4)] border border-white/10'
-            : 'text-slate-500 dark:text-white/60 hover:text-slate-900 dark:hover:text-white'
+            ? 'bg-white/15 text-white font-semibold shadow-[0_1px_3px_rgba(0,0,0,0.2)] border border-white/10'
+            : 'text-slate-600 dark:text-white/60 hover:text-slate-950 dark:hover:text-white'
         }`}
         aria-pressed={isDark}
       >

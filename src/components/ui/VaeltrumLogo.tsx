@@ -44,7 +44,7 @@ export const VaeltrumLogo: React.FC<VaeltrumLogoProps> = ({
             width="34"
             height="34"
             rx="8"
-            className="stroke-border/70 group-hover:stroke-border transition-colors duration-300"
+            className="stroke-slate-900/[0.12] dark:stroke-white/[0.15] group-hover:stroke-slate-900/[0.25] dark:group-hover:stroke-white/30 transition-colors duration-300"
             strokeWidth="1"
           />
 
@@ -52,14 +52,14 @@ export const VaeltrumLogo: React.FC<VaeltrumLogoProps> = ({
           <path
             d="M8 10L18 28L15 28L6 10H8Z"
             fill="currentColor"
-            className="text-foreground transition-colors duration-300"
+            className="text-slate-900 dark:text-white transition-colors duration-300"
           />
 
           {/* Right engineered wing */}
           <path
             d="M28 10L18 28L21 28L30 10H28Z"
             fill="currentColor"
-            className="text-foreground-muted transition-colors duration-300"
+            className="text-slate-500 dark:text-white/60 transition-colors duration-300"
           />
 
           {/* Central geometric convergence point / core node */}
@@ -86,10 +86,10 @@ export const VaeltrumLogo: React.FC<VaeltrumLogoProps> = ({
       {/* Wordmark */}
       {showWordmark && (
         <div className="flex flex-col">
-          <span className={`font-semibold font-display text-foreground leading-none ${textSizes[size]}`}>
+          <span className={`font-semibold font-display text-slate-900 dark:text-white leading-none ${textSizes[size]}`}>
             VAELTRUM
           </span>
-          <span className="text-[9px] font-mono tracking-widest text-foreground-muted uppercase mt-1">
+          <span className="text-[9px] font-mono tracking-widest text-slate-500 dark:text-white/50 uppercase mt-1">
             Engineering
           </span>
         </div>
