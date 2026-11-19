@@ -76,11 +76,6 @@ export const TechnologyStack: React.FC = () => {
                   ))}
                 </div>
               </div>
-
-              <div className="pt-6 mt-8 border-t border-slate-900/[0.08] dark:border-white/10 text-xs font-mono text-slate-400 dark:text-white/50 flex items-center justify-between font-medium">
-                <span>STABILITY VERIFIED</span>
-                <span className="text-slate-500 dark:text-white/60 font-semibold tracking-wider">ENTERPRISE ARCHITECTURE</span>
-              </div>
             </motion.div>
           ))}
         </div>
