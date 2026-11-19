@@ -24,9 +24,9 @@ export const Hero: React.FC = () => {
       <div className="max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-24 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
           
-          {/* Left Column: Editorial Typography & CTAs (7 cols) */}
+          {/* Left Column: Editorial Typography & CTAs (6 cols) */}
           <motion.div 
-            className="lg:col-span-7 flex flex-col justify-center z-20"
+            className="lg:col-span-6 flex flex-col justify-center z-20"
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
@@ -76,9 +76,9 @@ export const Hero: React.FC = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Column: Engineering Team Hero Visual (5 cols) */}
+          {/* Right Column: Engineering Team Hero Visual (6 cols) */}
           <motion.div 
-            className="lg:col-span-5 relative w-full flex items-center justify-center"
+            className="lg:col-span-6 relative w-full flex items-center justify-center"
             initial={{ opacity: 0, scale: 0.94 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
